@@ -60,7 +60,23 @@ install.packages(c("tidyverse", "here", "psych", "papaja"))
 
 ## Important Notes
 - **Raw Data:** Raw data cannot be provided due to privacy concerns. Only redacted and processed data are included.
-- **Licensing:** The contents of this repository are provided under an academic license. Please contact the corresponding author for permissions or collaborations.
+
+## License Overview
+
+### Code
+The code in this repository is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute the code, provided proper attribution is given.
+
+### Data 
+The data are under a restricted-use license:
+- **Embargo**: These materials are private and cannot be used without explicit permission until the associated publication.
+- **Post-Embargo License**: After publication, these materials will be licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA)](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
+- **Attribution**: Proper attribution is required for any use.
+
+### Manuscript License
+The manuscript files in this repository are private and under embargo until the associated work is officially published.
+During the embargo period, they may not be used, shared, or distributed without explicit permission.
+
+Post-publication use of the manuscript will be subject to publisher policies and agreements. See [manuscript/LICENSE](manuscript/LICENSE) for details.
 
 ## Contact
 For questions or issues, please contact:
