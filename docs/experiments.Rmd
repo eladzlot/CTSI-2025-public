@@ -1,0 +1,188 @@
+```{r  include = FALSE}
+library(tidyverse)
+library(papaja)
+library(here)
+source(here('scripts','helpers.R'))
+source(here('scripts','krippendorff_alpha.R'))
+source(here('scripts','load_data.R'))
+```
+
+```{r demographics, echo=FALSE}
+COLNAMES = c('', 'OCD','TICSA', 'online', 'wet')
+
+demographics_df = data.frame(
+  X1 = c('N', 'Female N', 'Mean age (SD)', 'Anxiety Measure', 'Anxiety Score (SD)'),
+  X2 = c(ocd.N, format_count_percentage(ocd.femaleN, ocd.N),  format_mean_sd(ocd.age.mean, ocd.age.sd), 'OCI-R', format_mean_sd(ocd.ocir.mean, ocd.ocir.sd)),
+  X3 = c(sticsa.N, format_count_percentage(sticsa.femaleN, sticsa.N), format_mean_sd(sticsa.age.mean, sticsa.age.sd), 'TICSA', format_mean_sd(sticsa.sticsa.mean,sticsa.sticsa.sd)),
+  X4 = c(online.N, '--', '--', 'TICSA', format_mean_sd(online.sticsa.mean,online.sticsa.sd)),
+  X5 = c(wet.N, format_count_percentage(wet.femaleN, wet.N), format_mean_sd(wet.age.mean, wet.age.sd), 'OASIS', format_mean_sd(wet.oasis.mean,wet.oasis.sd))
+)
+
+demographics_df %>%
+  apa_table(
+    caption = 'Demographics',
+    col.names = COLNAMES,
+    col_spanners = list( "Interview" = 2:3, "Self-administered" = 4:5)
+  )
+```
+
+## Methods: Experiment 1
+
+Experiment 1 aimed to evaluate the feasibility and potential utility of the face to face CTSI for identifying core threats among individuals exhibiting high levels of obsessive-compulsive (OC) symptoms.
+
+### Participants
+
+Participants from a pre-existing database of individuals who had previously agreed to participate in research studies and had completed the OCI-R were contacted
+by a research assistant and provided informed consent to participate in the current study.
+Demographic details can be found in Table \@ref(tab:demographics).
+A median OCI-R score of `r ocd.ocir.median` indicates that most participants were well within the severe range of symptoms [@abramovitchSeverityBenchmarksContemporary2020]. 
+Additionally, `r ocd.diamondN`  (`r apa_percentage(ocd.diamondN/ocd.N)`) participants met the criteria for OCD according to the OCD section of the DIAMOND interview.
+Full demographic details can found in Table\ \@ref(tab:demographics).
+
+### Procedure
+
+Participants completed a set of questionnaires and underwent a zoom interview lasting between 45 minutes to two hours.
+The interview included the OCD section of the DIAMOND and the CTSI.
+The CTSI was used to identify core threats underlying two compulsions (proximal threats).
+When possible, the compulsions were chosen to be as dissimilar as possible (e.g. a cleaning compulsion and a checking compulsion).
+The interview focused on what the participants felt would happen if they did not perform their ritualistic behaviors.
+Compensation was provided at a rate of approximately \$10 per hour or in the form of course credit.
+
+### Measures
+
+The face to face CTSI was used to identify proximal and core threats, as discussed above.
+Three judges scored each threat but did *not* achieve sufficient reliability.
+Subsequent analyses use a consensus score.
+The data from this study were used to improve training so that the judges reached reliability in later experiments.
+Thus, despite the initially poor reliability score, we argue that the consensus score is valid.
+
+**Obsessive Compulsive Inventory Revised [OCIR\; @foaObsessiveCompulsiveInventoryDevelopment2002]**: The OCIR is a self-report measure consisting of 18 Likert-scale items ranging from 0 to 4, which assess the distress associated with specific OCD symptoms.
+It has demonstrated robust psychometric properties in both clinical and student populations [@huppertOCIRValidationSubscales2007; @foaObsessiveCompulsiveInventoryDevelopment2002].
+With an omega coefficient of `r ocd.ocir.omega`, the OCIR has shown high internal consistency and is a reliable measure of OCD symptom severity.
+
+**Diagnostic Interview for Anxiety, Mood, and OCD and Related Neuropsychiatric Disorders [DIAMOND\; @tolinPsychometricPropertiesStructured2018]**: The DIAMOND is a semi-structured diagnostic interview designed to diagnose DSM-5 psychiatric disorders, with robust psychometric properties.
+In this study, only the OCD section of the DIAMOND was administered to establish OCD diagnoses.
+The DIAMOND has shown excellent inter-rater reliability, test-retest reliability, and both convergent and divergent validity [@tolinPsychometricPropertiesStructured2018].
+
+## Methods: Experiment 2
+
+Experiment 2 aimed to extend Experiment 1 by focusing on a transdiagnostic anxious population.
+Furthermore, it aimed to investigate both test retest reliability and inter-rater reliability.
+
+### Participants
+
+Participants were sourced from a pre-existing database of individuals who had previously agreed to participate in research studies and had completed TICSA.
+Each participant was contacted by a research assistant and provided informed consent to participate in the study.
+Full demographic details can found in Table \@ref(tab:demographics).
+
+### Procedure
+
+Participants initially completed the CTSI with one interviewer via Zoom, with interviews lasting between 30 and 90 minutes.
+The interview focused on the fear that participants found most impactful.
+Approximately one to two months later (Median = `r sticsa.days.median` days; Range: `r sticsa.days.min`–`r sticsa.days.max` days), they completed the CTSI again, focusing on the same proximal threat but with a different interviewer.
+A total of `r sticsa.dropoutN` participants (`r apa_percentage(sticsa.dropoutN/sticsa.N)`) dropped out between sessions.
+Compensation was provided at a rate of approximately \$10 per hour or in the form of course credit.
+
+### Measures
+
+```{r include=FALSE}
+raw.judges.sticsa = rbind(
+  read_csv(here('data','CTSI.coding.sticsa.baraa.csv')) %>% mutate(id=1) %>% mutate(across(.cols = Affiliation:`No Idea`, ~str_replace_all(.x, "לא", NA_character_))),
+  read_csv(here('data','CTSI.coding.sticsa.tomer.csv')) %>% mutate(id=2),
+  read_csv(here('data','CTSI.coding.sticsa.yuval.csv')) %>% mutate(id=3)
+) %>%
+  filter(is.na(`No Idea`)) %>% # treat "no idea" as missing data
+  filter(!if_all(Affiliation:`No Idea`, is.na)) # remove rows with no answer
+
+jid = raw.judges.sticsa$id
+uid = raw.judges.sticsa$rid %>% as.factor()
+values = raw.judges.sticsa %>% select(-id, -rid) %>%as.matrix %>% apply(1,function(i){which(!is.na(i))})
+sticsa.krip = krippendorff(jid = jid, uid = uid, values = values, agree = agree_fn)
+```
+
+The face-to-face CTSI was used to identify proximal and core threats, as discussed above.
+Three judges scored each threat and achieved good inter-rater reliability (Krippendorff's $\alpha$ = `r sticsa.krip`).
+
+**The Trait Inventory for Cognitive and Somatic Anxiety [TICSA\; @reeDistinguishingCognitiveSomatic2008]** was used as a 21-item self-report measure to assess cognitive and somatic symptoms of trait anxiety.
+Each item on the TICSA is rated on a 4-point Likert scale ranging from 0 (not at all) to 3 (very much so), with higher scores indicating greater severity of anxiety symptoms.
+The TICSA has demonstrated reliability and validity in measuring trait anxiety in prior research [@reeDistinguishingCognitiveSomatic2008; @grosPsychometricPropertiesStateTrait2007].
+In this experiment, the TICSA showed high internal consistency, with an omega coefficient of `r sticsa.sticsa.omega`.
+
+## Methods: Experiment 3
+
+Experiment 3 aimed to extend Experiment 2 by utilizing a self-administered version of the CTSI.
+
+### Participants and Procedure
+
+Participants were sourced from a pre-existing database of individuals who had previously agreed to participate in research studies and had completed TICSA.
+Each participant was contacted by a research assistant and provided informed consent to participate in the study.
+Due to a technical error, the age and gender of participants were not recorded; however, the sampling procedure was similar to Experiment 2, suggesting similar demographics.
+Full demographic details can found in Table\ \@ref(tab:demographics).
+Participants were sent a link to complete the self-administered CTSI and several relevant questionnaires.
+Participants were compensated for their time at approximately \$10 per hour or received course credit where applicable.
+
+### Measures
+
+```{r include=FALSE}
+raw.judges.online = rbind(
+  read_csv(here('data','CTSI.coding.online.baraa.csv')) %>% mutate(id=1) %>% mutate(across(.cols = Affiliation:`No Idea`, ~str_replace_all(.x, "לא", NA_character_))),
+  read_csv(here('data','CTSI.coding.online.tomer.csv')) %>% mutate(id=2),
+  read_csv(here('data','CTSI.coding.online.yuval.csv')) %>% mutate(id=3)
+) %>%
+  filter(is.na(`No Idea`)) %>% # treat "no idea" as missing data
+  filter(!if_all(Affiliation:`No Idea`, is.na)) # remove rows with no answer
+
+jid = raw.judges.online$id
+uid = raw.judges.online$rid %>% as.factor()
+values = raw.judges.online %>% select(-id, -rid) %>%as.matrix %>% apply(1,function(i){which(!is.na(i))})
+online.krip = krippendorff(jid = jid, uid = uid, values = values, agree = agree_fn)
+```
+
+The self-administered CTSI was used to identify proximal and core threats, as discussed above.
+Three judges scored each threat and achieved good inter-rater reliability (Krippendorff's $\alpha$ = `r online.krip`).
+The TICSA was used to measure anxiety, showing high internal consistency, with an omega coefficient of `r online.sticsa.omega`.
+
+## Experiment 4
+
+Experiment 4 aimed to expand Experiment 3 by using an international, English speaking population.
+
+### Participants and Procedure
+
+Participants were sampled via the Prolific platform for online research and were paid £9 per hour for participation.
+They were first screened to select high anxiety individuals.
+Inclusion criteria included high pathological anxiety [ greater than 4 on the OASIS; @normanDevelopmentValidationOverall2006],
+and impaired daily function [at least one item scored above 2 on the WSAS; @mundtWorkSocialAdjustment2002].
+Exclusion criteria included severe depression [greater than 14 on the PHQ; @kroenkePHQ8MeasureCurrent2009], post-trauma [greater than 6 on the short PCL-5; @zuromskiDevelopingOptimalShortform2019], or psychotic symptoms [items 19 or 20 from the DIAMOND screener; @tolinPsychometricPropertiesStructured2018].
+Additionally, fluency in English was required.
+Participants who reported head injury or reading and writing difficulties in the Prolific system were excluded.
+Only experienced users on the Prolific platform with an approval rate above 95% and a minimum of 300 previous submissions were allowed to participate in the study.
+Full demographic details can be found in Table \@ref(tab:demographics).
+Participants were then referred to the main experiment.
+Within the experiment, they signed a consent form, completed a set of questionnaires related to a different experiment, and finally completed the self-administered CTSI.
+
+### Measures
+
+```{r include=FALSE}
+raw.judges.wet = rbind(
+  read_csv(here('data','CTSI.coding.wet.baraa.csv')) %>% mutate(id=1),
+  read_csv(here('data','CTSI.coding.wet.tomer.csv')) %>% mutate(id=2),
+  read_csv(here('data','CTSI.coding.wet.yuval.csv')) %>% mutate(id=3)
+) %>%
+  filter(rid != 'rid') %>% # remove double header
+  filter(is.na(`No Idea`)) %>% # treat "no idea" as missing data
+  filter(!if_all(Affiliation:`No Idea`, is.na)) # remove rows with no answer
+
+jid = raw.judges.wet$id
+uid = raw.judges.wet$rid %>% as.factor()
+values = raw.judges.wet %>% select(-id, -rid) %>%as.matrix %>% apply(1,function(i){which(!is.na(i))})
+wet.krip = krippendorff(jid = jid, uid = uid, values = values, agree = agree_fn)
+```
+
+The self-administered CTSI was used to identify proximal and core threats, as discussed above.
+Three judges scored each threat and achieved good inter-rater reliability (Krippendorff's $\alpha$ = `r wet.krip`).
+
+**The Overall Anxiety Severity and Impairment Scale [OASIS; @normanDevelopmentValidationOverall2006]** was used to measure anxiety.
+The OASIS assesses the frequency, intensity, and functional impairment of anxiety and fear over the past week.
+Participants rate their anxiety on a 5-point scale from 0 (Little or None) to 4 (Extreme or All the Time).
+Higher scores indicate more severe anxiety-related impairment, with a cut-off score of eight recommended for distinguishing anxiety disorders and a change of four points considered clinically significant [@moorePsychometricEvaluationOverall2015].
+The OASIS has strong psychometric properties, with an omega coefficient of `r wet.oasis.omega` in our sample, indicating high reliability [@normanDevelopmentValidationOverall2006].

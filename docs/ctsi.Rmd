@@ -1,0 +1,102 @@
+---
+title             : "The Core Threat Structured Interview"
+shorttitle        : "CTSI"
+
+author: 
+  - name          : "Elad Zlotnick"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : 
+      Department of Psychology, The Hebrew University of Jerusalem, Mount Scopus,
+      Jerusalem 91905, Israel
+    email         : "elad.zlotnick@mail.huji.ac.il"
+    role: # Contributorship roles (e.g., CRediT, https://credit.niso.org/)
+      - "Conceptualization"
+      - "Writing - Original Draft Preparation"
+      - "Writing - Review & Editing"
+  - name          : "Jonathan D. Huppert"
+    affiliation   : "1"
+    role:
+      - "Writing - Review & Editing"
+      - "Supervision"
+
+affiliation:
+  - id            : "1"
+    institution   : "The Hebrew University of Jerusalem"
+
+authornote: |
+  This work was supported by ISF 1905/20 awarded to Jonathan Huppert, Sam and Helen Beber Chair of Clinical Psychology.
+
+abstract: |
+  Pathological anxiety is often maintained by avoidance behaviors driven by deeply personal core threats
+  Despite their role in clinical formulations and interventions, core threats remain an under-researched concept, with no validated tools to systematically assess them.
+  Core threats are defined as the ultimate feared consequences driving avoidance behaviors.
+  For example, the core threat driving fear of contamination can be any of the following threat of death, harm to one's loved ones, disgust, or inability to function.
+  This study introduces the Core Threat Structured Interview (CTSI), a tool designed to systematically identify core threats in both face-to-face and self-administered online formats.
+  Through extensive validation, the CTSI demonstrates reliability (e.g., interrater reliability, test-retest) and validity (face, convergant, divergant).
+  Our findings further illuminate the phenomenological distinction between core and proximal threats, revealing that core threats are idiosyncratic, and distinct from poximal fears.
+  This underscores the complexity of anxiety and the necessity for personalized approaches in assessment and intervention.
+  By enabling systematic identification of core threats, the CTSI offers a novel avenue for both research and clinical practice.
+  We anticipate that this tool will enhance the personalization of anxiety treatments, fostering a nuanced understanding of the motivations and cognitions underlying fear.
+
+keywords          :
+  - Core threats
+  - Motivation
+  - Measurement
+
+#wordcount         : "X"
+
+bibliography: "`r normalizePath('~/projects/zettlr/zotero.json')`"
+
+floatsintext      : yes
+linenumbers       : yes
+draft             : no
+mask              : no
+
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+
+classoption       : "man"
+
+# For apa7
+header-includes:
+  - |
+    \makeatletter
+    \renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+      {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+      {-1em}%
+      {\normalfont\normalsize\bfseries\typesectitle}}
+    
+    \renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+      {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+      {-\z@\relax}%
+      {\normalfont\normalsize\bfseries\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+    \makeatother
+
+csl               : "`r system.file('rmd', 'apa7.csl', package = 'papaja')`"
+documentclass     : "apa7"
+
+#output            : papaja::apa6_pdf
+output            : papaja::apa6_docx
+#output: html_document*
+knit: (function(inputFile, encoding) {
+      rmarkdown::render(inputFile, encoding=encoding, output_dir=file.path(dirname(inputFile), 'output'))}) 
+
+---
+
+```{r setup, include = FALSE}
+library(papaja)
+library(tidyverse)
+library(here)
+```
+
+```{r, child=c(here('docs', c('intro.Rmd', 'experiments.Rmd','results.Rmd', 'discussion.Rmd')))}
+```
+
+\newpage
+
+# References
+
+::: {#refs custom-style="Bibliography"}
+:::

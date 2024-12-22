@@ -1,0 +1,1156 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  man,floatsintext]{apa7}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+% Manuscript styling
+\usepackage{upgreek}
+\captionsetup{font=singlespacing,justification=justified}
+
+% Table formatting
+\usepackage{longtable}
+\usepackage{lscape}
+% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
+\usepackage{multirow}		% Table styling
+\usepackage{tabularx}		% Control Column width
+\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
+\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+
+% Create new environments so endfloat can handle them
+% \newenvironment{ltable}
+%   {\begin{landscape}\centering\begin{threeparttable}}
+%   {\end{threeparttable}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\centering\begin{ThreePartTable}}{\end{ThreePartTable}\end{landscape}}
+
+% Enables adjusting longtable caption width to table width
+% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
+\makeatletter
+\newcommand\LastLTentrywidth{1em}
+\newlength\longtablewidth
+\setlength{\longtablewidth}{1in}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
+
+% \setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt plus 0pt minus 0pt}
+
+% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
+% See https://github.com/crsh/papaja/issues/292
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+\makeatletter
+\usepackage{etoolbox}
+\patchcmd{\maketitle}
+  {\section{\normalfont\normalsize\abstractname}}
+  {\section*{\normalfont\normalsize\abstractname}}
+  {}{\typeout{Failed to patch abstract.}}
+\patchcmd{\maketitle}
+  {\section{\protect\normalfont{\@title}}}
+  {\section*{\protect\normalfont{\@title}}}
+  {}{\typeout{Failed to patch title.}}
+\makeatother
+
+\usepackage{xpatch}
+\makeatletter
+\xapptocmd\appendix
+  {\xapptocmd\section
+    {\addcontentsline{toc}{section}{\appendixname\ifoneappendix\else~\theappendix\fi\\: #1}}
+    {}{\InnerPatchFailed}%
+  }
+{}{\PatchFailed}
+\keywords{Core threats, Motivation, Measurement}
+\usepackage{lineno}
+
+\linenumbers
+\usepackage{csquotes}
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\bfseries\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={The Core Threat Structured Interview},
+  pdfauthor={Elad Zlotnick1 \& Jonathan D. Huppert1},
+  pdflang={en-EN},
+  pdfkeywords={Core threats, Motivation, Measurement},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{The Core Threat Structured Interview}
+\author{Elad Zlotnick\textsuperscript{1} \& Jonathan D. Huppert\textsuperscript{1}}
+\date{}
+
+
+\shorttitle{CTSI}
+
+\authornote{
+
+This work was supported by ISF 1905/20 awarded to Jonathan Huppert, Sam and Helen Beber Chair of Clinical Psychology.
+
+The authors made the following contributions. Elad Zlotnick: Conceptualization, Writing - Original Draft Preparation, Writing - Review \& Editing; Jonathan D. Huppert: Writing - Review \& Editing, Supervision.
+
+Correspondence concerning this article should be addressed to Elad Zlotnick, Department of Psychology, The Hebrew University of Jerusalem, Mount Scopus, Jerusalem 91905, Israel. E-mail: \href{mailto:elad.zlotnick@mail.huji.ac.il}{\nolinkurl{elad.zlotnick@mail.huji.ac.il}}
+
+}
+
+\affiliation{\vspace{0.5cm}\textsuperscript{1} The Hebrew University of Jerusalem}
+
+\abstract{%
+Pathological anxiety is often maintained by avoidance behaviors driven by deeply personal core threats
+Despite their role in clinical formulations and interventions, core threats remain an under-researched concept, with no validated tools to systematically assess them.
+Core threats are defined as the ultimate feared consequences driving avoidance behaviors.
+For example, the core threat driving fear of contamination can be any of the following threat of death, harm to one's loved ones, disgust, or inability to function.
+This study introduces the Core Threat Structured Interview (CTSI), a tool designed to systematically identify core threats in both face-to-face and self-administered online formats.
+Through extensive validation, the CTSI demonstrates reliability (e.g., interrater reliability, test-retest) and validity (face, convergant, divergant).
+Our findings further illuminate the phenomenological distinction between core and proximal threats, revealing that core threats are idiosyncratic, and distinct from poximal fears.
+This underscores the complexity of anxiety and the necessity for personalized approaches in assessment and intervention.
+By enabling systematic identification of core threats, the CTSI offers a novel avenue for both research and clinical practice.
+We anticipate that this tool will enhance the personalization of anxiety treatments, fostering a nuanced understanding of the motivations and cognitions underlying fear.
+}
+
+
+
+\begin{document}
+\maketitle
+
+Happy families are all alike; every unhappy family is unhappy in its own way. \emph{Leo Tolstoy, Anna Karenina}
+
+A patient walks into the clinic.
+You can immediately see her careful demeanor and chafed hands.
+She complains that she compulsively washes her hands, that she doesn't go to public restrooms, and that she is afraid of touching doorknobs without carefully cleaning them.
+What is she afraid of?
+When questioned, she says that she is afraid of being contaminated.
+But is contamination the true threat underlying her fear?
+Initial reports about a patient's fears are often quite remote from their underlying fear (Borkovec et al., 1998).
+It may be that this patient is actually afraid of becoming sick and dying.
+It is possible that she is worried that she will contaminate her children or family.
+Alternatively, she may be anxious of becoming revolting or disgusting and being rejected by society.
+Or she might be afraid of suffering.
+The important thing is that we don't know until we ask.
+
+These underlying concerns, known as core threats, are also referred to as core fears, catastrophic beliefs or central innately aversive outcomes.
+They play a crucial role in treating anxiety disorders (Huppert \& Zlotnick, 2012; Zlotnick \& Huppert, 2024).
+Many clinicians appreciate the importance of core threats and their role in the treatment of anxiety
+(e.g., Craske et al., 2022; Gillihan et al., 2012; Murray, Loeb, et al., 2016; Pinciotti et al., 2021).
+However, clinical guidelines for determining core threats are lacking.
+The current paper aims to provide such guidelines, as well as investigate the phenomenology of core threats.
+
+\subsection{What are Core Threats?}\label{what-are-core-threats}
+
+Fear and anxiety serve as adaptive responses to perceived threats.
+The nature of threats within a given context typically follows a hierarchical pattern.
+Consider a jungle, where the dangers might include venomous snakes, prowling lions, quicksand, or hidden traps.
+In this context, the jungle itself is the proximal threat, serving as the immediate indicator of danger.
+However, the core threat is death, the ultimate feared outcome underlying these dangers.
+It is the plausibility of death that imbues the jungle with its threatening nature and evokes fear.
+
+In practice, a core threat emerges from the intersection of expectation (the likelihood of death) and evaluation (the negative consequence of potential death).
+Thus, the same situation may entail different core threats for different people.
+Using the jungle scenario as an illustration underscores this variability.
+Different people may fear different things when thinking of the jungle.
+Expectations may differ, leading one person to fear encountering a snake, while another may dread encountering a jaguar.
+Additionally, perceptions of risk may differ; for instance, one individual may consider a snake bite more threatening, perhaps due to its unexpected nature, while another may find a jaguar attack more distressing, possibly because of the perceived intensity of pain.
+Moreover, even when evaluating the same event, individuals may prioritize different aspects.
+For instance, given the threat of snakes, one person might emphasize their unpredictable nature, another their sliminess, while another may focus on the threat to their life, and yet another could be concerned about the well-being of their family in the event that they die.
+Thus, the same outcome can hold distinct meanings for different people.
+
+These distinctions are important when examining anxiety disorders (e.g., Gillihan et al., 2012; Murray, Loeb, et al., 2016; Pinciotti et al., 2021).
+In pathological anxiety, a seemingly harmless stimulus is perceived as dangerous.
+To ascertain its safety, understanding the specific nature of the threat attributed to it becomes essential (Craske et al., 2022; Gillihan et al., 2012; Huppert \& Zlotnick, 2012; Murray, Loeb, et al., 2016).
+Consider an individual who is afraid of seeing blood--- assuming that their core threat involves the stress of encountering blood-like stimuli, exposure involving sheep blood may be called for.
+However, if their primary fear is related to contracting AIDS, they might not respond well to exposure to sheep blood.
+The distinction holds in the same way for thought challenges or behavioral experiments.
+Furthermore, a major challenge of safety learning is that it is difficult to generalize across contexts (see Bouton, 2002).
+Focusing on core threats highlights the threatening aspect of feared stimuli and thus promotes generalization of safety learning across contexts (Gillihan et al., 2012; @ Zlotnick \& Huppert, 2024).
+Last but not least, identifying core threats enables clinicians to better understand patients' experiences when confronting their fears.
+This, in turn, fosters a sense of being understood and supported for the patients, as well as giving them a coherent narrative for understanding their pathological behavior.
+Thus, determining core threats might significantly influence the trajectory of psychotherapy.
+This impact is evident from the initial stages of forming the case formulation (Persons, 2012) to the implementation of specific interventions like exposures, thought challenges, or behavioral experiments.
+
+\subsection{Determining Core threats}\label{determining-core-threats}
+
+Accurately identifying core threats is not trivial.
+It requires a clear understanding of what core threats are, as well as the types of questions best used to determine them.
+Therefore, a semi-structured interview is useful for identifying them (Samuel et al., 2020).
+It may serve as a valuable tool for both clinical and research applications.
+In clinical settings, it enables therapists to discern the specific motivations driving anxiety-related behaviors, facilitating the development of a clear case forumulation (Persons, 2012) as well as personally tailored interventions (e.g., Gillihan et al., 2012; Murray, Loeb, et al., 2016; Pinciotti et al., 2021).
+In research, the semi-structured interview ensures consistency and accuracy, preventing ambiguous identification of core threats, thereby enhancing the reliability and validity of findings.
+
+\subsubsection{The Catastrophising Interview}\label{the-catastrophising-interview}
+
+A well-established procedure exists for investigating catastrophizing in Generalized Anxiety Disorder (GAD) and related disorders (Davey, 2006; Vasey \& Borkovec, 1992).
+Vasey and Borkovec (1992) devised the catastrophising interview procedure based on cognitive therapy's decatastrophising technique (Kendall \& Ingram, 1987).
+The procedure consists of two phases: topic generation and catastrophizing.
+During the topic generation phase, participants list their current worries and rate the percentage of time spent worrying about each topic and its significance.
+The topic with the highest percentage is selected for the catastrophizing interview.
+The interview starts with the question, ``What is it about {[}selected worry topic{]} that worries you?''.
+Followed by the question, ``What about {[}participant's response to the previous question{]} would you find fearful or bad if it did actually happen?''.
+This sequence continues until participants refuse to continue the interview, are unable to generate further responses, or repeat the same general response three consecutive times.
+
+The procedure was later updated for improved response standardization (Davey, 2006).
+Participants were guided to write their responses for each catastrophising step on a response sheet, limiting each response to a single sentence space.
+This facilitated concise and accessible records, avoiding overly elaborate answers spanning multiple steps.
+Additionally, before starting the procedure, all participants received examples of initial steps in a typical catastrophising sequence, familiarizing them with the procedure's requirements.
+The catastrophizing interview, initially designed for GAD, was later extended to other related disorders, such as worry in insomnia (Harvey \& Greenall, 2003) and rumination in depression (Watkins \& Mason, 2002).
+It primarily examines the tendency to perseverate in worry by quantifying the number of catastrophizing steps.
+In contrast, the goal when investigating core threats is to identify the underlying threat that triggers fear.
+As a result, we have developed an interview specifically tailored to address the distinct challenges associated with identifying core threats.
+
+\subsubsection{The Core Threat Structured Interview}\label{the-core-threat-structured-interview}
+
+The Core Threat Structured Interview (CTSI) starts by identifying a focal proximal threat
+\footnote{The CTSI manual can be found in the supplementary materials}.
+This involves inquiring about fear-inducing stimuli or situations, as well as situations or stimuli that individuals tend to avoid, along with any rituals or safety behaviors they engage in.
+Once a set of fear responses is identified, participants are asked to select the situation that causes the most distress or negative effects in their life.
+
+The CTSI approaches the identification of core threats by applying the classic ``downward arrow'' technique (e.g., Dugas \& Koerner, 2005).
+However, in contrast with the classical downward arrow that focuses a chain of beliefs (J. S. Beck, 2011),
+identifying core threats is often characterized by a focus on events: ``and then what would happen?'' (Huppert \& Zlotnick, 2012).
+Considering the proximal threat that they have chosen, participants are asked what they fear will happen if they do not engage in any avoidance or safety behaviors.
+Subsequently, a series of follow-up questions are asked, such as ``and then what,'' ``what is so terrible about that,'' and ``what does that mean to you'' (J. S. Beck, 2011; Leahy, 2003).
+As the interview proceeds, the questions are used to refer to deeper and deeper threats until the core threat is identified.
+
+Core threats are comprised from an \emph{expectation} that an event could happen, and of the \emph{evaluation} that this event is catastrophic (Zlotnick \& Huppert, 2024).
+The evaluation of an event as catastrophic depends on one's idiographic set of values, goals, and motivations.
+Therefore, it is helpful to ask individuals not only what can happen, but also what would the threat happening mean to them or what it is about the threat that makes them care so much.
+This line of questioning leads at times in surprising directions (i.e., a form of guided discovery; Padesky, 1993).
+One woman was worried that her children were abusing drugs.
+When asked what was so horrible about that for her, she replied that
+it meant that her children were not sharing everything with her and that meant that she was a failure as a mother.
+
+In practice, the link between proximal and core threats often follows a chain of progressively more threatening threats.
+For example: ``If I don't wash my hands, then I will be contaminated, leading to illness, which will hinder my ability to function, and that would be terrible as it could permanently sabotage my career.''
+Another example is: ``A burglar might break into my house, find one of my children, and cause harm or potentially kidnap them, and I couldn't bear that, as ensuring the safety and growth of my family is the most crucial aspect of my life.''
+In certain instances, individuals describe multiple possible outcomes.
+In such cases, they are encouraged to explore the branch that appears most threatening to them.
+The interview concludes when the participant cannot or will not produce a deeper threat or when inquiring about further threats becomes repetitive.
+It is important to note that these branches are very idiosyncratic to the individual and we do not think generic paths are sufficient.
+
+At times, when asked about further outcomes of their fear, individuals will ``overshoot'' their core threat.
+This sometimes happens when instead of describing their core threat they describe their response to it.
+For example, it is likely that if an individual first describes fear of their family dying in a car crash, and upon further inquiry describes fear of sinking into depression, that their core threat is of their family dying.
+The way to investigate this possibility is by explicitly asking for a comparison: ``What would be worse for you: having your family die, or sinking into depression?''.
+At other times, the response is indeed the feared outcome- for example feeling so disgusted or anxious that one could not function and work (or take care of their family or be in a relationship, etc.).
+
+\subsubsection{Getting at Deeper Motivations}\label{getting-at-deeper-motivations}
+
+People often have difficulty identifying their core threats, and simply asking what could happen is often insufficient.
+Understanding the processes underlying the discrepancy between proximal threats and core threats may aid in assisting such individuals.
+Two main processes that interfere with identification of core threats are avoidance and trouble in accessing emotional cognitions.
+
+One possible explanation for this discrepancy is that it happens due to avoidance.
+Individuals may find it easier to focus on local, proximal threats rather than confront deeper, more global threats.
+Thus, encouragement to endure the distress often helps with approach.
+
+Another explanation is that the underlying threats are characteristic of emotional thinking or hot cognitions, making them difficult to access in a calmer environment (David \& Szentagotai, 2006; see Safran \& Greenberg, 1982).
+To address this issue and access core threats, clinicians have developed techniques to facilitate introspection.
+In the CTSI, individuals are asked to attend to their \emph{feelings} of what might happen rather than their ``cold'' cognitions.
+Emotional reasoning is often quite distinct from cognitive reasoning, and it is helpful to directly address this distinction by asking, ``What do you \emph{feel} might happen?'' instead of ``What do you \emph{think} might happen?''.
+By focusing on emotions rather than thoughts, it may be possible to access core threats that would otherwise remain hidden or elusive.
+Another technique used to access emotional reasoning is the application of imagery.
+Research shows that images can evoke a more powerful emotional response compared to verbal processing alone (Holmes \& Mathews, 2005, 2010).
+By asking individuals to imagine threatening scenarios, it is possible to bring memories to life and gain better access to hot cognitions.
+
+\subsection{Hypotheses}\label{hypotheses}
+
+The current study investigates the phenomenology of core threats as measured by the CTSI.
+We posit the following main hypothesis:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Core threats are different from proximal threats.
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    Core threats cannot be predicted from proximal threats.
+  \item
+    Core threats demonstrate greater diversity in content than proximal threats.
+  \end{enumerate}
+\item
+  One core threats often motivates multiple proximal threats.
+\item
+  Core threats are stable over time.
+\end{enumerate}
+
+By exploring the relationship between core and proximal threats, and testing our hypotheses using the CTSI, we gain a deeper understanding of the fundamental processes underlying fear and anxiety disorders.
+
+\section{Methods}\label{methods}
+
+Supplementary materials, including datasets, analysis scripts, and detailed methodological documentation, are available on GitHub at \url{https://github.com/eladzlot/ctsi-2025-public}.
+To protect participant confidentiality, the datasets have been redacted to include only quantitative information, as the core threats and other open-ended responses could potentially identify specific individuals.
+These resources enhance transparency and facilitate replication of the findings.
+
+\subsection{Design}\label{design}
+
+This study encompasses four experiments, each involving different samples of individuals who completed the CTSI.
+Experiment 1 focused on a sample of individuals with obsessive-compulsive symptoms, who completed the interview face-to-face via Zoom.
+Experiment 2 also used Zoom for interviews but targeted a trans-diagnostic sample of highly anxious individuals.
+Experiment 3 differed by employing a digital version of the interview, which participants completed themselves online.
+Experiment 4 replicates experiment 3 in an international English speaking sample.
+Given that results are presented in a similar fashion for each experiment, and it is useful to the reader to be able to see the results comparatively across the four Experiments, we present the unique methods for each of the four experiments below, and following this, we present the results of all four experiments simultaneously.
+
+\subsection{Measures}\label{measures}
+
+\textbf{Core Threat Structured Interview (CTSI):} The CTSI is a newly developed semi-structured interview that is the focus of the current paper.
+It was designed to identify the core threats underlying fear or anxiety in individuals suffering from anxiety disorders.
+The CTSI consists of a series of questions that are aimed at identifying the most central trigger of fear or anxiety, followed by a downwards arrow to uncover the underlying core threat, and a final section focused on clarifying the idiographic meaning of the threat for the individual.
+In the first two samples, the face-to-face interview was used to administer the CTSI for individuals with OCD and transdiagnostic anxiety, while a self-administered online version was used for the last two samples.
+During experiment 1 and 2 minor changes were still being made to the interview, aimed at fine-tuning the interview process.
+Both versions (face-to-face and online) are available in the supplementary materials.
+
+\subsection{Data Analysis}\label{data-analysis}
+
+\subsubsection{Rating Threats}\label{rating-threats}
+
+A central question that this paper attempts to address is the similarity between different descriptions of threats.
+For example, are proximal and core threats similar? Are core threats assessed at different times similar?
+To assess the level of similarity or agreement between threats, they need to be categorized.
+Categorization allows for a systematic and structured analysis.
+
+Our investigation is primarily focused on identifying the threats driving fear responses.
+These threats are manifestations of the values motivating these responses (Zlotnick \& Huppert, 2024).
+Many taxonomies have been suggested for basic values (see Austin \& Vancouver, 1996; Ryan, 2012 for reviews).
+However, none seemed suitable for covering the types of threats commonly underlying fear, including Schwartz's taxonomy (1992), which has been suggested as a candidate for organizing core threats (Huppert \& Zlotnick, 2012).
+To address this gap, we developed a new taxonomy of global motivations derived from clinical insights, consultations with experts, and established theories, particularly those highlighted by Dweck (2017).
+This taxonomy, detailed in Table \ref{tab:values}, was used to code both core and proximal threats.
+
+Three research assistants were trained to apply this taxonomy.
+Motivations underlying threats are complex and may arise from multiple sources.
+For instance, an individual might avoid contamination both to prevent sickness leading to death \emph{and} because of disgust.
+This study aims to identify the central motivation underlying each fear.
+When two motivations appeared equally prominent, both were recorded.
+However, if more than two motivations were equally strong without a clear dominant one, or if the threat was not clear, the motivation was classified as ambiguous.
+This coding approach accommodates variability in the reporting of threats and in the interpretations by different judges.
+Consistent with this methodology, agreement among judges or across different threats was defined as sharing at least one common motivation.
+Detailed coding instructions and criteria can be found in the supplementary materials.
+
+Training for coding was conducted using external data not included in the current analyses.
+Each judge coded a whole data set on their own, consequently a consensus rating was achieved by adjudicating discrepancies.
+In cases of disagreement, consensus was achieved through discussion.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4265}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4485}}@{}}
+\caption{\label{tab:values} The taxonomy of values used for coding threats.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Category of Drives
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Examples of Core Threats
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Category of Drives
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Examples of Core Threats
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Affiliation & The drive to form social or interpersonal bonds and avoid rejection. & Rejection, social isolation, loneliness, being alone, social awkwardness. This covers anything from family connections to wide social acceptance \\
+Predictability & The drive to understand and make sense of one's environment. & Confusion, uncertainty, unpredictability. \\
+Competence & The drive for effectiveness, capability, and practical functioning. & Failure, not knowing what to do, incompetence. \\
+Agency \& Control & The drive to have agency and be in control of one's self and environment. & Losing control, doing something unintended, helplessness. \\
+Survival & The goal of staying alive. & Death of onself, or a close other (survival by proxy). \\
+Physical Comfort & The goal of avoiding physical discomfort or suffering. & Pain, injury, physical harm to self or close other (physical comfort by proxy) \\
+Self-Image & The desire to maintain a positive self-image and avoid a negative one. & Feeling worthless, evil, or guilty. Feeling that I've let myself down. \\
+Morality & The drive to behave ethically and uphold virtues. & Harming others, violating religious beliefs or morals. \\
+Distress (in)tolerance & The desire to avoid psychological distress or discomfort. & Disgust, Not-just-right experiences, pure psychic pain. \\
+\end{longtable}
+
+Given the diverse data types involved, Krippendorff's \(\alpha\) was chosen as the statistical measure of inter-rater reliability.
+Krippendorff's \(\alpha\) is a robust statistical measure of inter-rater reliability, widely used to evaluate consistency among raters across various data types, including nominal, ordinal, interval, and ratio scales (Hallgren, 2012; A. F. Hayes \& Krippendorff, 2007).
+Additionally it naturally supports more than two raters, as well as missing data.
+This flexibility makes it ideal for our study, where raters assign mixed data types.
+Krippendorff's alpha values between 0.60 and 0.74 are considered moderate, indicating adequate agreement for exploratory research.
+Values between 0.75 and 0.84 are considered good, while values of 0.85 and above reflect excellent reliability, suitable for measures requiring strong consensus or precision.
+When computing inter-rater reliability we treated ratings of ``ambiguous'' as missing data because they do not represent a specific decision regarding motivation
+\footnote{We performed sensitivity analyses to ensure that this decision did not majorly affect results}.
+Full details of the reliability scoring algorithm employed are available in the supplementary materials.
+
+\subsubsection{Agreement}\label{agreement}
+
+Our study explores the correlations between sets of threats, where each member comprises one or two categories.
+Traditional statistical measures, typically designed to handle single-category data sets, are insufficient for our multi-category approach, prompting the need for an alternative analytical approach.
+To evaluate the concordance between these sets, we calculated the rate of agreement, specifically defined as the percentage of pairs that share at least one category in common among all possible pairs.
+While this criterion is relatively liberal, it is appropriate given the inherent fuzziness in defining categories of drives and distinguishing between the primary and secondary drives of anxiety.
+
+To assess whether the observed agreements exceeded those expected by chance, we employed permutation tests.
+These non-parametric tests are ideal for our analysis because they do not assume specific underlying data distribution, an essential consideration given our complex data structure (Edgington et al., 2007).
+Permutation tests shuffle the data repeatedly to generate a distribution of the test statistic under the null hypothesis, thereby allowing us to compute p-values based on the proportion of reshuffled data sets that yield a test statistic as extreme as, or more extreme than, the observed one (Ernst, 2004).
+This method is robust for small samples such as ours and is particularly useful given that the nature of our data precludes the use of standard analytical techniques, such as information theoretic measures.
+We report the expected number of agreements, the empirical count of agreements, and the likelihood (p) of obtaining the empirical count by chance, assuming the expected count is correct.
+Here, p is interpreted as a traditional p-value, and \(p<.05\) is considered significant.
+
+\subsubsection{Motivational Diversity}\label{motivational-diversity}
+
+Hypothesis 1b posits that core threats are associated with diverse motivations, whereas proximal threats are not.
+To examine the dispersion of motivations, we employ a variation of Simpson's Diversity Index (\(D\)) (Simpson, 1949).
+This index quantifies ``unalikeability,'' or the probability that randomly paired members of the population will have different motivations (Kader \& Perry, 2007).
+\(D\) ranges from 0 to 1, where 0 indicates a completely heterogeneous population and 1 indicates a maximally homogeneous population (all members share the same motivations).
+For interpretability, we classify \(D\) values below 0.2 as highly diverse, values between 0.2 and 0.4 as moderately diverse, and values above 0.4 as non diverse.
+
+The standard form of \(D\) is symmetrical, assuming that each ``species'' matches only itself.
+It is defined as \(D = \sum \left(\frac{n_i(n_i-1)}{N(N-1)}\right)\), where \(n_i\) represents the count of individuals with a specific motivation, and \(N\) is the total number of individuals.
+Given our definition of fit, an individual's motivation can correspond with a non-identical motivation (e.g., if one threat is motivated by affiliation and another by both affiliation and survival).
+To compute the \(D\) index in this context, we count the number of possible agreements between pairs and divide them by the number of possible agreements \(N(N-1)\).
+Thus, \(D = \frac{\sum \delta_{ij}}{N(N-1)}\), where \(\delta\) is the agreement function that returns 1 if the motivations of \(i\) and \(j\) agree and 0 if they do not, and where \(i\) never equals \(j\) (a member can never meet itself).
+The diversity of one sample is considered greater than another if more than \(95\%\) of bootstrapped \(D\) values are greater.
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:demographics}Demographics}
+
+\begin{tabular}{lllll}
+\toprule
+ & \multicolumn{2}{c}{Interview} & \multicolumn{2}{c}{Self-administered} \\
+\cmidrule(r){2-3} \cmidrule(r){4-5}
+ & OCD & TICSA & online & wet\\
+\midrule
+N & 48 & 42 & 81 & 87\\
+Female N & 43 (89.58\%) & 40 (95.24\%) & -- & 60 (68.97\%)\\
+Mean age (SD) & 24.6 (3.2) & 27.8 (6.2) & -- & 40.6 (14.6)\\
+Anxiety Measure & OCI-R & TICSA & TICSA & OASIS\\
+Anxiety Score (SD) & 37.2 (11.0) & 20.9 (13.4) & 29.7 (11.3) & 7.8 (2.9)\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\subsection{Methods: Experiment 1}\label{methods-experiment-1}
+
+Experiment 1 aimed to evaluate the feasibility and potential utility of the face to face CTSI for identifying core threats among individuals exhibiting high levels of obsessive-compulsive (OC) symptoms.
+
+\subsubsection{Participants}\label{participants}
+
+Participants from a pre-existing database of individuals who had previously agreed to participate in research studies and had completed the OCI-R were contacted
+by a research assistant and provided informed consent to participate in the current study.
+Demographic details can be found in Table \ref{tab:demographics}.
+A median OCI-R score of 38.50 indicates that most participants were well within the severe range of symptoms (Abramovitch et al., 2020).
+Additionally, 41 (85.4\%) participants met the criteria for OCD according to the OCD section of the DIAMOND interview.
+Full demographic details can found in Table~\ref{tab:demographics}.
+
+\subsubsection{Procedure}\label{procedure}
+
+Participants completed a set of questionnaires and underwent a zoom interview lasting between 45 minutes to two hours.
+The interview included the OCD section of the DIAMOND and the CTSI.
+The CTSI was used to identify core threats underlying two compulsions (proximal threats).
+When possible, the compulsions were chosen to be as dissimilar as possible (e.g.~a cleaning compulsion and a checking compulsion).
+The interview focused on what the participants felt would happen if they did not perform their ritualistic behaviors.
+Compensation was provided at a rate of approximately \$10 per hour or in the form of course credit.
+
+\subsubsection{Measures}\label{measures-1}
+
+The face to face CTSI was used to identify proximal and core threats, as discussed above.
+Three judges scored each threat but did \emph{not} achieve sufficient reliability.
+Subsequent analyses use a consensus score.
+The data from this study were used to improve training so that the judges reached reliability in later experiments.
+Thus, despite the initially poor reliability score, we argue that the consensus score is valid.
+
+\textbf{Obsessive Compulsive Inventory Revised (OCIR; Foa et al., 2002)}: The OCIR is a self-report measure consisting of 18 Likert-scale items ranging from 0 to 4, which assess the distress associated with specific OCD symptoms.
+It has demonstrated robust psychometric properties in both clinical and student populations (Foa et al., 2002; Huppert et al., 2007).
+With an omega coefficient of 0.90, the OCIR has shown high internal consistency and is a reliable measure of OCD symptom severity.
+
+\textbf{Diagnostic Interview for Anxiety, Mood, and OCD and Related Neuropsychiatric Disorders (DIAMOND; Tolin et al., 2018)}: The DIAMOND is a semi-structured diagnostic interview designed to diagnose DSM-5 psychiatric disorders, with robust psychometric properties.
+In this study, only the OCD section of the DIAMOND was administered to establish OCD diagnoses.
+The DIAMOND has shown excellent inter-rater reliability, test-retest reliability, and both convergent and divergent validity (Tolin et al., 2018).
+
+\subsection{Methods: Experiment 2}\label{methods-experiment-2}
+
+Experiment 2 aimed to extend Experiment 1 by focusing on a transdiagnostic anxious population.
+Furthermore, it aimed to investigate both test retest reliability and inter-rater reliability.
+
+\subsubsection{Participants}\label{participants-1}
+
+Participants were sourced from a pre-existing database of individuals who had previously agreed to participate in research studies and had completed TICSA.
+Each participant was contacted by a research assistant and provided informed consent to participate in the study.
+Full demographic details can found in Table \ref{tab:demographics}.
+
+\subsubsection{Procedure}\label{procedure-1}
+
+Participants initially completed the CTSI with one interviewer via Zoom, with interviews lasting between 30 and 90 minutes.
+The interview focused on the fear that participants found most impactful.
+Approximately one to two months later (Median = 33 days; Range: 25--49 days), they completed the CTSI again, focusing on the same proximal threat but with a different interviewer.
+A total of 8 participants (19.0\%) dropped out between sessions.
+Compensation was provided at a rate of approximately \$10 per hour or in the form of course credit.
+
+\subsubsection{Measures}\label{measures-2}
+
+The face-to-face CTSI was used to identify proximal and core threats, as discussed above.
+Three judges scored each threat and achieved good inter-rater reliability (Krippendorff's \(\alpha\) = 0.84).
+
+\textbf{The Trait Inventory for Cognitive and Somatic Anxiety (TICSA; Ree et al., 2008)} was used as a 21-item self-report measure to assess cognitive and somatic symptoms of trait anxiety.
+Each item on the TICSA is rated on a 4-point Likert scale ranging from 0 (not at all) to 3 (very much so), with higher scores indicating greater severity of anxiety symptoms.
+The TICSA has demonstrated reliability and validity in measuring trait anxiety in prior research (Grös et al., 2007; Ree et al., 2008).
+In this experiment, the TICSA showed high internal consistency, with an omega coefficient of 0.95.
+
+\subsection{Methods: Experiment 3}\label{methods-experiment-3}
+
+Experiment 3 aimed to extend Experiment 2 by utilizing a self-administered version of the CTSI.
+
+\subsubsection{Participants and Procedure}\label{participants-and-procedure}
+
+Participants were sourced from a pre-existing database of individuals who had previously agreed to participate in research studies and had completed TICSA.
+Each participant was contacted by a research assistant and provided informed consent to participate in the study.
+Due to a technical error, the age and gender of participants were not recorded; however, the sampling procedure was similar to Experiment 2, suggesting similar demographics.
+Full demographic details can found in Table~\ref{tab:demographics}.
+Participants were sent a link to complete the self-administered CTSI and several relevant questionnaires.
+Participants were compensated for their time at approximately \$10 per hour or received course credit where applicable.
+
+\subsubsection{Measures}\label{measures-3}
+
+The self-administered CTSI was used to identify proximal and core threats, as discussed above.
+Three judges scored each threat and achieved good inter-rater reliability (Krippendorff's \(\alpha\) = 0.86).
+The TICSA was used to measure anxiety, showing high internal consistency, with an omega coefficient of 0.91.
+
+\subsection{Experiment 4}\label{experiment-4}
+
+Experiment 4 aimed to expand Experiment 3 by using an international, English speaking population.
+
+\subsubsection{Participants and Procedure}\label{participants-and-procedure-1}
+
+Participants were sampled via the Prolific platform for online research and were paid £9 per hour for participation.
+They were first screened to select high anxiety individuals.
+Inclusion criteria included high pathological anxiety {[} greater than 4 on the OASIS; Norman et al. (2006){]},
+and impaired daily function {[}at least one item scored above 2 on the WSAS; Mundt et al. (2002){]}.
+Exclusion criteria included severe depression {[}greater than 14 on the PHQ; Kroenke et al. (2009){]}, post-trauma {[}greater than 6 on the short PCL-5; Zuromski et al. (2019){]}, or psychotic symptoms {[}items 19 or 20 from the DIAMOND screener; Tolin et al. (2018){]}.
+Additionally, fluency in English was required.
+Participants who reported head injury or reading and writing difficulties in the Prolific system were excluded.
+Only experienced users on the Prolific platform with an approval rate above 95\% and a minimum of 300 previous submissions were allowed to participate in the study.
+Full demographic details can be found in Table \ref{tab:demographics}.
+Participants were then referred to the main experiment.
+Within the experiment, they signed a consent form, completed a set of questionnaires related to a different experiment, and finally completed the self-administered CTSI.
+
+\subsubsection{Measures}\label{measures-4}
+
+The self-administered CTSI was used to identify proximal and core threats, as discussed above.
+Three judges scored each threat and achieved good inter-rater reliability (Krippendorff's \(\alpha\) = 0.80).
+
+\textbf{The Overall Anxiety Severity and Impairment Scale {[}OASIS; Norman et al. (2006){]}} was used to measure anxiety.
+The OASIS assesses the frequency, intensity, and functional impairment of anxiety and fear over the past week.
+Participants rate their anxiety on a 5-point scale from 0 (Little or None) to 4 (Extreme or All the Time).
+Higher scores indicate more severe anxiety-related impairment, with a cut-off score of eight recommended for distinguishing anxiety disorders and a change of four points considered clinically significant (Moore et al., 2015).
+The OASIS has strong psychometric properties, with an omega coefficient of 0.86 in our sample, indicating high reliability (Norman et al., 2006).
+
+\section{Results}\label{results}
+
+\subsection{The Distribution of Threat Values}\label{the-distribution-of-threat-values}
+
+The values manifest in core and proximal threats are distributed slightly differently.
+Furthermore, we found differences between samples as well (see Figure \ref{fig:distribution}).
+Most apparent is the fact that proximal threats are far more likely to be scored as ambiguous than core threats.
+This may have been because the CTSI directed participants to talk in terms of values.
+However, participants were never explicitly directed to describe their threats in terms of values.
+We believe that a more plausible explanation is that the CTSI helps participants to bring their core threats into focus.
+
+
+
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{/home/eladzlot/projects/ctsi.manuscript/docs/output/ctsi_files/figure-latex/distribution-1} \caption{Distribution of threat values across experiments}\label{fig:distribution}
+\end{figure}
+
+In both face-to-face samples (but more-so in Experiment 1) distress tolerance was a common proximal threat but a rare core threats.
+We see this as evidence that distress tolerance type threats are often a form of avoiding underlying core threats rather than the ultimate feared outcome.
+It is not clear why this did not happen in the self-administered versions.
+Perhaps the detailed way in which the proximal threats are gathered in the self-administered version of the CTSI helps people focus onto harm-avoidant type threats.
+
+Affiliation was a leading value in all three trans-diagnostic experiments.
+This may be because of over-representation of socially anxious individuals, or because the affiliation category is defined too widely.
+Perhaps there is place to differentiate between sub-types of affiliation.
+Alternatively, it may be that affiliation is indeed the most common of core threats (Bowlby, 1969; cf. Gilbert, 2001).
+
+\subsection{Hypothesis 1: Proximal-Core Agreement}\label{hypothesis-1-proximal-core-agreement}
+
+Hypothesis 1 was that core threats represent a different process than proximal threats.
+This was investigated in two ways:
+First, can core threats be predicted from proximal threats?
+Second, do core threats demonstrate greater diversity in content than proximal threats?
+Core threats agreed with their proximal threats up to 32.5\% of the time, with agreement dropping to 16.9\% in Experiment 1 (High OC).
+All three trans-diagnostic samples had a slightly higher than chance agreement for proximal threats to match core threats.
+However, after correcting for multiple comparisons via the Holm-Bonferroni method (Holm, 1979), only Experiment 2 (face-to-face trans-diagnostic) was significantly different from chance.
+Detailed results can be found in Table \ref{tab:agreement}.
+We interpret this as an indication that proximal threats potentially hold some information regarding core threats.
+However, the highest agreement recorded was 32.5\%, which, even if statistically significant, is clinically insufficient.
+Thus, as hypothesized, proximal threats are not good predictors of core threats (more than 70\% of the time).
+
+The diversity of proximal threats ranged from Simpson's \(D\) of 0.30 to 0.46.
+The diversity of core threats was not significantly different, with the exception of core threats in Experiment 1, which was significantly higher (lower Simpson's \(D\) of 0.23).
+The diversity of core threats tended to be greater than the diversity of proximal threats, with the exception of Experiment 2 (TICSA) where the diversities were equal.
+However after correction only Experiment 1 (High OC) was significant.
+Detailed results can be found in Table \ref{tab:agreement}.
+
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:agreement}Agreement and Diversity statistics across studies. Agreement reflects the count of expected and actual pairs of motivations aligning (p Agreement indicates the likelihood of observing this agreement by chance). Diversity is measured using the Simpson Diversity Index for proximal versus core threats (p Diversity represents the probability that core threat diversity exceeds proximal threat diversity).}
+
+\begin{tabular}{lllll}
+\toprule
+ & \multicolumn{2}{c}{Interview} & \multicolumn{2}{c}{Self-administered} \\
+\cmidrule(r){2-3} \cmidrule(r){4-5}
+ & OCD & TICSA & online & wet\\
+\midrule
+Agreement &  &  &  & \\
+\ \ \ N pairs & 71 & 78 & 77 & 84\\
+\ \ \ Expected Agreement (\%) & 14 (19.72\%) & 16 (20.51\%) & 18 (23.38\%) & 22 (26.19\%)\\
+\ \ \ Actual Agreement (\%) & 12 (16.90\%) & 23 (29.49\%) & 25 (32.47\%) & 24 (28.57\%)\\
+\ \ \ p Agreement & .759 & .031 & .049 & .302\\
+Diversity (D) &  &  &  & \\
+\ \ \ Proximal threats & 0.31 [0.25, 0.38] & 0.30 [0.23, 0.38] & 0.34 [0.27, 0.45] & 0.46 [0.36, 0.58]\\
+\ \ \ Core threats & 0.24 [0.20, 0.29] & 0.31 [0.25, 0.38] & 0.31 [0.25, 0.40] & 0.33 [0.26, 0.42]\\
+\ \ \ p Diversity & .038 & .584 & .294 & .040\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+After identifying core threats, participants were asked whether these threats reflected their motivation for fear.
+This assessment was conducted in the three trans-diagnostic samples, but not in the OCD sample.
+The full results can be seen in Figure \ref{fig:subjective}.
+In all experiments, the majority of participants confirmed that the identified core threats were indeed the motivation for their anxiety.
+The proportion of ``correct'' motivations was the same for participants whose proximal and core threats aligned and those whose identified core threat had a different motivation.
+A significant proportion of participants expressed uncertainty about whether their identified core threat reflected their underlying motivation.
+However, this uncertainty was less pronounced in the self-administered versions.
+
+
+
+\begin{figure}
+\centering
+\includegraphics{/home/eladzlot/projects/ctsi.manuscript/docs/output/ctsi_files/figure-latex/subjective-1.pdf}
+\caption{\label{fig:subjective}The mosaic plot illustrates participants' responses to the question: ``Does the core threat you identified reflect your true motivation?'' Tile sizes represent the relative frequencies of responses across groups. The plot indicates that core threats generally align with participants' true motivations. Sensitivity analyses further confirmed that these proportions remained consistent, regardless of whether core threats matched proximal threats.}
+\end{figure}
+
+\subsection{Hypothesis 2: Multiple proximal threats - one core threat}\label{hypothesis-2-multiple-proximal-threats---one-core-threat}
+
+Hypothesis 2 was that one core threat often motivates multiple proximal threats.
+We investigated this question in Experiment 1 by administering the CTSI for two distinct compulsions (proximal threats).
+Only 13 (27.08\%) individuals identified core threats for two separate compulsions.
+This limited identification often occurred because participants became tired and lost patience by the time they were interviewed about the second compulsion.
+Consequently, our data on this topic is not only very limited but also potentially biased (Is there a relationship between the ability of participants to continue and the characteristics of their fears?).
+
+A permutation test reveals that the median expected number of agreements is 4 (30.77\%) of the cases.
+In practice, 7 (53.8\%, \(p\) = .077) pairs of core threats agreed with one another.
+Despite not being significant, this result suggests that core threats may motivate multiple proximal threats within the same individual.
+However, due to the small sample size, these findings should be interpreted with caution, and further research is needed.
+We suggest that this estimate would be even higher if we had chosen more similar compulsions.
+
+Interestingly, some of the pairs might be considered as having common threats even though their values did not explicitly match.
+For example, one woman was afraid of becoming contaminated and dying if she did not perform her cleaning compulsions (Survival), and of breaking up with her boyfriend, not having children, and being alone forever (Affiliation).
+A deeper investigation might have found that not having children means for her the same as not surviving.
+We suggest this because this dataset was the first we had, as we developed the CTI, and we believe that the administration was suboptimal.This finding highlights that the same core threats often seem to motivate different proximal threats.
+Importantly, it also indicates that individuals are sometimes driven by more than one core threat.
+
+\subsection{Hypothesis 3: Test Retest}\label{hypothesis-3-test-retest}
+
+33 individuals (78.6\%) completed both evaluations of their core threats.
+A permutation test reveals that the median expected number of agreements is 11 cases (33.3\%).
+In practice, 17 pairs of core threats agreed with each other (51.5\%, \(p\) = .014).
+This finding suggests significant test-retest validity, indicating that it is likely that the same core threats motivate fear over time.
+Furthermore, it supports the notion that different evaluators can identify the same core threat when interviewing an individual.
+
+\section{Discussion}\label{discussion}
+
+The current study aimed to provide clinical guidelines for identifying core threats in anxiety disorders and to investigate the phenomenology of these threats.
+Core threats, which are the underlying fears driving proximal threats, play a crucial role in anxiety disorders and their treatment (Zlotnick \& Huppert, 2024).
+While proximal threats may involve immediate fears like contamination or injury, core threats often relate to deeper concerns such as death, social rejection, or moral failure.
+Despite their common application in clinical practice (more often called core fears), core threats have not been formally studied.
+
+The first hypothesis involved the discrepancy between core and proximal threats.
+Previous research (Gillihan et al., 2012; Huppert \& Zlotnick, 2012; Murray, Treanor, et al., 2016) has highlighted the multifaceted nature of core threats, emphasizing the need for clinicians to delve deeper into patients' fears.
+As expected, we found that proximal threats were quite distinct from their associated core threats.
+However, proximal threats are not entirely removed from core threats---about a third of proximal threats in the transdiagnostic samples predicted their core threats.
+We suggest that it remains meaningful and impactful to do the extra work to identify the underlying core threats for the remaining two-thirds.
+It seems that identifying core threats are particularly important in OCD, where core threats are both more diverse, and proximal threats less predictive.
+
+In contrast to our expectations, core threats were significantly more diverse than proximal threats only in the OCD sample (after Holm-Bonferonni correction).
+Even then, the effects were not very large.
+However, the content of threats tended to differ.
+Core threats seemed to be more concentrated in affiliation, self-image, competence, and control.
+Proximal threats were largely ambiguous or focused on distress tolerance.
+
+\subsection{Assessing Validity}\label{assessing-validity}
+
+The development of the Core Threat Structured Interview (CTSI) emerged from practical needs.
+Although core threats are frequently utilized in clinical practice and have a solid theoretical foundation, there is currently no validated clinical tool available to measure them for research or clinical purposes.
+The CTSI was developed by integrating common clinical practices with insights from the catastrophizing interview (Davey, 2006).
+The process was manualized by implementing early versions of the interview and refining the instructions based on expert feedback.
+
+The current study aims to evaluate the validity and reliability of the CTSI as a tool for identifying core threats.
+To ensure face validity, experts, including JDH, reviewed the identified core threats and confirmed that they aligned with those typically recognized in psychotherapy.
+Construct validity was supported by evidence of both convergent and divergent validity:
+participants consistently reported that their identified core threats reflected their motivations, demonstrating convergent validity,
+while core threats were only mildly associated with proximal threats, supporting divergent validity.
+Additionally, participants indicated that core threats represented their motivations better than proximal threats, further emphasizing their distinctiveness.
+In terms of reliability, the CTSI demonstrated robust test-retest reliability, ensuring consistent identification of core threats across administrations, and strong inter-rater reliability, showing that different clinicians reached consistent conclusions.
+Finally, the findings demonstrated consistency across diverse samples, reinforcing the CTSI's applicability and relevance across different populations.
+
+The current study did not fully address clinical and theoretical validity.
+Thus, a major question remains whether fear is indeed organized to a certain extent around core threats.
+This challenge has two variations: functional and theoretical.
+
+The theoretical challenge lies in understanding whether core threats are indeed part of the fear structure and in determining the process in which the CTSI identifies them.
+It is unclear whether individuals have direct verbal access to their underlying motivations, and even if they do, how clinicians or researchers can accurately identify them.
+From these perspectives, core threats may be inaccessible or nonexistent, rendering our data meaningless.
+It is possible that core threats are generated by subjects through random processes or by considering non-anxiety-related factors (such as ``what would sound valuable or important to me'').
+The observed reliability over time and across interviewers could simply be due to subjects recalling their previous responses.
+We have reviewed the theoretical arguments for the existence of core threats elsewhere (Zlotnick \& Huppert, 2024).
+
+Furthermore, even assuming that a core threat can be determined, an interesting question arises: Is the core threat identified or construed?
+Is the process of determining a core threat akin to uncovering an existing prototype (cf. Rosch \& Lloyd, 1978)?
+Or should core threats be treated as ad-hoc narratives, individually tailored to activate the fear structure (cf. Barsalou, 2003)?
+If the latter is true, the therapist's role would be to help the patient construe a core threat that effectively evokes the fear network as opposed to determining it.
+
+Ultimately, these challenges may be unresolvable.
+There will always be alternative explanations, and we lack direct access to these theoretical constructs.
+One might ask, ``If we can't be sure we can access core threats, are they scientific?''
+We argue that many useful and theoretically interesting constructs are similarly inaccessible, yet remain valuable.
+Indirect methods, such as physiological measures of anxiety and implicit measures (see Gawronski \& De Houwer, 2014), may provide access.
+The accumulating data, particularly the functional implications of core threats, increasingly support the validity of this cognitive construct.
+
+The functional challenge is as follows:
+Are we indeed identifying the true core threats?
+How can one validate this abstract clinical construct?
+One approach is to define a functional definition of core threats that \emph{can} be empirically examined (De Houwer, 2011).
+Core threats primarily represent an individual's motivations to avoid certain stimuli or situations.
+Preliminary findings suggest this is accurate; many individuals reported that their identified core threat indeed reflected their true motivation.
+Additionally, core threats are believed to be more effective targets for safety learning, such as through exposure or behavioral experiments (Zlotnick \& Huppert, 2024).
+Demonstrating that focusing on core threats improves therapeutic outcomes would provide strong evidence for their validity.
+Specifically, comparing the efficacy of therapy focusing on core versus proximal threats could functionally validate core threats.
+\#\# Distress Tolerance
+
+Recent literature emphasizes distress tolerance as a central mechanism in anxiety disorders (Barlow et al., 2010; S. C. Hayes et al., 2006; Keough et al., 2010).
+Literature on OCD highlights the importance of ``not just right'' experiences, sensory phenomena, incompleteness, and other seemingly harmless phenomena (Ecker \& Gönner, 2008; e.g., Ferrão et al., 2012).
+An association between these phenomena and other anxiety disorders has also been found (Michel et al., 2016).
+Indeed, distress tolerance has been shown to correlate with psychopathology (Leyro et al., 2010) and has been suggested as a treatment target in various contexts, such as smoking cessation (Brown, 2022) and borderline personality disorder (Linehan, 1993).
+
+Distress tolerance has been suggested as a prime trans-diagnostic process to target in emotional disorders (Barlow et al., 2010).
+We extend this model by emphasizing harm avoidance as a parallel mechanism.
+The face-to-face experiments, both the OCD sample and the transdiagnostic sample, revealed a high proportion of distress tolerance proximal threats and a low proportion of distress tolerance core threats.
+This finding suggests that even when distress tolerance is is evident, harm avoidance plays a significant role in anxiety.
+In other words, besides the difficulty in dealing with distress itself, there is the issue of disconfirming underlying threats (Craske et al., 2022).
+
+When designing transdiagnostic interventions, it is important to address different underlying processes (Hofmann \& Hayes, 2019).
+While distress tolerance has received considerable attention, we argue that harm avoidance, particularly core threats, should also be considered a critical addition (A. T. Beck \& Dozois, 2011; Foa \& Kozak, 1986; e.g., Steimer, 2002).
+
+\subsection{Core Threats in OCD}\label{core-threats-in-ocd}
+
+Much of the original work on core threats originated in the OCD literature (Gillihan et al., 2012; Huppert \& Zlotnick, 2012), and thus it is reasonable to hypothesize that core threats are particularly important for this population.
+Indeed, the OCD sample was found to differ from the transdiagnostic samples in several ways.
+First, it was the only experiment where proximal threats did not predict core threats at all.
+Second, it was the only experiment where core threats were significantly more diverse than proximal threats.
+Third, there was a disproportionate prevalence of distress tolerance proximal threats but not of core threats.
+All of these findings emphasize the importance of identifying core threats in OCD.
+
+The differences from transdiagnostic anxious samples can be attributed to the intrinsic diversity of OCD, which is known to manifest in various forms.
+However, this distinction may also be due to the fact that this was the only validated pathological sample in this series of experiments.
+Further research is necessary to explore these differences in more detail.
+
+\subsection{Limitations and Further Research}\label{limitations-and-further-research}
+
+Core threats have been theorized to play a central role in the generalization of threat (see Zlotnick \& Huppert, 2024).
+If this is indeed the case, we would expect the same core threats to motivate multiple different proximal threats.
+In the current study, we found some non-significant initial evidence that one core threat can underlie multiple proximal threats.
+If this finding is confirmed with further research, it would suggest that safety learning targeting core threats could be a more effective intervention for anxiety disorders.
+This notion would be strengthened further by demonstrating better generalization for core threat-focused learning (Murray, Treanor, et al., 2016; see Pinciotti et al., 2021).
+However, the current dataset is too small to reach definitive conclusions, and further study with a larger sample size is needed.
+
+To investigate the agreement between threats, we needed to codify them.
+As no existing typology fully suited our needs, we developed one specifically for this study.
+While this typology has not yet been validated, and there is a possibility of over-dividing certain categories (e.g., safety and physical discomfort) or under-dividing others (e.g., affiliation), we believe it is sufficient for exploring the associations between different threats.
+Nonetheless, further psychometric work is needed to establish a robust and validated typology for core threats.
+
+The CTSI attempts to identify the ultimate underlying threat, but it is not clear if it succeeds.
+The stopping criteria used in the CTSI are accepted in the field (see Davey, 2006).
+However, there is no guarantee that the true motivation is identified.
+For example, should one stop at ``I will die,'' or ask further to discover that the fear is of burning in hell?
+And is burning in hell the correct stopping point, or should one delve deeper?
+The instructions in the CTSI are to stop once the patient can no longer find any deeper meaning, repeat themselves, or once they start getting further from the underlying threat, as evidenced by lower levels of distress.
+Ultimately, this question remains open and subjective to the discretion of the interviewer.
+We argue that, despite the inherent noise in the process, the answers obtained are at least better than plain proximal threats, even if they do not reach the ``true'' core threat.
+
+We know from several studies that core threats are deceptively diverse (Zlotnick \& Huppert, 2024).
+For instance, Greenberg and colleagues (2018) examined whether the underlying fear in olfactory reference syndrome centers on embarrassing oneself or offending others.
+They found that individuals possess both types of motivations, regardless of their cultural background (Western vs.~Eastern).
+Moreover, about a quarter of participants reported a completely unexpected concern: whether the odor indicated a medical condition.
+This highlights the importance of investigating idiosyncratic fears expressed by individuals, beyond the stereotypical fears associated with specific disorders.
+However, it we hypothesize that different disorders exhibit distinct patterns of core threats.
+For example, safety is a prominent concern in panic disorder and OCD but appears less central in social anxiety disorder, where competence and affiliation often take precedence.
+Similarly, morality plays a significant role in OCD but is less pronounced in other disorders.
+Thus, variability in core threats reflects both systematic, disorder-specific tendencies and individual idiosyncrasies.
+Future research should focus on mapping these associations more comprehensively.
+
+An additional limitation of this study is the low prevalence of predictability core threats.
+Our clinical experience indicates that such core threats should be more prevalent (though not quite as prevalent as other motivators).
+It is likely that the focus of the CTSI on specific harm-avoidance type outcomes may have masked such core threats.
+For example, some people that fear having cancer are particularly bothered by the inherent fuzziness of the situation - that they can never know for sure.
+When asked what they fear, they would focus on the cancer, but that is in face over-shooting the actual motivating core threat.
+To address this problem we recommend that interviewers review the downward arrow and explicitly ask what the worst outcome would be.
+
+\subsection{Implications for Clinical Practice and Future Research}\label{implications-for-clinical-practice-and-future-research}
+
+The findings of this study have implications for both clinical practice and future research.
+Clinically, the Core Threat Structured Interview (CTSI) proves to be a valuable tool in uncovering the underlying fears that drive anxiety disorders, facilitating the development of more effective, tailored treatment plans.
+This aligns with the work of Persons (Persons, 2012), who emphasized the importance of individualized case formulations in cognitive-behavioral therapy.
+
+For future research, these findings open new avenues for exploring the mechanisms underlying the stability of core threats and their impact on treatment outcomes.
+The fact that the CTSI includes a self-administered, online version that appears to be reliable and valid should allow significant further research.
+We contend that one major limiting factor of studying core threats to date has been the absence of such a tool.
+Investigating the interaction between core threats and other psychological constructs, such as resilience and coping strategies, could further enhance our understanding of anxiety disorders and inform more comprehensive treatment approaches.
+
+In conclusion, this study underscores the critical role of core threats in anxiety disorders and provides a valid and reliable structured approach to identifying and addressing these threats in clinical practice.
+By focusing on the underlying fears that drive surface threats, clinicians might be able to develop more effective interventions, ultimately improving patient outcomes.
+
+\newpage
+
+\section{References}\label{references}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-abramovitchSeverityBenchmarksContemporary2020}{}}%
+Abramovitch, A., Abramowitz, J. S., Riemann, B. C., \& McKay, D. (2020). Severity benchmarks and contemporary clinical norms for the Obsessive-Compulsive Inventory-Revised (OCI-R). \emph{Journal of Obsessive-Compulsive and Related Disorders}, \emph{27}, 100557. \url{https://doi.org/10.1016/j.jocrd.2020.100557}
+
+\leavevmode\vadjust pre{\hypertarget{ref-austinGoalConstructsPsychology1996}{}}%
+Austin, J. T., \& Vancouver, J. B. (1996). Goal constructs in psychology: Structure, process, and content. \emph{Psychological Bulletin}, \emph{120}(3), 338--375. \url{https://doi.org/10.1037/0033-2909.120.3.338}
+
+\leavevmode\vadjust pre{\hypertarget{ref-barlowUnifiedProtocolTransdiagnostic2010}{}}%
+Barlow, D. H., Farchione, T. J., Fairholme, C. P., Ellard, K. K., Boisseau, C. L., Allen, L. B., \& May, J. T. E. (2010). \emph{Unified Protocol for Transdiagnostic Treatment of Emotional Disorders: Therapist Guide} (1 edition). Oxford University Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-barsalouAbstractionPerceptualSymbol2003}{}}%
+Barsalou, L. W. (2003). Abstraction in perceptual symbol systems. \emph{Philosophical Transactions of the Royal Society B: Biological Sciences}, \emph{358}(1435), 1177--1187. \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1693222/}
+
+\leavevmode\vadjust pre{\hypertarget{ref-beckCognitiveTherapyCurrent2011}{}}%
+Beck, A. T., \& Dozois, D. J. A. (2011). Cognitive therapy: current status and future directions. \emph{Annual Review of Medicine}, \emph{62}, 397--409. \url{https://doi.org/10.1146/annurev-med-052209-100032}
+
+\leavevmode\vadjust pre{\hypertarget{ref-beckCognitiveBehaviorTherapy2011}{}}%
+Beck, J. S. (2011). \emph{Cognitive behavior therapy: Basics and beyond}. Guilford press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-borkovecWorryCognitivePhenomenon1998}{}}%
+Borkovec, T. D., Ray, W. J., \& Stober, J. (1998). Worry: A cognitive phenomenon intimately linked to affective, physiological, and interpersonal behavioral processes. \emph{Cognitive Therapy and Research}, \emph{22}(6), 561--576.
+
+\leavevmode\vadjust pre{\hypertarget{ref-boutonContextAmbiguityUnlearning2002}{}}%
+Bouton, M. E. (2002). Context, ambiguity, and unlearning: sources of relapse after behavioral extinction. \emph{Biological Psychiatry}, \emph{52}(10), 976--986. \url{https://doi.org/10.1016/s0006-3223(02)01546-9}
+
+\leavevmode\vadjust pre{\hypertarget{ref-bowlbyAttachmentLoss1969}{}}%
+Bowlby, J. (1969). \emph{Attachment and Loss}. Basic Books.
+
+\leavevmode\vadjust pre{\hypertarget{ref-brownUncertaintyAnxietyAvoidance2022}{}}%
+Brown, V. (2022). \emph{Uncertainty, anxiety, avoidance, and exposure}. PsyArXiv. \url{https://doi.org/10.31234/osf.io/4zykv}
+
+\leavevmode\vadjust pre{\hypertarget{ref-craskeOptimizingExposureTherapy2022}{}}%
+Craske, M. G., Treanor, M., Zbozinek, T. D., \& Vervliet, B. (2022). Optimizing exposure therapy with an inhibitory retrieval approach and the OptEx Nexus. \emph{Behaviour Research and Therapy}, \emph{152}, 104069. \url{https://doi.org/10.1016/j.brat.2022.104069}
+
+\leavevmode\vadjust pre{\hypertarget{ref-daveyCatastrophisingInterviewProcedure2006}{}}%
+Davey, G. C. L. (2006). The Catastrophising Interview Procedure. In \emph{Worry and its Psychological Disorders} (pp. 157--176). John Wiley \& Sons, Ltd. \url{https://doi.org/10.1002/9780470713143.ch10}
+
+\leavevmode\vadjust pre{\hypertarget{ref-davidCognitionsCognitivebehavioralPsychotherapies2006}{}}%
+David, D., \& Szentagotai, A. (2006). Cognitions in cognitive-behavioral psychotherapies; toward an integrative model. \emph{Clinical Psychology Review}, \emph{26}(3), 284--298. \url{https://doi.org/10.1016/j.cpr.2005.09.003}
+
+\leavevmode\vadjust pre{\hypertarget{ref-dehouwerWhyCognitiveApproach2011}{}}%
+De Houwer, J. (2011). Why the Cognitive Approach in Psychology Would Profit From a Functional Approach and Vice Versa. \emph{Perspectives on Psychological Science}, \emph{6}(2), 202--209. \url{https://doi.org/10.1177/1745691611400238}
+
+\leavevmode\vadjust pre{\hypertarget{ref-dugasCognitiveBehavioralTreatmentGeneralized2005}{}}%
+Dugas, M., \& Koerner, N. (2005). Cognitive-Behavioral Treatment for Generalized Anxiety Disorder: Current Status and Future Directions. \emph{Journal of Cognitive Psychotherapy}, \emph{19}(1), 61--81. \href{https://insights.ovid.com}{insights.ovid.com}
+
+\leavevmode\vadjust pre{\hypertarget{ref-dweckNeedsGoalsRepresentations2017}{}}%
+Dweck, C. S. (2017). From needs to goals and representations: Foundations for a unified theory of motivation, personality, and development. \emph{Psychological Review}, \emph{124}(6), 689--719. \url{https://doi.org/10.1037/rev0000082}
+
+\leavevmode\vadjust pre{\hypertarget{ref-eckerIncompletenessHarmAvoidance2008}{}}%
+Ecker, W., \& Gönner, S. (2008). Incompleteness and harm avoidance in OCD symptom dimensions. \emph{Behaviour Research and Therapy}, \emph{46}(8), 895--904. \url{https://doi.org/10.1016/j.brat.2008.04.002}
+
+\leavevmode\vadjust pre{\hypertarget{ref-edgingtonRandomizationTests2007}{}}%
+Edgington, E., Edgington, E., \& Onghena, P. (2007). \emph{Randomization Tests} (4th ed.). Chapman and Hall/CRC. \url{https://doi.org/10.1201/9781420011814}
+
+\leavevmode\vadjust pre{\hypertarget{ref-ernstPermutationMethodsBasis2004}{}}%
+Ernst, M. D. (2004). Permutation Methods: A Basis for Exact Inference. \emph{Statistical Science}, \emph{19}(4), 676--685. \url{https://doi.org/10.1214/088342304000000396}
+
+\leavevmode\vadjust pre{\hypertarget{ref-ferraoSensoryPhenomenaAssociated2012}{}}%
+Ferrão, Y. A., Shavitt, R. G., Prado, H., Fontenelle, L. F., Malavazzi, D. M., de Mathis, M. A., Hounie, A. G., Miguel, E. C., \& do Rosário, M. C. (2012). Sensory phenomena associated with repetitive behaviors in obsessive-compulsive disorder: an exploratory study of 1001 patients. \emph{Psychiatry Research}, \emph{197}(3), 253--258. \url{https://doi.org/10.1016/j.psychres.2011.09.017}
+
+\leavevmode\vadjust pre{\hypertarget{ref-foaObsessiveCompulsiveInventoryDevelopment2002}{}}%
+Foa, E. B., Huppert, J. D., Leiberg, S., Langner, R., Kichic, R., Hajcak, G., \& Salkovskis, P. M. (2002). The Obsessive-Compulsive Inventory: development and validation of a short version. \emph{Psychological Assessment}, \emph{14}(4), 485--496.
+
+\leavevmode\vadjust pre{\hypertarget{ref-foaEmotionalProcessingFear1986}{}}%
+Foa, E. B., \& Kozak, M. J. (1986). Emotional processing of fear: Exposure to corrective information. \emph{Psychological Bulletin}, \emph{99}(1), 20--35. \url{https://doi.org/10.1037/0033-2909.99.1.20}
+
+\leavevmode\vadjust pre{\hypertarget{ref-gawronskiImplicitMeasuresSocial2014}{}}%
+Gawronski, B., \& De Houwer, J. (2014). Implicit Measures in Social and Personality Psychology. In C. M. Judd \& H. T. Reis (Eds.), \emph{Handbook of Research Methods in Social and Personality Psychology} (2nd ed., pp. 283--310). Cambridge University Press. \url{https://doi.org/10.1017/CBO9780511996481.016}
+
+\leavevmode\vadjust pre{\hypertarget{ref-gilbertEVOLUTIONSOCIALANXIETY2001}{}}%
+Gilbert, P. (2001). EVOLUTION AND SOCIAL ANXIETY: The Role of Attraction, Social Competition, and Social Hierarchies. \emph{Psychiatric Clinics}, \emph{24}(4), 723--751. \url{https://doi.org/10.1016/S0193-953X(05)70260-4}
+
+\leavevmode\vadjust pre{\hypertarget{ref-gillihanCommonPitfallsExposure2012}{}}%
+Gillihan, S. J., Williams, M. T., Malcoun, E., Yadin, E., \& Foa, E. B. (2012). Common pitfalls in exposure and response prevention (EX/RP) for OCD. \emph{Journal of Obsessive-Compulsive and Related Disorders}, \emph{1}(4), 251--257. \url{https://doi.org/10.1016/j.jocrd.2012.05.002}
+
+\leavevmode\vadjust pre{\hypertarget{ref-greenbergEgocentricAllocentricFears2018}{}}%
+Greenberg, J. L., Weingarden, H., \& Wilhelm, S. (2018). Egocentric and allocentric fears in olfactory reference syndrome. \emph{Journal of Obsessive-Compulsive and Related Disorders}, \emph{16}, 72--75. \url{https://doi.org/10.1016/j.jocrd.2018.01.001}
+
+\leavevmode\vadjust pre{\hypertarget{ref-grosPsychometricPropertiesStateTrait2007}{}}%
+Grös, D. F., Antony, M. M., Simms, L. J., \& McCabe, R. E. (2007). Psychometric properties of the State-Trait Inventory for Cognitive and Somatic Anxiety (STICSA): Comparison to the State-Trait Anxiety Inventory (STAI). \emph{Psychological Assessment}, \emph{19}, 369--381. \url{https://doi.org/10.1037/1040-3590.19.4.369}
+
+\leavevmode\vadjust pre{\hypertarget{ref-hallgrenComputingInterRaterReliability2012}{}}%
+Hallgren, K. A. (2012). Computing Inter-Rater Reliability for Observational Data: An Overview and Tutorial. \emph{Tutorials in Quantitative Methods for Psychology}, \emph{8}(1), 23--34. \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3402032/}
+
+\leavevmode\vadjust pre{\hypertarget{ref-harveyCatastrophicWorryPrimary2003}{}}%
+Harvey, A. G., \& Greenall, E. (2003). Catastrophic worry in primary insomnia. \emph{Journal of Behavior Therapy and Experimental Psychiatry}, \emph{34}(1), 11--23. \url{https://doi.org/10.1016/s0005-7916(03)00003-x}
+
+\leavevmode\vadjust pre{\hypertarget{ref-hayesAnsweringCallStandard2007}{}}%
+Hayes, A. F., \& Krippendorff, K. (2007). Answering the Call for a Standard Reliability Measure for Coding Data. \emph{Communication Methods and Measures}, \emph{1}(1), 77--89. \url{https://doi.org/10.1080/19312450709336664}
+
+\leavevmode\vadjust pre{\hypertarget{ref-hayesAcceptanceCommitmentTherapy2006}{}}%
+Hayes, S. C., Luoma, J. B., Bond, F. W., Masuda, A., \& Lillis, J. (2006). Acceptance and commitment therapy: Model, processes and outcomes. \emph{Behaviour Research and Therapy}, \emph{44}(1), 1--25.
+
+\leavevmode\vadjust pre{\hypertarget{ref-hofmannFutureInterventionScience2019}{}}%
+Hofmann, S. G., \& Hayes, S. C. (2019). The Future of Intervention Science: Process-Based Therapy. \emph{Clinical Psychological Science}, \emph{7}(1), 37--50. \url{https://doi.org/10.1177/2167702618772296}
+
+\leavevmode\vadjust pre{\hypertarget{ref-holmSimpleSequentiallyRejective1979}{}}%
+Holm, S. (1979). A Simple Sequentially Rejective Multiple Test Procedure. \emph{Scandinavian Journal of Statistics}, \emph{6}(2), 65--70. \url{https://www.jstor.org/stable/4615733}
+
+\leavevmode\vadjust pre{\hypertarget{ref-holmesMentalImageryEmotion2005}{}}%
+Holmes, E. A., \& Mathews, A. (2005). Mental Imagery and Emotion: A Special Relationship? \emph{Emotion}, \emph{5}(4), 489--497. \url{https://doi.org/10.1037/1528-3542.5.4.489}
+
+\leavevmode\vadjust pre{\hypertarget{ref-holmesMentalImageryEmotion2010}{}}%
+Holmes, E. A., \& Mathews, A. (2010). Mental imagery in emotion and emotional disorders. \emph{Clinical Psychology Review}, \emph{30}(3), 349--362. \url{https://doi.org/10.1016/j.cpr.2010.01.001}
+
+\leavevmode\vadjust pre{\hypertarget{ref-huppertOCIRValidationSubscales2007}{}}%
+Huppert, J. D., Walther, M. R., Hajcak, G., Yadin, E., Foa, E. B., Simpson, H. B., \& Liebowitz, M. R. (2007). The OCI-R: validation of the subscales in a clinical sample. \emph{Journal of Anxiety Disorders}, \emph{21}(3), 394--406. \url{https://doi.org/10.1016/j.janxdis.2006.05.006}
+
+\leavevmode\vadjust pre{\hypertarget{ref-huppertCoreFearsValues2012}{}}%
+Huppert, J. D., \& Zlotnick, E. (2012). Core fears, values, and obsessive-compulsive disorder: a preliminary clinical-theoretical outlook. \emph{Psicoterapia Cognitiva e Comportamentale}, \emph{18}(1), 91--102.
+
+\leavevmode\vadjust pre{\hypertarget{ref-kaderVariabilityCategoricalVariables2007}{}}%
+Kader, G. D., \& Perry, M. (2007). Variability for Categorical Variables. \emph{Journal of Statistics Education}, \emph{15}(2), null. \url{https://doi.org/10.1080/10691898.2007.11889465}
+
+\leavevmode\vadjust pre{\hypertarget{ref-kendallFutureCognitiveAssessment1987}{}}%
+Kendall, P. C., \& Ingram, R. (1987). The future for cognitive assessment of anxiety: Let's get specific. In M. Larry \& L. M. Ascher (Eds.), \emph{Anxiety and stress disorders: Cognitive-behavioral assessment and treatment} (pp. pp. 89--104). Guilford Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-keoughAnxietySymptomatologyAssociation2010}{}}%
+Keough, M. E., Riccardi, C. J., Timpano, K. R., Mitchell, M. A., \& Schmidt, N. B. (2010). Anxiety Symptomatology: The Association With Distress Tolerance and Anxiety Sensitivity. \emph{Behavior Therapy}, \emph{41}(4), 567--574. \url{https://doi.org/10.1016/j.beth.2010.04.002}
+
+\leavevmode\vadjust pre{\hypertarget{ref-kroenkePHQ8MeasureCurrent2009}{}}%
+Kroenke, K., Strine, T. W., Spitzer, R. L., Williams, J. B. W., Berry, J. T., \& Mokdad, A. H. (2009). The PHQ-8 as a measure of current depression in the general population. \emph{Journal of Affective Disorders}, \emph{114}(1), 163--173. \url{https://doi.org/10.1016/j.jad.2008.06.026}
+
+\leavevmode\vadjust pre{\hypertarget{ref-leahyCognitiveTherapyTechniques2003}{}}%
+Leahy, R. L. (2003). \emph{Cognitive therapy techniques: a practitioner's guide}. Guilford Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-leyroDistressTolerancePsychopathological2010}{}}%
+Leyro, T. M., Zvolensky, M. J., \& Bernstein, A. (2010). Distress Tolerance and Psychopathological Symptoms and Disorders: A Review of the Empirical Literature among Adults. \emph{Psychological Bulletin}, \emph{136}(4), 576--600. \url{https://doi.org/10.1037/a0019712}
+
+\leavevmode\vadjust pre{\hypertarget{ref-linehanCognitivebehavioralTreatmentBorderline1993}{}}%
+Linehan, M. M. (1993). \emph{Cognitive-behavioral treatment of borderline personality disorder} (pp. xvii, 558). Guilford Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-michelEmotionalDistressTolerance2016}{}}%
+Michel, N. M., Rowa, K., Young, L., \& McCabe, R. E. (2016). Emotional distress tolerance across anxiety disorders. \emph{Journal of Anxiety Disorders}, \emph{40}, 94--103. \url{https://doi.org/10.1016/j.janxdis.2016.04.009}
+
+\leavevmode\vadjust pre{\hypertarget{ref-moorePsychometricEvaluationOverall2015}{}}%
+Moore, S. A., Welch, S. S., Michonski, J., Poquiz, J., Osborne, T. L., Sayrs, J., \& Spanos, A. (2015). Psychometric evaluation of the Overall Anxiety Severity And Impairment Scale (OASIS) in individuals seeking outpatient specialty treatment for anxiety-related disorders. \emph{Journal of Affective Disorders}, \emph{175}, 463--470. \url{https://doi.org/10.1016/j.jad.2015.01.041}
+
+\leavevmode\vadjust pre{\hypertarget{ref-mundtWorkSocialAdjustment2002}{}}%
+Mundt, J. C., Marks, I. M., Shear, M. K., \& Greist, J. M. (2002). The Work and Social Adjustment Scale: a simple measure of impairment in functioning. \emph{The British Journal of Psychiatry}, \emph{180}(5), 461--464. \url{https://doi.org/10.1192/bjp.180.5.461}
+
+\leavevmode\vadjust pre{\hypertarget{ref-murrayDissectingCoreFear2016}{}}%
+Murray, S. B., Loeb, K. L., \& Grange, D. L. (2016). Dissecting the Core Fear in Anorexia Nervosa: Can We Optimize Treatment Mechanisms? \emph{JAMA Psychiatry}, \emph{73}(9), 891--892. \url{https://doi.org/10.1001/jamapsychiatry.2016.1623}
+
+\leavevmode\vadjust pre{\hypertarget{ref-murrayExtinctionTheoryAnorexia2016}{}}%
+Murray, S. B., Treanor, M., Liao, B., Loeb, K. L., Griffiths, S., \& Le Grange, D. (2016). Extinction theory \& anorexia nervosa: Deepening therapeutic mechanisms. \emph{Behaviour Research and Therapy}, \emph{87}, 1--10. \url{https://doi.org/10.1016/j.brat.2016.08.017}
+
+\leavevmode\vadjust pre{\hypertarget{ref-normanDevelopmentValidationOverall2006}{}}%
+Norman, S. B., Hami Cissell, S., Means-Christensen, A. J., \& Stein, M. B. (2006). Development and validation of an Overall Anxiety Severity And Impairment Scale (OASIS). \emph{Depression and Anxiety}, \emph{23}(4), 245--249. \url{https://doi.org/10.1002/da.20182}
+
+\leavevmode\vadjust pre{\hypertarget{ref-padeskySocraticQuestioningChanging1993}{}}%
+Padesky, C. A. (1993). Socratic questioning: Changing minds or guiding discovery. \emph{A Keynote Address Delivered at the European Congress of Behavioural and Cognitive Therapies, London}, \emph{24}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-personsCaseFormulationApproach2012}{}}%
+Persons, J. B. (2012). \emph{The Case Formulation Approach to Cognitive-Behavior Therapy} (Reprint edition). The Guilford Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-pinciottiCallActionRecommendations2021}{}}%
+Pinciotti, C. M., Smith, Z., Singh, S., Wetterneck, C. T., \& Williams, M. T. (2021). Call to action: Recommendations for justice-based treatment of obsessive-compulsive disorder with sexual orientation and gender themes. \emph{Behavior Therapy}. \url{https://doi.org/10.1016/j.beth.2021.11.001}
+
+\leavevmode\vadjust pre{\hypertarget{ref-reeDistinguishingCognitiveSomatic2008}{}}%
+Ree, M. J., French, D., MacLeod, C., \& Locke, V. (2008). Distinguishing Cognitive and Somatic Dimensions of State and Trait Anxiety: Development and Validation of the State-Trait Inventory for Cognitive and Somatic Anxiety (STICSA). \emph{Behavioural and Cognitive Psychotherapy}, \emph{36}(3), 313--332. \url{https://doi.org/10.1017/S1352465808004232}
+
+\leavevmode\vadjust pre{\hypertarget{ref-roschCognitionCategorization1978}{}}%
+Rosch, E., \& Lloyd, B. B. (1978). \emph{Cognition and categorization}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-ryanOxfordHandbookHuman2012}{}}%
+Ryan, R. M. (2012). \emph{The Oxford Handbook of Human Motivation}. Oxford University Press, USA.
+
+\leavevmode\vadjust pre{\hypertarget{ref-safranElicitingHotCognitions1982}{}}%
+Safran, J. D., \& Greenberg, L. S. (1982). Eliciting {``hot cognitions''} in cognitive behaviour therapy: Rationale and procedural guidelines. \emph{Canadian Psychology/Psychologie Canadienne}, \emph{23}(2), 83--87. \url{https://doi.org/10.1037/h0081247}
+
+\leavevmode\vadjust pre{\hypertarget{ref-samuelSurveyInterviewMethods2020}{}}%
+Samuel, D. B., Bucher, M. A., \& Suzuki, T. (2020). Survey and Interview Methods. In A. G. C. Wright \& M. N. Hallquist (Eds.), \emph{The Cambridge Handbook of Research Methods in Clinical Psychology} (pp. 45--53). Cambridge University Press. \url{https://doi.org/10.1017/9781316995808.007}
+
+\leavevmode\vadjust pre{\hypertarget{ref-schwartzUniversalsContentStructure1992}{}}%
+Schwartz, S. H. (1992). Universals in the content and structure of values: Theoretical advances and empirical tests in 20 countries. \emph{Advances in Experimental Social Psychology}, \emph{25}(1), 1--65.
+
+\leavevmode\vadjust pre{\hypertarget{ref-simpsonMeasurementDiversity1949}{}}%
+Simpson, E. H. (1949). Measurement of Diversity. \emph{Nature}, \emph{163}(4148), 688--688. \url{https://doi.org/10.1038/163688a0}
+
+\leavevmode\vadjust pre{\hypertarget{ref-steimerBiologyFearAnxietyrelated2002}{}}%
+Steimer, T. (2002). The biology of fear- and anxiety-related behaviors. \emph{Dialogues in Clinical Neuroscience}, \emph{4}(3), 231--249. \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3181681/}
+
+\leavevmode\vadjust pre{\hypertarget{ref-tolinPsychometricPropertiesStructured2018}{}}%
+Tolin, D. F., Gilliam, C., Wootton, B. M., Bowe, W., Bragdon, L. B., Davis, E., Hannan, S. E., Steinman, S. A., Worden, B., \& Hallion, L. S. (2018). Psychometric Properties of a Structured Diagnostic Interview for DSM-5 Anxiety, Mood, and Obsessive-Compulsive and Related Disorders. \emph{Assessment}, \emph{25}(1), 3--13. \url{https://doi.org/10.1177/1073191116638410}
+
+\leavevmode\vadjust pre{\hypertarget{ref-vaseyCatastrophizingAssessmentWorrisome1992}{}}%
+Vasey, M. W., \& Borkovec, T. D. (1992). A catastrophizing assessment of worrisome thoughts. \emph{Cognitive Therapy and Research}, \emph{16}(5), 505--520. \url{https://doi.org/10.1007/BF01175138}
+
+\leavevmode\vadjust pre{\hypertarget{ref-watkinsMoodInputRumination2002}{}}%
+Watkins, E., \& Mason, A. (2002). Mood as input and rumination. \emph{Personality and Individual Differences}, \emph{32}(4), 577--587. \url{https://doi.org/10.1016/S0191-8869(01)00058-7}
+
+\leavevmode\vadjust pre{\hypertarget{ref-zlotnickAnatomyFearCloser2024}{}}%
+Zlotnick, E., \& Huppert, J. D. (2024). \emph{The Anatomy of Fear: A Closer Look at Core Threats} {[}Manuscript in preparation{]}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-zuromskiDevelopingOptimalShortform2019}{}}%
+Zuromski, K. L., Ustun, B., Hwang, I., Keane, T. M., Marx, B. P., Stein, M. B., Ursano, R. J., \& Kessler, R. C. (2019). Developing an optimal short-form of the PTSD Checklist for DSM-5 (PCL-5). \emph{Depression and Anxiety}, \emph{36}(9), 790--800. \url{https://doi.org/10.1002/da.22942}
+
+\end{CSLReferences}
+
+
+\end{document}

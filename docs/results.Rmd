@@ -1,0 +1,248 @@
+# Results
+
+```{r  include = FALSE}
+source(here('scripts','simpsonD.R'))
+source(here('scripts','agreement.analysis.R'))
+# Setup agreement statistics 
+
+# Define the path to the agreement RDS file
+agreementRdsFile = here('docs', 'manual_cache', 'agreement.rds')
+
+# Create the directory if it does not exist
+dir.create(here('docs', 'manual_cache'), recursive = TRUE, showWarnings = FALSE)
+
+R = 1e4 # bootstrap repetitions, this takes a while thus the cache... 
+# uncache: file.remove(agreementRdsFile)
+# Check if the RDS file exists
+if (file.exists(agreementRdsFile)) {
+  # If it exists, read the RDS file
+  agreementLists = readRDS(agreementRdsFile)
+} else {
+  # If it does not exist, create the agreement lists and save them to the RDS file
+  # possibly parallelize ??
+  agreementLists = list(
+    agreement(ocd.values %>% mutate(type = if_else(type == 'cf', 'core', 'surface')), R = R),
+    agreement(sticsa.values, R = R),
+    agreement(online.values, R = R),
+    agreement(wet.values, R = R)
+  )
+  saveRDS(agreementLists, agreementRdsFile)
+}
+```
+
+## The Distribution of Threat Values
+
+The values manifest in core and proximal threats are distributed slightly differently.
+Furthermore, we found differences between samples as well (see Figure \@ref(fig:distribution)).
+Most apparent is the fact that proximal threats are far more likely to be scored as ambiguous than core threats.
+This may have been because the CTSI directed participants to talk in terms of values.
+However, participants were never explicitly directed to describe their threats in terms of values.
+We believe that a more plausible explanation is that the CTSI helps participants to bring their core threats into focus.
+
+(ref:distribution) Distribution of threat values across experiments
+
+```{r distribution, file=here('scripts','figure.distribution.R'), echo=FALSE, fig.cap='(ref:distribution)', warning=FALSE, cache=TRUE, out.width="90%"}
+```
+
+In both face-to-face samples (but more-so in Experiment 1) distress tolerance was a common proximal threat but a rare core threats.
+We see this as evidence that distress tolerance type threats are often a form of avoiding underlying core threats rather than the ultimate feared outcome.
+It is not clear why this did not happen in the self-administered versions.
+Perhaps the detailed way in which the proximal threats are gathered in the self-administered version of the CTSI helps people focus onto harm-avoidant type threats.
+
+Affiliation was a leading value in all three trans-diagnostic experiments.
+This may be because of over-representation of socially anxious individuals, or because the affiliation category is defined too widely.
+Perhaps there is place to differentiate between sub-types of affiliation.
+Alternatively, it may be that affiliation is indeed the most common of core threats [cf. @gilbertEVOLUTIONSOCIALANXIETY2001; @bowlbyAttachmentLoss1969].
+
+## Hypothesis 1: Proximal-Core Agreement
+
+Hypothesis 1 was that core threats represent a different process than proximal threats.
+This was investigated in two ways:
+First, can core threats be predicted from proximal threats?
+Second, do core threats demonstrate greater diversity in content than proximal threats?
+Core threats agreed with their proximal threats up to 32.5% of the time, with agreement dropping to 16.9% in Experiment 1 (High OC).
+All three trans-diagnostic samples had a slightly higher than chance agreement for proximal threats to match core threats.
+However, after correcting for multiple comparisons via the Holm-Bonferroni method [@holmSimpleSequentiallyRejective1979], only Experiment 2 (face-to-face trans-diagnostic) was significantly different from chance.
+Detailed results can be found in Table \@ref(tab:agreement).
+We interpret this as an indication that proximal threats potentially hold some information regarding core threats.
+However, the highest agreement recorded was 32.5%, which, even if statistically significant, is clinically insufficient.
+Thus, as hypothesized, proximal threats are not good predictors of core threats (more than 70% of the time).
+
+The diversity of proximal threats ranged from Simpson's $D$ of 0.30 to 0.46.
+The diversity of core threats was not significantly different, with the exception of core threats in Experiment 1, which was significantly higher (lower Simpson's $D$ of 0.23).
+The diversity of core threats tended to be greater than the diversity of proximal threats, with the exception of Experiment 2 (TICSA) where the diversities were equal.
+However after correction only Experiment 1 (High OC) was significant.
+Detailed results can be found in Table \@ref(tab:agreement).
+
+```{r agreement, echo=FALSE}
+rowNames = c(
+  'N pairs',
+  'Expected Agreement (%)',
+  'Actual Agreement (%)',
+  'p Agreement',
+  'Proximal threats',
+  'Core threats',
+  'p Diversity'
+)
+
+# Initialize an empty data frame
+agreement_df <- data.frame(matrix(ncol = length(agreementLists)+1, nrow = length(rowNames)))
+agreement_df[,1] = rowNames
+
+for (i in seq_along(agreementLists)){
+  col = with(agreementLists[[i]], c(
+    N,
+    format_count_percentage(expected_count, N),
+    format_count_percentage(actual_count, N),
+    printp(expected_p),
+    D_sf$apa_string_short,
+    D_cf$apa_string_short,
+    printp(D_perc_sfcf)
+  ))
+  agreement_df[,i+1] = col
+}
+
+agreement_df %>%
+  apa_table(
+    caption = 'Agreement and Diversity statistics across studies. Agreement reflects the count of expected and actual pairs of motivations aligning (p Agreement indicates the likelihood of observing this agreement by chance). Diversity is measured using the Simpson Diversity Index for proximal versus core threats (p Diversity represents the probability that core threat diversity exceeds proximal threat diversity).',
+    col.names = COLNAMES,
+    col_spanners = list( "Interview" = 2:3, "Self-administered" = 4:5),
+    stub_indents = list( "Agreement" = 1:4, "Diversity (D)" = 5:7)
+  )
+
+```
+
+After identifying core threats, participants were asked whether these threats reflected their motivation for fear.
+This assessment was conducted in the three trans-diagnostic samples, but not in the OCD sample.
+The full results can be seen in Figure \@ref(fig:subjective).
+In all experiments, the majority of participants confirmed that the identified core threats were indeed the motivation for their anxiety.
+The proportion of "correct" motivations was the same for participants whose proximal and core threats aligned and those whose identified core threat had a different motivation.
+A significant proportion of participants expressed uncertainty about whether their identified core threat reflected their underlying motivation.
+However, this uncertainty was less pronounced in the self-administered versions.
+
+(ref:subjective) The mosaic plot illustrates participants' responses to the question: “Does the core threat you identified reflect your true motivation?” Tile sizes represent the relative frequencies of responses across groups. The plot indicates that core threats generally align with participants’ true motivations. Sensitivity analyses further confirmed that these proportions remained consistent, regardless of whether core threats matched proximal threats.
+
+```{r subjective, file=here('scripts','figure.subjective.R'), echo=FALSE, fig.cap='(ref:subjective)', warning=FALSE, cache=TRUE}
+```
+
+## Hypothesis 2: Multiple proximal threats - one core threat
+
+```{r include=FALSE}
+###################
+# Within Patient Agreement
+###################
+
+# Filter data for individuals that have identified more than one core threat
+d <- ocd.values %>% 
+  filter(type == 'cf', is.na(`No Idea`)) %>%
+  group_by(id) %>%
+  filter(n() > 1) %>%
+  ungroup()
+
+# Use full_join to consider all combinations of id and wave
+aligned_df <- full_join(
+  d %>% filter(wave == 1),
+  d %>% filter(wave == 2),
+  by = "id", suffix = c("_1", "_2")
+) %>%
+  filter(!if_all(Affiliation_1:`No Idea_1`, is.na)) %>%  # Remove rows with all NA values in wave 1
+  filter(!if_all(Affiliation_2:`No Idea_2`, is.na))  # Remove rows with all NA values in wave 2
+
+# Create lists of values for each wave
+values_1 <- aligned_df %>% 
+  select(Affiliation_1:`No Idea_1`) %>%
+  as.matrix() %>%
+  apply(1, function(i) { which(!is.na(i)) })
+
+values_2 <- aligned_df %>% 
+  select(Affiliation_2:`No Idea_2`) %>%
+  as.matrix() %>%
+  apply(1, function(i) { which(!is.na(i)) })
+
+# Calculate the number of aligned rows
+ocd.within.N <- nrow(aligned_df)
+
+# Calculate overall agreement within patients
+ocd.within.overall <- agree_list(values_1, values_2)
+
+# Bootstrap to calculate agreement by chance
+ocd.within.bychance.boot <- sapply(1:1e4, function(i) {
+  combined <- sample(c(values_1, values_2), replace = FALSE)
+  agree_list(combined[1:ocd.within.N], combined[(ocd.within.N + 1):(ocd.within.N * 2)])
+})
+```
+
+
+
+Hypothesis 2 was that one core threat often motivates multiple proximal threats.
+We investigated this question in Experiment 1 by administering the CTSI for two distinct compulsions (proximal threats).
+Only `r format_count_percentage(ocd.within.N, ocd.N)` individuals identified core threats for two separate compulsions.
+This limited identification often occurred because participants became tired and lost patience by the time they were interviewed about the second compulsion.
+Consequently, our data on this topic is not only very limited but also potentially biased (Is there a relationship between the ability of participants to continue and the characteristics of their fears?).
+
+A permutation test reveals that the median expected number of agreements is `r format_count_percentage(median(ocd.within.bychance.boot),ocd.within.N)` of the cases.
+In practice, `r ocd.within.overall` (`r apa_percentage(ocd.within.overall/ocd.within.N)`, $p$ = `r printp(mean(ocd.within.bychance.boot >= ocd.within.overall))`) pairs of core threats agreed with one another.
+Despite not being significant, this result suggests that core threats may motivate multiple proximal threats within the same individual.
+However, due to the small sample size, these findings should be interpreted with caution, and further research is needed.
+We suggest that this estimate would be even higher if we had chosen more similar compulsions.
+
+Interestingly, some of the pairs might be considered as having common threats even though their values did not explicitly match.
+For example, one woman was afraid of becoming contaminated and dying if she did not perform her cleaning compulsions (Survival), and of breaking up with her boyfriend, not having children, and being alone forever (Affiliation).
+A deeper investigation might have found that not having children means for her the same as not surviving.
+We suggest this because this dataset was the first we had, as we developed the CTI, and we believe that the administration was suboptimal.This finding highlights that the same core threats often seem to motivate different proximal threats.
+Importantly, it also indicates that individuals are sometimes driven by more than one core threat.
+
+
+## Hypothesis 3: Test Retest
+
+
+```{r include=FALSE}
+##############################
+# Within Patient Agreement
+##############################
+
+# Filter data for individuals that have identified more than one core threat
+d <- sticsa.values %>% 
+  filter(type == 'core', is.na(`No Idea`)) %>%
+  group_by(id) %>%
+  filter(n() > 1) %>%
+  ungroup()
+
+# Use full_join to consider all combinations of id and wave
+aligned_df <- full_join(
+  d %>% filter(wave == 1),
+  d %>% filter(wave == 2),
+  by = "id", suffix = c("_1", "_2")
+) %>%
+  filter(!if_all(Affiliation_1:`No Idea_1`, is.na)) %>%  # Remove rows with all NA values in wave 1
+  filter(!if_all(Affiliation_2:`No Idea_2`, is.na))  # Remove rows with all NA values in wave 2
+
+# Create lists of values for each wave
+values_1 <- aligned_df %>% 
+  select(Affiliation_1:`No Idea_1`) %>%
+  as.matrix() %>%
+  apply(1, function(i) { which(!is.na(i)) })
+
+values_2 <- aligned_df %>% 
+  select(Affiliation_2:`No Idea_2`) %>%
+  as.matrix() %>%
+  apply(1, function(i) { which(!is.na(i)) })
+
+# Calculate the number of individuals completing both evaluations
+sticsa.within.N <- nrow(aligned_df)
+
+# Calculate overall agreement within patients
+sticsa.within.overall <- agree_list(values_1, values_2)
+
+# Bootstrap to calculate agreement by chance
+sticsa.within.bychance.boot <- sapply(1:1e4, function(i) {
+  combined <- sample(c(values_1, values_2), replace = FALSE)
+  agree_list(combined[1:sticsa.within.N], combined[(sticsa.within.N + 1):(sticsa.within.N * 2)])
+})
+```
+
+`r sticsa.within.N` individuals (`r apa_percentage(sticsa.within.N/sticsa.N)`) completed both evaluations of their core threats.
+A permutation test reveals that the median expected number of agreements is `r median(sticsa.within.bychance.boot)` cases (`r apa_percentage(median(sticsa.within.bychance.boot)/sticsa.within.N)`).
+In practice, `r sticsa.within.overall` pairs of core threats agreed with each other (`r apa_percentage(sticsa.within.overall/sticsa.within.N)`, $p$ = `r printp(mean(sticsa.within.bychance.boot >= sticsa.within.overall))`).
+This finding suggests significant test-retest validity, indicating that it is likely that the same core threats motivate fear over time.
+Furthermore, it supports the notion that different evaluators can identify the same core threat when interviewing an individual.
