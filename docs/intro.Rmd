@@ -14,7 +14,7 @@ Or she might be afraid of suffering.
 The important thing is that we don't know until we ask.
 
 These underlying concerns, known as core threats, are also referred to as core fears, catastrophic beliefs or central innately aversive outcomes.
-They play a crucial role in treating anxiety disorders [@huppertCoreFearsValues2012; @zlotnickAnatomyFearCloser2024].
+They play a crucial role in treating anxiety disorders [@huppertCoreFearsValues2012; @zlotnickAnatomyFearCloser2025].
 Many clinicians appreciate the importance of core threats and their role in the treatment of anxiety
 [e.g.\, @craskeOptimizingExposureTherapy2022; @gillihanCommonPitfallsExposure2012; @pinciottiCallActionRecommendations2021;@murrayDissectingCoreFear2016].
 However, clinical guidelines for determining core threats are lacking.
@@ -46,7 +46,7 @@ Consider an individual who is afraid of seeing blood— assuming that their core
 However, if their primary fear is related to contracting AIDS, they might not respond well to exposure to sheep blood.
 The distinction holds in the same way for thought challenges or behavioral experiments.
 Furthermore, a major challenge of safety learning is that it is difficult to generalize across contexts [see @boutonContextAmbiguityUnlearning2002].
-Focusing on core threats highlights the threatening aspect of feared stimuli and thus promotes generalization of safety learning across contexts [@@zlotnickAnatomyFearCloser2024; @gillihanCommonPitfallsExposure2012].
+Focusing on core threats highlights the threatening aspect of feared stimuli and thus promotes generalization of safety learning across contexts [@@zlotnickAnatomyFearCloser2025; @gillihanCommonPitfallsExposure2012].
 Last but not least, identifying core threats enables clinicians to better understand patients' experiences when confronting their fears.
 This, in turn, fosters a sense of being understood and supported for the patients, as well as giving them a coherent narrative for understanding their pathological behavior.
 Thus, determining core threats might significantly influence the trajectory of psychotherapy.
@@ -95,7 +95,7 @@ Considering the proximal threat that they have chosen, participants are asked wh
 Subsequently, a series of follow-up questions are asked, such as "and then what," "what is so terrible about that," and "what does that mean to you" [@beckCognitiveBehaviorTherapy2011; @leahyCognitiveTherapyTechniques2003].
 As the interview proceeds, the questions are used to refer to deeper and deeper threats until the core threat is identified.
 
-Core threats are comprised from an *expectation* that an event could happen, and of the *evaluation* that this event is catastrophic [@zlotnickAnatomyFearCloser2024].
+Core threats are comprised from an *expectation* that an event could happen, and of the *evaluation* that this event is catastrophic [@zlotnickAnatomyFearCloser2025].
 The evaluation of an event as catastrophic depends on one's idiographic set of values, goals, and motivations.
 Therefore, it is helpful to ask individuals not only what can happen, but also what would the threat happening mean to them or what it is about the threat that makes them care so much.
 This line of questioning leads at times in surprising directions [i.e., a form of guided discovery\; @padeskySocraticQuestioningChanging1993].
@@ -183,7 +183,7 @@ To assess the level of similarity or agreement between threats, they need to be 
 Categorization allows for a systematic and structured analysis.
 
 Our investigation is primarily focused on identifying the threats driving fear responses.
-These threats are manifestations of the values motivating these responses [@zlotnickAnatomyFearCloser2024].
+These threats are manifestations of the values motivating these responses [@zlotnickAnatomyFearCloser2025].
 Many taxonomies have been suggested for basic values [see @austinGoalConstructsPsychology1996; @ryanOxfordHandbookHuman2012 for reviews].
 However, none seemed suitable for covering the types of threats commonly underlying fear, including Schwartz's taxonomy [-@schwartzUniversalsContentStructure1992], which has been suggested as a candidate for organizing core threats [@huppertCoreFearsValues2012].
 To address this gap, we developed a new taxonomy of global motivations derived from clinical insights, consultations with experts, and established theories, particularly those highlighted by Dweck [-@dweckNeedsGoalsRepresentations2017].
