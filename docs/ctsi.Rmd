@@ -28,16 +28,16 @@ authornote: |
   This work was supported by ISF 1905/20 awarded to Jonathan Huppert, Sam and Helen Beber Chair of Clinical Psychology.
 
 abstract: |
-  Pathological anxiety is often maintained by avoidance behaviors driven by deeply personal core threats
+  Pathological anxiety is often maintained by avoidance behaviors potentially driven by deeply personal core threats (aka, core fears).
   Despite their role in clinical formulations and interventions, core threats remain an under-researched concept, with no validated tools to systematically assess them.
   Core threats are defined as the ultimate feared consequences driving avoidance behaviors.
-  For example, the core threat driving fear of contamination can be any of the following threat of death, harm to one's loved ones, disgust, or inability to function.
+  For example, the core threat driving fear of contamination can be any of the following: threat of death, harm to one's loved ones, disgust, or inability to function.
   This study introduces the Core Threat Structured Interview (CTSI), a tool designed to systematically identify core threats in both face-to-face and self-administered online formats.
-  Through extensive validation, the CTSI demonstrates reliability (e.g., interrater reliability, test-retest) and validity (face, convergant, divergant).
-  Our findings further illuminate the phenomenological distinction between core and proximal threats, revealing that core threats are idiosyncratic, and distinct from poximal fears.
+  Through four validation studies, the CTSI demonstrates reliability (e.g., interrater reliability, test-retest) and validity (face, convergent, divergent).
+  Our findings further illuminate the phenomenological distinction between core and proximal threats, revealing that core threats are idiosyncratic and distinct from proximal threats.
   This underscores the complexity of anxiety and the necessity for personalized approaches in assessment and intervention.
   By enabling systematic identification of core threats, the CTSI offers a novel avenue for both research and clinical practice.
-  We anticipate that this tool will enhance the personalization of anxiety treatments, fostering a nuanced understanding of the motivations and cognitions underlying fear.
+  This tool can enhance the personalization of anxiety treatments, fostering a nuanced understanding of the motivations and cognitions underlying fear.
 
 keywords          :
   - Core threats

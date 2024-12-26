@@ -8,7 +8,7 @@ source(here('scripts','load_data.R'))
 ```
 
 ```{r demographics, echo=FALSE}
-COLNAMES = c('', 'OCD','TICSA', 'online', 'wet')
+COLNAMES = c('', 'High OC FTF','TD FTF', 'TD Online (He)', 'TD Online (En)')
 
 demographics_df = data.frame(
   X1 = c('N', 'Female N', 'Mean age (SD)', 'Anxiety Measure', 'Anxiety Score (SD)'),
@@ -22,7 +22,8 @@ demographics_df %>%
   apa_table(
     caption = 'Demographics',
     col.names = COLNAMES,
-    col_spanners = list( "Interview" = 2:3, "Self-administered" = 4:5)
+    col_spanners = list( "Interview" = 2:3, "Self-administered" = 4:5),
+    note = 'OC - obsessive compulsive, FTF - face to face, TD - Transdiagnostic'
   )
 ```
 
@@ -61,7 +62,7 @@ It has demonstrated robust psychometric properties in both clinical and student 
 With an omega coefficient of `r ocd.ocir.omega`, the OCIR has shown high internal consistency and is a reliable measure of OCD symptom severity.
 
 **Diagnostic Interview for Anxiety, Mood, and OCD and Related Neuropsychiatric Disorders [DIAMOND\; @tolinPsychometricPropertiesStructured2018]**: The DIAMOND is a semi-structured diagnostic interview designed to diagnose DSM-5 psychiatric disorders, with robust psychometric properties.
-In this study, only the OCD section of the DIAMOND was administered to establish OCD diagnoses.
+In this study, only the OCD section of the DIAMOND was administered to establish OCD diagnosis.
 The DIAMOND has shown excellent inter-rater reliability, test-retest reliability, and both convergent and divergent validity [@tolinPsychometricPropertiesStructured2018].
 
 ## Methods: Experiment 2
@@ -73,7 +74,7 @@ Furthermore, it aimed to investigate both test retest reliability and inter-rate
 
 Participants were sourced from a pre-existing database of individuals who had previously agreed to participate in research studies and had completed TICSA.
 Each participant was contacted by a research assistant and provided informed consent to participate in the study.
-Full demographic details can found in Table \@ref(tab:demographics).
+Full demographic details can be found in Table \@ref(tab:demographics).
 
 ### Procedure
 

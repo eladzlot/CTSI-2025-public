@@ -3,7 +3,7 @@ tbl = table(
   c(agreementLists[[2]]$is_real,agreementLists[[3]]$is_real,agreementLists[[4]]$is_real)%>% factor(levels = c(1,3,2))
 )
 colnames(tbl) <- c('','','')
-rownames(tbl) <- c('STICSA', 'Online', 'WET')
+rownames(tbl) <- c('TD FTF', 'TD Online (He)', 'TD Online (En)')
 
 # Save the original graphical parameters
 original_par <- par()

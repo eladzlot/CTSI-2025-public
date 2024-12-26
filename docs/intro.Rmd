@@ -58,13 +58,14 @@ Accurately identifying core threats is not trivial.
 It requires a clear understanding of what core threats are, as well as the types of questions best used to determine them.
 Therefore, a semi-structured interview is useful for identifying them [@samuelSurveyInterviewMethods2020].
 It may serve as a valuable tool for both clinical and research applications.
-In clinical settings, it enables therapists to discern the specific motivations driving anxiety-related behaviors, facilitating the development of a clear case forumulation [@personsCaseFormulationApproach2012] as well as personally tailored interventions [e.g., @gillihanCommonPitfallsExposure2012; @pinciottiCallActionRecommendations2021; @murrayDissectingCoreFear2016].
+In clinical settings, it enables therapists to discern the specific motivations driving anxiety-related behaviors, facilitating the development of a clear case formulation [@personsCaseFormulationApproach2012] as well as personally tailored interventions [e.g., @gillihanCommonPitfallsExposure2012; @pinciottiCallActionRecommendations2021; @murrayDissectingCoreFear2016].
 In research, the semi-structured interview ensures consistency and accuracy, preventing ambiguous identification of core threats, thereby enhancing the reliability and validity of findings.
+In addition, one can also assign probability and threat values to the proximal and core threats to examine changes via treatment and their relationship to other constructs.
 
-### The Catastrophising Interview
+### The Catastrophizing Interview
 
 A well-established procedure exists for investigating catastrophizing in Generalized Anxiety Disorder (GAD) and related disorders [@daveyCatastrophisingInterviewProcedure2006; @vaseyCatastrophizingAssessmentWorrisome1992].
-Vasey and Borkovec [-@vaseyCatastrophizingAssessmentWorrisome1992] devised the catastrophising interview procedure based on cognitive therapy's decatastrophising technique [@kendallFutureCognitiveAssessment1987].
+Vasey and Borkovec [-@vaseyCatastrophizingAssessmentWorrisome1992] devised the catastrophizing interview procedure based on cognitive therapy's decatastrophizing technique [@kendallFutureCognitiveAssessment1987].
 The procedure consists of two phases: topic generation and catastrophizing.
 During the topic generation phase, participants list their current worries and rate the percentage of time spent worrying about each topic and its significance.
 The topic with the highest percentage is selected for the catastrophizing interview.
@@ -73,9 +74,9 @@ Followed by the question, "What about [participant's response to the previous qu
 This sequence continues until participants refuse to continue the interview, are unable to generate further responses, or repeat the same general response three consecutive times.
 
 The procedure was later updated for improved response standardization [@daveyCatastrophisingInterviewProcedure2006].
-Participants were guided to write their responses for each catastrophising step on a response sheet, limiting each response to a single sentence space.
+Participants were guided to write their responses for each catastrophizing step on a response sheet, limiting each response to a single sentence space.
 This facilitated concise and accessible records, avoiding overly elaborate answers spanning multiple steps.
-Additionally, before starting the procedure, all participants received examples of initial steps in a typical catastrophising sequence, familiarizing them with the procedure's requirements.
+Additionally, before starting the procedure, all participants received examples of initial steps in a typical catastrophizing sequence, familiarizing them with the procedure's requirements.
 The catastrophizing interview, initially designed for GAD, was later extended to other related disorders, such as worry in insomnia [@harveyCatastrophicWorryPrimary2003] and rumination in depression [@watkinsMoodInputRumination2002].
 It primarily examines the tendency to perseverate in worry by quantifying the number of catastrophizing steps.
 In contrast, the goal when investigating core threats is to identify the underlying threat that triggers fear.
@@ -144,7 +145,7 @@ We posit the following main hypothesis:
 1. Core threats are different from proximal threats. 
     a. Core threats cannot be predicted from proximal threats.
     b. Core threats demonstrate greater diversity in content than proximal threats.
-2. One core threats often motivates multiple proximal threats.
+2. One core threat often motivates multiple proximal threats.
 3. Core threats are stable over time.
 
 By exploring the relationship between core and proximal threats, and testing our hypotheses using the CTSI, we gain a deeper understanding of the fundamental processes underlying fear and anxiety disorders.

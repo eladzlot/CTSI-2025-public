@@ -44,14 +44,14 @@ We believe that a more plausible explanation is that the CTSI helps participants
 ```{r distribution, file=here('scripts','figure.distribution.R'), echo=FALSE, fig.cap='(ref:distribution)', warning=FALSE, cache=TRUE, out.width="90%"}
 ```
 
-In both face-to-face samples (but more-so in Experiment 1) distress tolerance was a common proximal threat but a rare core threats.
+In both face-to-face samples (but more-so in Experiment 1) distress tolerance was a common proximal threat but a rare core threat.
 We see this as evidence that distress tolerance type threats are often a form of avoiding underlying core threats rather than the ultimate feared outcome.
 It is not clear why this did not happen in the self-administered versions.
-Perhaps the detailed way in which the proximal threats are gathered in the self-administered version of the CTSI helps people focus onto harm-avoidant type threats.
+Perhaps the detailed way in which the proximal threats are gathered in the self-administered version of the CTSI helps people focus on harm-avoidant type threats.
 
 Affiliation was a leading value in all three trans-diagnostic experiments.
-This may be because of over-representation of socially anxious individuals, or because the affiliation category is defined too widely.
-Perhaps there is place to differentiate between sub-types of affiliation.
+There might have been an over-representation of socially anxious individuals, or the affiliation category might be defined too widely.
+It could be beneficial to differentiate between sub-types of affiliation.
 Alternatively, it may be that affiliation is indeed the most common of core threats [cf. @gilbertEVOLUTIONSOCIALANXIETY2001; @bowlbyAttachmentLoss1969].
 
 ## Hypothesis 1: Proximal-Core Agreement
@@ -107,7 +107,8 @@ agreement_df %>%
     caption = 'Agreement and Diversity statistics across studies. Agreement reflects the count of expected and actual pairs of motivations aligning (p Agreement indicates the likelihood of observing this agreement by chance). Diversity is measured using the Simpson Diversity Index for proximal versus core threats (p Diversity represents the probability that core threat diversity exceeds proximal threat diversity).',
     col.names = COLNAMES,
     col_spanners = list( "Interview" = 2:3, "Self-administered" = 4:5),
-    stub_indents = list( "Agreement" = 1:4, "Diversity (D)" = 5:7)
+    stub_indents = list( "Agreement" = 1:4, "Diversity (D)" = 5:7),
+    note = 'OC - obsessive compulsive, FTF - face to face, TD - Transdiagnostic'
   )
 
 ```
@@ -241,8 +242,9 @@ sticsa.within.bychance.boot <- sapply(1:1e4, function(i) {
 })
 ```
 
-`r sticsa.within.N` individuals (`r apa_percentage(sticsa.within.N/sticsa.N)`) completed both evaluations of their core threats.
+In the OCD face-to-face sample, `r sticsa.within.N` individuals (`r apa_percentage(sticsa.within.N/sticsa.N)`) completed both evaluations of their core threats.
 A permutation test reveals that the median expected number of agreements is `r median(sticsa.within.bychance.boot)` cases (`r apa_percentage(median(sticsa.within.bychance.boot)/sticsa.within.N)`).
 In practice, `r sticsa.within.overall` pairs of core threats agreed with each other (`r apa_percentage(sticsa.within.overall/sticsa.within.N)`, $p$ = `r printp(mean(sticsa.within.bychance.boot >= sticsa.within.overall))`).
 This finding suggests significant test-retest validity, indicating that it is likely that the same core threats motivate fear over time.
 Furthermore, it supports the notion that different evaluators can identify the same core threat when interviewing an individual.
+However, it is a bit below what is desirable, and further work should be done to see if core threats are less stable than we predict or whether there are ways to administer the CTSI that yield better test-retest reliability.
