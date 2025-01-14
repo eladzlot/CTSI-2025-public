@@ -38,6 +38,7 @@ abstract: |
   This underscores the complexity of anxiety and the necessity for personalized approaches in assessment and intervention.
   By enabling systematic identification of core threats, the CTSI offers a novel avenue for both research and clinical practice.
   This tool can enhance the personalization of anxiety treatments, fostering a nuanced understanding of the motivations and cognitions underlying fear.
+  The study was pre-registered on AsPredicted ([https://aspredicted.org/89j7-5m4t.pdf](https://aspredicted.org/89j7-5m4t.pdf)).
 
 keywords          :
   - Core threats
