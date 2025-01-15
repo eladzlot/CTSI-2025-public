@@ -32,47 +32,46 @@ if (file.exists(agreementRdsFile)) {
 
 ## The Distribution of Threat Values
 
-The values manifest in core and proximal threats are distributed slightly differently.
-Furthermore, we found differences between samples as well (see Figure \@ref(fig:distribution)).
-Most apparent is the fact that proximal threats are far more likely to be scored as ambiguous than core threats.
-This may have been because the CTSI directed participants to talk in terms of values.
-However, participants were never explicitly directed to describe their threats in terms of values.
-We believe that a more plausible explanation is that the CTSI helps participants to bring their core threats into focus.
+The distribution of values in core and proximal threats varied across experiments, with notable differences between the face-to-face and self-administered formats (see Figure \@ref(fig:distribution)).
+Proximal threats were more frequently rated as ambiguous compared to core threats. 
+This discrepancy may stem from the CTSI’s emphasis on exploring values, though participants were not explicitly instructed to frame their threats in these terms. 
+A more plausible explanation is that the CTSI facilitates a clearer focus on core threats during the interview process.
 
 (ref:distribution) Distribution of threat values across experiments
 
 ```{r distribution, file=here('scripts','figure.distribution.R'), echo=FALSE, fig.cap='(ref:distribution)', warning=FALSE, cache=TRUE, out.width="90%"}
 ```
 
-In both face-to-face samples (but more-so in Experiment 1) distress tolerance was a common proximal threat but a rare core threat.
-We see this as evidence that distress tolerance type threats are often a form of avoiding underlying core threats rather than the ultimate feared outcome.
-It is not clear why this did not happen in the self-administered versions.
-Perhaps the detailed way in which the proximal threats are gathered in the self-administered version of the CTSI helps people focus on harm-avoidant type threats.
+In the face-to-face samples, particularly in Experiment 1, distress tolerance frequently emerged as a proximal threat but was rare as a core threat.
+This suggests that distress tolerance-related threats may function as mechanisms for avoiding deeper, underlying fears rather than representing the ultimate feared outcome.
+Interestingly, this pattern was not observed in the self-administered versions of the CTSI, possibly because the detailed prompts in the self-administered format encouraged participants to identify harm-avoidant threats explicitly.
 
-Affiliation was a leading value in all three trans-diagnostic experiments.
-There might have been an over-representation of socially anxious individuals, or the affiliation category might be defined too widely.
-It could be beneficial to differentiate between sub-types of affiliation.
-Alternatively, it may be that affiliation is indeed the most common of core threats [cf. @gilbertEVOLUTIONSOCIALANXIETY2001; @bowlbyAttachmentLoss1969].
+In the face-to-face samples, particularly in Experiment 1, distress tolerance frequently emerged as a proximal threat but was rare as a core threat.
+This suggests that distress tolerance may serve as a form of avoidance rather than an ultimate feared outcome.
+Because distress tolerance is often framed in broad and universally valid terms (e.g., "I can't handle this discomfort"), it allows individuals to sidestep engaging with the specific and potentially more threatening underlying fears.
+In essence, focusing on distress tolerance can provide an avenue for avoidance by shifting attention away from addressing the actual threat.
+
+Affiliation consistently appeared as a prominent value in the transdiagnostic experiments.
+This could reflect an overrepresentation of socially anxious individuals in the sample, or it may indicate that the affiliation category encompasses diverse subtypes.
+Differentiating between these subtypes in future research may provide greater specificity.
+Alternatively, affiliation may genuinely represent the most common core threat, as suggested by theories emphasizing its evolutionary and psychological significance [cf.
+@gilbertEVOLUTIONSOCIALANXIETY2001; @bowlbyAttachmentLoss1969].
 
 ## Hypothesis 1: Proximal-Core Agreement
 
-Hypothesis 1 was that core threats represent a different process than proximal threats.
-This was investigated in two ways:
-First, can core threats be predicted from proximal threats?
-Second, do core threats demonstrate greater diversity in content than proximal threats?
-Core threats agreed with their proximal threats up to 32.5% of the time, with agreement dropping to 16.9% in Experiment 1 (High OC).
-All three trans-diagnostic samples had a slightly higher than chance agreement for proximal threats to match core threats.
-However, after correcting for multiple comparisons via the Holm-Bonferroni method [@holmSimpleSequentiallyRejective1979], only Experiment 2 (face-to-face trans-diagnostic) was significantly different from chance.
-Detailed results can be found in Table \@ref(tab:agreement).
-We interpret this as an indication that proximal threats potentially hold some information regarding core threats.
-However, the highest agreement recorded was 32.5%, which, even if statistically significant, is clinically insufficient.
-Thus, as hypothesized, proximal threats are not good predictors of core threats (more than 70% of the time).
+Hypothesis 1 was that core threats represent a distinct psychological process from proximal threats.
+To test this, we examined two key questions: whether core threats can be predicted based on proximal threats and whether core threats display greater diversity in content compared to proximal threats.
+Across all experiments, core threats matched their corresponding proximal threats in no more than 32.5% of cases, with the lowest agreement observed in Experiment 1 (High OC sample), where the rate was 16.9%.
+Among the transdiagnostic samples, agreement rates were slightly above chance.
+However, after applying the Holm-Bonferroni correction for multiple comparisons [@holmSimpleSequentiallyRejective1979], only Experiment 2 (face-to-face transdiagnostic sample) demonstrated a statistically significant agreement between proximal and core threats.
+These results indicate that while proximal threats may offer some information about core threats, the observed agreement rates, are clinically insufficient.
+This finding supports the hypothesis that proximal threats do not reliably predict core threats, as more than 70% of core threats differed from their proximal counterparts.
 
-The diversity of proximal threats ranged from Simpson's $D$ of 0.30 to 0.46.
-The diversity of core threats was not significantly different, with the exception of core threats in Experiment 1, which was significantly higher (lower Simpson's $D$ of 0.23).
-The diversity of core threats tended to be greater than the diversity of proximal threats, with the exception of Experiment 2 (TICSA) where the diversities were equal.
-However after correction only Experiment 1 (High OC) was significant.
-Detailed results can be found in Table \@ref(tab:agreement).
+The diversity of proximal threats, measured using Simpson’s $D$, ranged from 0.30 to 0.46 across experiments.
+Core threats generally exhibited greater diversity than proximal threats, with the exception of Experiment 2 (face-to-face high anxiety sample), where diversity levels were equivalent.
+The difference was most pronounced in Experiment 1 and 4 (face-to-face high OC, and online English speaking).
+However, after correcting for multiple comparisons, only the diversity difference observed in Experiment 1 remained statistically significant.
+The diversity metrics and detailed statistical results are presented in Table \@ref(tab:agreement).
 
 ```{r agreement, echo=FALSE}
 rowNames = c(
@@ -113,15 +112,17 @@ agreement_df %>%
 
 ```
 
-After identifying core threats, participants were asked whether these threats reflected their motivation for fear.
-This assessment was conducted in the three trans-diagnostic samples, but not in the OCD sample.
-The full results can be seen in Figure \@ref(fig:subjective).
-In all experiments, the majority of participants confirmed that the identified core threats were indeed the motivation for their anxiety.
-The proportion of "correct" motivations was the same for participants whose proximal and core threats aligned and those whose identified core threat had a different motivation.
-A significant proportion of participants expressed uncertainty about whether their identified core threat reflected their underlying motivation.
-However, this uncertainty was less pronounced in the self-administered versions.
+After identifying core threats, participants were asked whether these threats reflected their underlying motivation for fear.
+This assessment was conducted in the three trans-diagnostic samples but not in the OCD sample.
+The full results are presented in Figure \@ref(fig:subjective).
+Across all experiments, the majority of participants affirmed that the identified core threats accurately represented their motivation for anxiety.
+Notably, the proportion of participants endorsing the core threat as their "true" motivation was consistent regardless of whether the proximal and core threats aligned or the identified core threat reflected a different motivation.
+A significant proportion of participants expressed uncertainty about whether the identified core threat truly captured their underlying motivation.
+However, this uncertainty was less prevalent in the self-administered versions of the CTSI, suggesting that the self-administered format may facilitate more confidence in the identification of core threats.
+It is important to note that this analysis was not pre-registered and should be regarded as exploratory.
+While the results are intriguing and suggest potential avenues for further investigation, they require replication and confirmation in future research.
 
-(ref:subjective) The mosaic plot illustrates participants' responses to the question: “Does the core threat you identified reflect your true motivation?” Tile sizes represent the relative frequencies of responses across groups. The plot indicates that core threats generally align with participants’ true motivations. Sensitivity analyses further confirmed that these proportions remained consistent, regardless of whether core threats matched proximal threats.
+(ref:subjective) The mosaic plot illustrates participants' responses to the question: “Does the core threat you identified reflect your true motivation?” Tile sizes represent the relative frequencies of responses across groups. The plot indicates that core threats generally align with participants’ true motivations. Sensitivity analyses confirmed that these proportions remained consistent regardless of whether core threats matched proximal threats.
 
 ```{r subjective, file=here('scripts','figure.subjective.R'), echo=FALSE, fig.cap='(ref:subjective)', warning=FALSE, cache=TRUE}
 ```
@@ -174,28 +175,27 @@ ocd.within.bychance.boot <- sapply(1:1e4, function(i) {
 ```
 
 
+## Hypothesis 2: Multiple Proximal Threats and One Core Threat
 
 Hypothesis 2 was that one core threat often motivates multiple proximal threats.
-We investigated this question in Experiment 1 by administering the CTSI for two distinct compulsions (proximal threats).
-Only `r format_count_percentage(ocd.within.N, ocd.N)` individuals identified core threats for two separate compulsions.
-This limited identification often occurred because participants became tired and lost patience by the time they were interviewed about the second compulsion.
-Consequently, our data on this topic is not only very limited but also potentially biased (Is there a relationship between the ability of participants to continue and the characteristics of their fears?).
+We investigated this in Experiment 1 by administering the CTSI for two distinct compulsions (proximal threats).
+Only `r format_count_percentage(ocd.within.N, ocd.N)` individuals identified core threats for both compulsions.
+This limited identification often occurred because participants became fatigued and impatient by the time they were interviewed about the second compulsion.
+Consequently, our data on this topic is both limited and potentially biased (e.g., is there a relationship between participants' persistence and the characteristics of their fears?).
 
-A permutation test reveals that the median expected number of agreements is `r format_count_percentage(median(ocd.within.bychance.boot),ocd.within.N)` of the cases.
-In practice, `r ocd.within.overall` (`r apa_percentage(ocd.within.overall/ocd.within.N)`, $p$ = `r printp(mean(ocd.within.bychance.boot >= ocd.within.overall))`) pairs of core threats agreed with one another.
-Despite not being significant, this result suggests that core threats may motivate multiple proximal threats within the same individual.
-However, due to the small sample size, these findings should be interpreted with caution, and further research is needed.
-We suggest that this estimate would be even higher if we had chosen more similar compulsions.
+A permutation test revealed that the median expected number of agreements was `r format_count_percentage(median(ocd.within.bychance.boot), ocd.within.N)`.
+In practice, `r ocd.within.overall` (`r apa_percentage(ocd.within.overall / ocd.within.N)`, $p$ = `r printp(mean(ocd.within.bychance.boot >= ocd.within.overall))`) pairs of core threats agreed with one another.
+While this result is not statistically significant, it suggests that core threats may motivate multiple proximal threats within the same individual.
+Due to the small sample size, these findings should be interpreted cautiously.
+Further research is warranted, as this estimate might be higher if more similar compulsions were selected.
 
-Interestingly, some of the pairs might be considered as having common threats even though their values did not explicitly match.
-For example, one woman was afraid of becoming contaminated and dying if she did not perform her cleaning compulsions (Survival), and of breaking up with her boyfriend, not having children, and being alone forever (Affiliation).
-A deeper investigation might have found that not having children means for her the same as not surviving.
-We suggest this because this dataset was the first we had, as we developed the CTI, and we believe that the administration was suboptimal.This finding highlights that the same core threats often seem to motivate different proximal threats.
-Importantly, it also indicates that individuals are sometimes driven by more than one core threat.
+Interestingly, some pairs might share common underlying threats, even when their coded values did not match.
+For example, one woman was afraid of contamination and dying if she did not perform her cleaning compulsions (Survival) and also feared breaking up with her boyfriend, not having children, and being alone forever (Affiliation).
+A deeper investigation might reveal that not having children held the same significance as not surviving for her.
+This dataset, collected during the initial development of the CTSI, may have been affected by suboptimal administration.
+Nonetheless, this finding underscores that the same core threats often appear to motivate different proximal threats.
 
-
-## Hypothesis 3: Test Retest
-
+## Hypothesis 3: Test Retest Validity
 
 ```{r include=FALSE}
 ##############################
@@ -242,9 +242,11 @@ sticsa.within.bychance.boot <- sapply(1:1e4, function(i) {
 })
 ```
 
-In the OCD face-to-face sample, `r sticsa.within.N` individuals (`r apa_percentage(sticsa.within.N/sticsa.N)`) completed both evaluations of their core threats.
-A permutation test reveals that the median expected number of agreements is `r median(sticsa.within.bychance.boot)` cases (`r apa_percentage(median(sticsa.within.bychance.boot)/sticsa.within.N)`).
-In practice, `r sticsa.within.overall` pairs of core threats agreed with each other (`r apa_percentage(sticsa.within.overall/sticsa.within.N)`, $p$ = `r printp(mean(sticsa.within.bychance.boot >= sticsa.within.overall))`).
-This finding suggests significant test-retest validity, indicating that it is likely that the same core threats motivate fear over time.
-Furthermore, it supports the notion that different evaluators can identify the same core threat when interviewing an individual.
-However, it is a bit below what is desirable, and further work should be done to see if core threats are less stable than we predict or whether there are ways to administer the CTSI that yield better test-retest reliability.
+In the high-anxiety face-to-face sample, `r sticsa.within.N` individuals (`r apa_percentage(sticsa.within.N / sticsa.N)`) completed both evaluations of their core threats.
+A permutation test revealed that the median expected number of agreements was `r median(sticsa.within.bychance.boot)` cases (`r apa_percentage(median(sticsa.within.bychance.boot) / sticsa.within.N)`).
+In practice, `r sticsa.within.overall` pairs of core threats agreed with each other (`r apa_percentage(sticsa.within.overall / sticsa.within.N)`, $p$ = `r printp(mean(sticsa.within.bychance.boot >= sticsa.within.overall))`).
+
+This finding suggests significant test-retest validity, indicating that the same core threats likely motivate fear over time.
+Furthermore, it supports the notion that different evaluators can reliably identify the same core threat when interviewing an individual.
+However, the agreement rate is slightly lower than expected.
+Future research should investigate whether core threats are less stable than predicted or if adjustments to CTSI administration can improve test-retest reliability.
