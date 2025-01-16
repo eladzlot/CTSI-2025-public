@@ -1,73 +1,85 @@
 # Discussion
 
-The current study aimed to provide clinical guidelines for identifying core threats in anxiety disorders and to investigate the phenomenology of these threats.
-Core threats, which are the underlying fears driving proximal threats, play a crucial role in anxiety disorders and their treatment [@zlotnickAnatomyFearCloser2025].
-While proximal threats may involve immediate fears like contamination or injury, core threats often relate to deeper concerns such as death, social rejection, or moral failure.
-Despite their common application in clinical practice (more often called core fears), core threats have not been formally studied.
+The current study aimed to provide clinical guidelines for identifying core threats in anxiety disorders and to explore the phenomenology of these threats.
+Core threats, the underlying fears driving proximal threats, play a crucial role in the structure and treatment of anxiety disorders [@zlotnickAnatomyFearCloser2025].
+While proximal threats may involve immediate fears such as contamination or injury, core threats often reflect deeper concerns, including death, social rejection, or moral failure.
+Despite their frequent application in clinical practice (commonly referred to as core fears), core threats have not been systematically studied.
 
-The first hypothesis involved the discrepancy between core and proximal threats.
-Previous research [@huppertCoreFearsValues2012;@gillihanCommonPitfallsExposure2012;@murrayExtinctionTheoryAnorexia2016] has highlighted the multifaceted nature of core threats, emphasizing the need for clinicians to delve deeper into patients' fears.
-As expected, we found that proximal threats were quite distinct from their associated core threats.
-However, proximal threats are not entirely removed from core threats—about a third of proximal threats in the transdiagnostic samples predicted their core threats.
-We suggest that it remains meaningful and impactful to do the extra work to identify the underlying core threats for the remaining two-thirds.
-It seems that identifying core threats are particularly important in OCD, where core threats are both more diverse, and proximal threats less predictive.
+Our first hypothesis addressed the discrepancy between core and proximal threats.
+Previous research [@huppertCoreFearsValues2012; @gillihanCommonPitfallsExposure2012; @murrayExtinctionTheoryAnorexia2016] has underscored the complexity of core threats and highlighted the importance of clinicians delving deeper into patients' fears.
+Consistent with these findings, we observed that proximal threats were generally distinct from their associated core threats.
+Notably, only about one-third of proximal threats in the transdiagnostic samples predicted their corresponding core threats.
+This suggests that identifying core threats remains a meaningful endeavor, to ensure reliable identification of core threats in the remaining two-thirds.
+This distinction appears especially critical in OCD, where core threats are more diverse and proximal threats less predictive.
 
-In contrast to our expectations, core threats were significantly more diverse than proximal threats only in the OCD sample (after Holm-Bonferonni correction).
-Even then, the effects were not very large.
-However, the content of threats tended to differ.
-Core threats seemed to be more concentrated in affiliation, self-image, competence, and control.
-Proximal threats were largely ambiguous or focused on distress tolerance.
+Contrary to our expectations, significant differences in the diversity of core versus proximal threats were observed only in the OCD sample (after applying the Holm-Bonferroni correction), and these effects were modest.
+Shifting focus to the content of core threats, we observed that, across all four samples, core threats tended to concentrate on themes such as affiliation, self-image, competence, and control.
+In contrast, proximal threats were often more ambiguous or focused on distress tolerance.
 
 
 ## Assessing Validity
 
-The development of the Core Threat Structured Interview (CTSI) emerged from practical research and clinical needs.
-Although core threats are frequently utilized in clinical practice and have a solid theoretical foundation, there is currently no validated clinical tool available to measure them for research or clinical purposes.
-The CTSI was developed by integrating common clinical practices with insights from the catastrophizing interview [@daveyCatastrophisingInterviewProcedure2006].
-The process was manualized by implementing early versions of the interview and refining the instructions based on expert feedback.
+The development of the CTSI was driven by practical research and clinical needs.
+Despite their theoretical foundation and frequent use in clinical practice, core threats lacked a validated tool for systematic measurement in research or therapy.
+The CTSI was created by integrating common clinical practices with insights from the catastrophizing interview [@daveyCatastrophisingInterviewProcedure2006].
+Early versions of the interview were manualized and refined based on expert feedback.
 
-The current study aimed to evaluate the validity and reliability of the CTSI as a tool for identifying core threats.
-To ensure face validity, expert clinicians reviewed the identified core threats and confirmed that they aligned with those typically recognized in psychotherapy.
-Construct validity was supported by evidence of both convergent and divergent validity:
-participants consistently reported that their identified core threats reflected their motivations, demonstrating convergent validity,
-while core threats were only mildly associated with proximal threats, supporting divergent validity.
-Additionally, participants indicated that core threats represented their motivations better than proximal threats, further emphasizing their distinctiveness.
-In terms of reliability, the CTSI demonstrated robust test-retest reliability, ensuring consistent identification of core threats across administrations, and good inter-rater reliability, showing that different clinicians reached consistent conclusions.
-Finally, the findings demonstrated consistency across diverse samples, reinforcing the CTSI's applicability and relevance across different populations.
+The current study aimed to evaluate the CTSI's validity and reliability as a tool for identifying core threats.
+Face validity was established through expert clinician reviews, confirming that identified core threats aligned with those commonly observed in psychotherapy.
+Construct validity was demonstrated through evidence of both convergent and divergent validity.
+Participants consistently reported that their identified core threats reflected their motivations, demonstrating convergent validity.
+Meanwhile, the mild associations between core and proximal threats supported divergent validity.
+Furthermore, participants indicated that core threats captured their motivations better than proximal threats, highlighting their distinctiveness.
 
-A major question remains whether fear is indeed organized to a certain extent around core threats.
-This challenge has two variations: functional and theoretical.
+In terms of reliability, the CTSI demonstrated robust test-retest reliability, ensuring consistent identification of core threats across administrations.
+It also exhibited good inter-rater reliability, with different clinicians reaching consistent conclusions.
+Finally, the findings showed consistency across diverse samples, reinforcing the CTSI's applicability and relevance to various populations.
 
-The theoretical challenge lies in understanding whether core threats are indeed part of the fear structure and in determining the process in which the CTSI identifies them.
-It is unclear whether individuals have direct verbal access to their underlying motivations, and even if they do, how clinicians or researchers can accurately identify them.
-From these perspectives, core threats may be inaccessible or nonexistent, rendering our data meaningless.
-It is possible that core threats are generated by subjects through random processes or by considering non-anxiety-related factors (such as "what would sound valuable or important to me").
-The observed reliability over time and across interviewers could simply be due to subjects recalling their previous responses.
+## What are We Measuring?
+
+A major question remains whether fear is indeed organized, to a certain extent, around core threats.
+This challenge has two key dimensions: theoretical and functional.
+
+The theoretical challenge involves determining whether core threats are genuinely part of the fear structure and understanding the process by which the CTSI identifies them.
+It is uncertain whether individuals possess direct verbal access to their underlying motivations.
+Even if they do, questions arise about how clinicians or researchers can reliably identify these motivations.
+From this perspective, core threats could be difficult to access or may not exist in the way we conceptualize them.
+For instance, core threats might be generated through random processes or influenced by non-anxiety-related factors (e.g., "what would sound valuable or important to me").
+Alternatively, the observed reliability over time and across interviewers could reflect participants recalling previous responses rather than genuine consistency.
+
 We have reviewed the theoretical arguments for the existence of core threats elsewhere [@zlotnickAnatomyFearCloser2025].
-Briefly, we suggest that core threats exist in all individuals, and that the evaluations of their probability and of their meaning is what can lead to pathological anxiety.
-We do not contend that all individuals have pathological core threats, but rather that many do, and that identifying them can help with case conceptualization as well as generalization of learning that happens via therapy.
+Briefly, we propose that core threats exist in all individuals, and that the evaluations of their probability and of their meaning potentially contributing to pathological anxiety.
+While not all individuals possess pathological core threats, identifying such threats in those who do can support case conceptualization and enhance the generalization of learning in psychotherapy.
 
-Furthermore, even assuming that a core threat can be determined, an interesting question arises: Is the core threat identified or construed?
+Even assuming that a core threat can be determined, an interesting question arises: Is the core threat identified or construed?
 Is the process of determining a core threat akin to uncovering an existing prototype [cf. @roschCognitionCategorization1978]?
 Or should core threats be treated as ad-hoc narratives, individually tailored to activate the fear structure [cf. @barsalouAbstractionPerceptualSymbol2003]?
 If the latter is the case, the therapist’s role would be to help the patient construe a core threat that effectively activates the fear network as opposed to determining it.
 
 Ultimately, these challenges may be unresolvable.
-There will always be alternative explanations, as we lack direct access to these theoretical constructs.
+There will always be alternative explanations, as we lack direct access to these theoretical constructs [see @dehouwerWhyCognitiveApproach2011].
 One might ask, "If we can't be sure we can access core threats, are they scientific?"
 We argue that many useful and theoretically interesting constructs are similarly inaccessible, yet remain valuable, such as attachment styles, cognitive schemas, or implicit biases.
-Indirect methods, such as physiological measures of anxiety and implicit measures [see @gawronskiImplicitMeasuresSocial2014], may provide access.
+Indirect methods, such as physiological measures of anxiety and implicit measures [@gawronskiImplicitMeasuresSocial2014], may provide access.
 The accumulating data, particularly the functional implications of core threats, increasingly support the validity of this cognitive construct.
 
-The functional challenge is as follows:
-Are we indeed identifying the true core threats?
+The functional challenge is as follows: Are we indeed identifying the true core threats?
 How can one validate this abstract clinical construct?
 One approach is to define a functional definition of core threats that *can* be empirically examined [@dehouwerWhyCognitiveApproach2011].
 Core threats primarily represent an individual’s motivations to avoid certain stimuli or situations.
-Preliminary findings suggest this is accurate; many individuals reported that their identified core threat indeed reflected their true motivation.
-Additionally, core threats are believed to be more effective targets for safety learning, such as through exposure or behavioral experiments [@zlotnickAnatomyFearCloser2025].
-Demonstrating that focusing on core threats improves therapeutic outcomes would provide strong evidence for their validity.
-Specifically, comparing the efficacy of therapy focusing on core versus proximal threats could functionally validate core threats.
+Indeed, preliminary findings suggested this is accurate; many individuals reported that their identified core threat indeed reflected their true motivation.
+However a more concrete functional definition is needed.
+
+Furthermore, a significant critique of the CTSI is its potential circularity.
+By defining proximal threats as distinct from core threats, participants are implicitly guided to identify a different underlying threat.
+Consequently, it is unsurprising that proximal threats differ from core threats.
+This issue is especially pronounced in cases involving distress-tolerance-related core threats, which are rare among core threats but common among proximal threats.
+Additionally, requiring participants to articulate potential harm—even when they initially report none—may inadvertently prompt them to identify an alternative core threat.
+
+The solution for both of these problems would lie in demonstrating that core threats, as identified through the CTSI, exhibit distinct behavioral patterns compared to proximal threats.
+Core threats are believed to be more effective targets for safety learning, such as through exposure or behavioral experiments [@zlotnickAnatomyFearCloser2025].
+Thus, demonstrating that focusing on core threats improves therapeutic outcomes would provide strong evidence for their validity.
+
 ## Distress Tolerance
 
 Recent literature emphasizes distress tolerance as a central mechanism in anxiety disorders [@keoughAnxietySymptomatologyAssociation2010; @barlowUnifiedProtocolTransdiagnostic2010; @hayesAcceptanceCommitmentTherapy2006].
@@ -75,33 +87,29 @@ Literature on OCD highlights the importance of "not just right" experiences, sen
 An association between these phenomena and other anxiety disorders has also been found [@michelEmotionalDistressTolerance2016].
 Indeed, distress tolerance has been shown to correlate with psychopathology [@leyroDistressTolerancePsychopathological2010] and has been suggested as a treatment target in various contexts, such as smoking cessation [@brownUncertaintyAnxietyAvoidance2022] and borderline personality disorder [@linehanCognitivebehavioralTreatmentBorderline1993].
 
-<!--
-The concept of distress tolerance is fundamentally different from the concept of "intolerable distress" discussed in inhibitory learning models [@craskeOptimizingExposureTherapy2022].
-"Intolerable distress" refers to situations where the client expects to become physically or mentally incapable of functioning in the face of distress, often associated with values of control or survival, thus highlighting the importance of harm avoidance.
-In contrast, distress tolerance involves the inherent difficulty in tolerating discomfort, without an expected adverse outcome.
--->
+Distress tolerance has been proposed as a primary transdiagnostic process to target in emotional disorders [@barlowUnifiedProtocolTransdiagnostic2010].
+Building on this model, we emphasize harm avoidance as a complementary mechanism that warrants equal consideration.
+Findings from our face-to-face experiments, involving both OCD and transdiagnostic samples, revealed a high prevalence of distress tolerance-related proximal threats and a low prevalence of distress tolerance-related core threats.
+This pattern suggests that, even when distress tolerance is evident, harm avoidance likely plays a significant role in anxiety.
+Indeed, recent findings indicate that at least part of the motivation underlying NJRE in OCD is due to interference with cognitive processes rather than enjoyment of daily life [@melliAssessingBeliefsConsequences2020].
+In other words, beyond the challenge of tolerating distress, there remains the issue of disconfirming underlying threats that maintain anxiety [@craskeOptimizingExposureTherapy2022].
 
-Distress tolerance has been suggested as a prime trans-diagnostic process to target in emotional disorders [@barlowUnifiedProtocolTransdiagnostic2010].
-We extend this model by emphasizing harm avoidance as a parallel mechanism.
-The face-to-face experiments, both the OCD sample and the transdiagnostic sample, revealed a high proportion of distress tolerance proximal threats and a low proportion of distress tolerance core threats.
-This finding suggests that even when distress tolerance is evident, harm avoidance is likely to play a significant role in anxiety.
-In other words, besides the difficulty in dealing with distress itself, there is the issue of disconfirming underlying threats [@craskeOptimizingExposureTherapy2022].
-
-When designing transdiagnostic interventions, it is important to address different underlying processes [@hofmannFutureInterventionScience2019].
-While distress tolerance has received considerable attention, we argue that harm avoidance, particularly core threats, should also be considered a critical adition [@steimerBiologyFearAnxietyrelated2002; @foaEmotionalProcessingFear1986; @beckCognitiveTherapyCurrent2011].
+When designing transdiagnostic interventions, it is essential to address multiple underlying processes [@hofmannFutureInterventionScience2019].
+While distress tolerance has received considerable attention, we argue that harm avoidance—particularly in the context of core threats—should also be considered a critical addition [@steimerBiologyFearAnxietyrelated2002; @foaEmotionalProcessingFear1986; @beckCognitiveTherapyCurrent2011].
 
 ## Core Threats in OCD
 
-Much of the original work on core threats originated in the OCD literature [@huppertCoreFearsValues2012; @gillihanCommonPitfallsExposure2012], and thus it is reasonable to hypothesize that core threats are particularly important for this population.
-Indeed, the OCD sample was found to differ from the transdiagnostic samples in several ways.
-First, it was the only experiment where proximal threats did not predict core threats at all.
-Second, it was the only experiment where core threats were significantly more diverse than proximal threats.
-Third, there was a disproportionate prevalence of distress tolerance proximal threats but not of core threats.
-All of these findings emphasize the importance of identifying core threats in OCD.
+Much of the foundational work on core threats originates in the OCD literature [@huppertCoreFearsValues2012; @gillihanCommonPitfallsExposure2012].
+It is therefore reasonable to hypothesize that core threats hold particular significance for individuals with OCD.
+Our findings support this hypothesis and reveal notable differences between the OCD sample and the transdiagnostic samples.
+In the OCD sample, proximal threats did not predict core threats at all, a pattern not observed in the transdiagnostic groups.
+Additionally, core threats in the OCD sample were significantly more diverse than proximal threats, underscoring their heterogeneity.
+There was also a disproportionate prevalence of distress tolerance-related proximal threats in the OCD sample, but this pattern did not extend to core threats.
+These results emphasize the critical importance of identifying and addressing core threats for individuals suffering from OCD.
 
-The differences from transdiagnostic anxious samples can be attributed to the intrinsic diversity of OCD, which is known to manifest in various forms.
-However, this distinction may also be due to the fact that this was the only validated pathological sample in this series of experiments.
-Further research is necessary to explore these differences in more detail.
+The observed differences between the OCD and transdiagnostic samples may stem from the inherent diversity of OCD presentations, which manifest in various forms.
+Alternatively, this distinction may reflect the fact that the OCD sample was the only validated pathological group in our study.
+Future research should investigate these differences further, focusing on how core and proximal threats interact across different anxiety disorders and how these relationships may inform tailored intervention strategies.
 
 ## Limitations and Further Research
 
