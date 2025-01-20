@@ -12,6 +12,8 @@ author:
     email         : "elad.zlotnick@mail.huji.ac.il"
     role: # Contributorship roles (e.g., CRediT, https://credit.niso.org/)
       - "Conceptualization"
+      - "Methodology"
+      - "Formal Analysis"
       - "Writing - Original Draft Preparation"
       - "Writing - Review & Editing"
   - name          : "Jonathan D. Huppert"
@@ -28,17 +30,13 @@ authornote: |
   This work was supported by ISF 1905/20 awarded to Jonathan Huppert, Sam and Helen Beber Chair of Clinical Psychology.
 
 abstract: |
-  Pathological anxiety is often maintained by avoidance behaviors potentially driven by deeply personal core threats (aka, core fears).
-  Despite their role in clinical formulations and interventions, core threats remain an under-researched concept, with no validated tools to systematically assess them.
-  Core threats are defined as the ultimate feared consequences driving avoidance behaviors.
-  For example, the core threat driving fear of contamination can be any of the following: threat of death, harm to one's loved ones, disgust, or inability to function.
-  This study introduces the Core Threat Structured Interview (CTSI), a tool designed to systematically identify core threats in both face-to-face and self-administered online formats.
-  Through four validation studies, the CTSI demonstrates reliability (e.g., interrater reliability, test-retest) and validity (face, convergent, divergent).
-  Our findings further illuminate the phenomenological distinction between core and proximal threats, revealing that core threats are idiosyncratic and distinct from proximal threats.
-  This underscores the complexity of anxiety and the necessity for personalized approaches in assessment and intervention.
-  By enabling systematic identification of core threats, the CTSI offers a novel avenue for both research and clinical practice.
-  This tool can enhance the personalization of anxiety treatments, fostering a nuanced understanding of the motivations and cognitions underlying fear.
-  The study was pre-registered on AsPredicted ([https://aspredicted.org/89j7-5m4t.pdf](https://aspredicted.org/89j7-5m4t.pdf)).
+  Pathological anxiety is often maintained by avoidance behaviors driven by core threats—the ultimate feared consequences underlying these behaviors.
+  For example, contamination fears may be driven by core threats such as death, harm to loved ones, disgust, or dysfunction.
+  Despite their importance in clinical formulations, core threats are under-researched, with no standardized tools for their assessment.
+  This study introduces the Core Threat Structured Interview (CTSI), a tool designed to systematically identify core threats in both face-to-face and online formats.
+  Across four validation studies, the CTSI demonstrated robust reliability (e.g., interrater, test-retest) and validity (face, convergent, divergent).
+  Results revealed the distinctions between core and proximal threats, highlighting the deeply personal and motivational nature of core threats.
+  By enabling individualized assessments, the CTSI provides a nuanced approach to understanding and treating anxiety, paving the way for improved clinical outcomes and research into the mechanisms driving fear.
 
 keywords          :
   - Core threats
@@ -78,9 +76,8 @@ header-includes:
 csl               : "`r system.file('rmd', 'apa7.csl', package = 'papaja')`"
 documentclass     : "apa7"
 
-#output            : papaja::apa6_pdf
-output            : papaja::apa6_docx
-#output: html_document*
+output            : papaja::apa6_pdf
+#output            : papaja::apa6_docx
 knit: (function(inputFile, encoding) {
       rmarkdown::render(inputFile, encoding=encoding, output_dir=file.path(dirname(inputFile), 'output'))}) 
 
@@ -93,6 +90,11 @@ library(here)
 ```
 
 ```{r, child=c(here('docs', c('intro.Rmd', 'experiments.Rmd','results.Rmd', 'discussion.Rmd')))}
+```
+
+\newpage
+
+```{r, child=c(here('docs', c('additional.sections.Rmd')))}
 ```
 
 \newpage

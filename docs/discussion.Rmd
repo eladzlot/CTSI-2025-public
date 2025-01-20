@@ -149,7 +149,7 @@ An additional limitation of this study is the low prevalence of predictability c
 Our clinical experience indicates that such core threats should be more prevalent (though not quite as prevalent as other motivators).
 It is likely that the focus of the CTSI on specific harm-avoidance type outcomes may have masked such core threats.
 For example, some people that fear having cancer are particularly bothered by the inherent fuzziness of the situation - that they can never know for sure.
-When asked what they fear, they would focus on the cancer, but that is in face over-shooting the actual motivating core threat.
+When asked what they fear, they would focus on the cancer, but that is in fact over-shooting the actual motivating core threat.
 To address this problem we recommend that interviewers review the downward arrow and explicitly ask what the worst outcome would be.
 
 ## Implications for Clinical Practice and Future Research

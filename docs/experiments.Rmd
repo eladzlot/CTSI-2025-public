@@ -9,25 +9,7 @@ source(here('scripts','load_data.R'))
 
 ```{r demographics, echo=FALSE}
 COLNAMES = c('', 'High OC FTF','TD FTF', 'TD Online (He)', 'TD Online (En)')
-
-demographics_df = data.frame(
-  X1 = c('N', 'Female N', 'Mean age (SD)', 'Anxiety Measure', 'Anxiety Score (SD)'),
-  X2 = c(ocd.N, format_count_percentage(ocd.femaleN, ocd.N),  format_mean_sd(ocd.age.mean, ocd.age.sd), 'OCI-R', format_mean_sd(ocd.ocir.mean, ocd.ocir.sd)),
-  X3 = c(sticsa.N, format_count_percentage(sticsa.femaleN, sticsa.N), format_mean_sd(sticsa.age.mean, sticsa.age.sd), 'TICSA', format_mean_sd(sticsa.sticsa.mean,sticsa.sticsa.sd)),
-  X4 = c(online.N, '--', '--', 'TICSA', format_mean_sd(online.sticsa.mean,online.sticsa.sd)),
-  X5 = c(wet.N, format_count_percentage(wet.femaleN, wet.N), format_mean_sd(wet.age.mean, wet.age.sd), 'OASIS', format_mean_sd(wet.oasis.mean,wet.oasis.sd))
-)
-
-demographics_df %>%
-  apa_table(
-    caption = 'Demographics',
-    col.names = COLNAMES,
-    col_spanners = list( "Interview" = 2:3, "Self-administered" = 4:5),
-    note = 'OC - obsessive compulsive, FTF - face to face, TD - Transdiagnostic'
-  )
 ```
-
-
 
 ## Methods: Experiment 1
 
@@ -37,9 +19,21 @@ Experiment 1 aimed to evaluate the feasibility and potential utility of the face
 
 Participants were drawn from a pre-existing database of individuals who had previously consented to participate in research and completed the OCI-R.
 A research assistant contacted eligible participants and obtained informed consent.
-Demographic characteristics are presented in Table \@ref(tab:demographics).
+
+Participants included `r ocd.N` individuals, with `r format_count_percentage(ocd.femaleN, ocd.N)` female and `r format_count_percentage(ocd.N - ocd.femaleN, ocd.N)` male.
+The mean age of participants was `r round(ocd.age.mean, 1)` years (SD = `r round(ocd.age.sd, 1)`).
+The majority identified as Jewish (`r format_count_percentage(sum(ocd.demog$religion == 1), ocd.N)`), with others identifying as Christian (`r format_count_percentage(sum(ocd.demog$religion == 2), ocd.N)`) or non-religious (`r format_count_percentage(sum(ocd.demog$religion == 6), ocd.N)`).
+Ethnicity data were not explicitly collected, which is noted as a limitation of the study.
+In the Israeli context, ethnicity is often closely aligned with religion, and participants' religious identification may partially capture cultural background.
+
+Marital status was distributed as follows: `r format_count_percentage(sum(ocd.demog$marital_status == 1), ocd.N)` single, `r format_count_percentage(sum(ocd.demog$marital_status == 2), ocd.N)` married, and `r format_count_percentage(sum(ocd.demog$marital_status == 3), ocd.N)` divorced.
+Educational attainment ranged from `r min(ocd.demog$education)` to `r max(ocd.demog$education)` years, with a mean of `r round(mean(ocd.demog$education, na.rm = TRUE), 1)` years.
+`r format_count_percentage(sum(ocd.demog$is_work == 1), ocd.N)` of participants were employed.
+Income was reported as a median of 5000-8000 ILS per month.
+
+OCD symptom severity, measured using the OCI-R, had a mean score of `r round(ocd.ocir.mean, 1)` (SD = `r round(ocd.ocir.sd, 1)`), with a median score of `r ocd.ocir.median`.
 The median OCI-R score (`r ocd.ocir.median`) placed the majority of participants well within the severe range of obsessive-compulsive symptoms [@abramovitchSeverityBenchmarksContemporary2020].
-Moreover, `r ocd.diamondN` participants, comprising `r apa_percentage(ocd.diamondN/ocd.N)` of the sample, met diagnostic criteria for obsessive-compulsive disorder (OCD) based on the DIAMOND interview.
+Moreover, `r format_count_percentage(ocd.diamondN, ocd.N)` participants met diagnostic criteria for obsessive-compulsive disorder (OCD) based on the DIAMOND interview.
 
 ### Procedure
 
@@ -73,11 +67,23 @@ The DIAMOND has consistently demonstrated excellent inter-rater reliability, tes
 Experiment 2 aimed to build on the findings of Experiment 1 by evaluating a transdiagnostic population with elevated anxiety symptoms.
 A central objective was to assess the test-retest reliability and inter-rater reliability of the CTSI.
 
-### Participants and Procedure
+### Participants
 
-Participants were recruited from a pre-existing database of individuals who had previously consented to participate in research and completed the TICSA.
+Participants were recruited from a database of individuals who had consented to research and completed the STICSA.
 A research assistant contacted eligible participants and obtained informed consent.
-Full demographic details are presented in Table \@ref(tab:demographics).
+
+Participants included `r sticsa.N` individuals, with `r format_count_percentage(sticsa.femaleN, sticsa.N)` female and `r format_count_percentage(sticsa.N - sticsa.femaleN, sticsa.N)` male.
+The mean age of participants was `r round(sticsa.age.mean, 1)` years (SD = `r round(sticsa.age.sd, 1)`).
+The majority identified as Jewish (`r format_count_percentage(sum(sticsa.demog$religion == 1), sticsa.N)`), with on identifying as non-religious (`r format_count_percentage(sum(sticsa.demog$religion == 6), sticsa.N)`).
+While ethnicity data were not explicitly collected, this was noted as a limitation of the study.
+In the Israeli context, ethnicity is often closely aligned with religion, so participants' religious identification may partially capture their cultural background.
+
+Marital status was distributed as follows: `r format_count_percentage(sum(sticsa.demog$marital_status == 1), sticsa.N)` single, `r format_count_percentage(sum(sticsa.demog$marital_status == 2), sticsa.N)` married, and `r format_count_percentage(sum(sticsa.demog$marital_status == 3), sticsa.N)` divorced.
+Educational attainment ranged from `r min(sticsa.demog$education)` to `r max(sticsa.demog$education)` years, with a mean of `r round(mean(sticsa.demog$education, na.rm = TRUE), 1)` years.
+Income was reported as a median of 8000-15000 ILS per month.
+Anxiety symptom severity, measured using the STICSA, had a mean score of `r round(sticsa.sticsa.mean, 1)` (SD = `r round(sticsa.sticsa.sd, 1)`).
+
+### Procedure
 
 Participants completed the CTSI via Zoom in two sessions spaced approximately one to two months apart (Median = `r sticsa.days.median` days; Range: `r sticsa.days.min`–`r sticsa.days.max` days).
 In the initial session, an interviewer guided participants to identify and explore the fear they perceived as most impactful.
@@ -118,11 +124,12 @@ Experiment 3 aimed to build on the findings from Experiment 2 by employing a sel
 
 ### Participants and Procedure
 
-Participants were recruited from a pre-existing database of individuals who had previously expressed interest in research participation and completed the TICSA.
+Participants were recruited from a database of individuals who had consented to research and completed the TICSA.
 Each participant was contacted by a research assistant, who obtained informed consent before enrollment.
-Due to a technical error, participant age and gender data were not recorded.
+A total of `r online.N` participants completed the study online.
+TICSA symptom severity for the online sample had a mean score of `r format_mean_sd(online.sticsa.mean, online.sticsa.sd)`.
+Due to a technical error, participant demographic data were not recorded.
 However, given the similarity in recruitment procedures, the sample demographics are presumed to align closely with those of Experiment 2.
-Full demographic information can be found in Table \@ref(tab:demographics).
 Participants were provided with a secure link to complete the self-administered CTSI along with additional relevant questionnaires.
 Participants were compensated with approximately \$10 per hour or course credit, depending on their preference.
 
@@ -154,11 +161,18 @@ Experiment 4 aimed to expand upon Experiment 3 by recruiting an international, E
 ### Participants and Procedure
 
 Participants were recruited via the Prolific platform for online research and compensated at a rate of £9 per hour.
-Screening focused on identifying individuals with high anxiety, defined as a score greater than 4 on the Overall Anxiety Severity and Impairment Scale () [OASIS\;@normanDevelopmentValidationOverall2006], and functional impairment, indicated by at least one item scored above 2 on the Work and Social Adjustment Scale [WSAS; @mundtWorkSocialAdjustment2002].
+Screening focused on identifying individuals with high anxiety, defined as a score greater than 4 on the Overall Anxiety Severity and Impairment Scale [OASIS\;@normanDevelopmentValidationOverall2006], and functional impairment, indicated by at least one item scored above 2 on the Work and Social Adjustment Scale [WSAS\; @mundtWorkSocialAdjustment2002].
 Exclusion criteria included severe depression [PHQ score > 14\; @kroenkePHQ8MeasureCurrent2009], significant post-traumatic symptoms [short PCL-5 score > 6\; @zuromskiDevelopingOptimalShortform2019], or psychotic symptoms [items 19 or 20 on the DIAMOND screener\; @tolinPsychometricPropertiesStructured2018].
 Additional criteria included fluency in English, no history of head injury or reading/writing difficulties (as indicated on the Prolific system), and experience on the platform with an approval rate above 95% and at least 300 prior submissions.
+
+A total of `r wet.N` participants completed the study, with a mean age of `r round(wet.age.mean, 1)` years (SD = `r round(wet.age.sd, 1)`).
+The sample was composed of `r format_count_percentage(wet.femaleN, wet.N)` female and `r format_count_percentage(wet.N - wet.femaleN, wet.N)` male participants.
+The majority of participants identified their ethnicity as White `r format_count_percentage(sum(wet.demog$"Ethnicity simplified" == "White"), wet.N)`, followed by Asian `r format_count_percentage(sum(wet.demog$"Ethnicity simplified" == "Asian"), wet.N)` and Black `r format_count_percentage(sum(wet.demog$"Ethnicity simplified" == "Black"), wet.N)`.
+Regarding educational and employment status, `r format_count_percentage(sum(wet.demog$"Student status" == "Yes"), wet.N)` of participants were students.
+Among the participants, `r format_count_percentage(sum(wet.demog$"Employment status" == "Full-Time"), wet.N)` were employed full-time, `r format_count_percentage(sum(wet.demog$"Employment status" == "Part-Time"), wet.N)` were employed part-time, and `r format_count_percentage(sum(wet.demog$"Employment status" == "Unemployed (and job seeking)"), wet.N)` reported being unemployed and seeking work.
+
+STICSA symptom severity in this sample had a mean score of `r round(wet.oasis.mean, 1)` (SD = `r round(wet.oasis.sd, 1)`).
 Eligible participants signed a consent form, completed a set of questionnaires related to a separate study, and then proceeded to the main experiment, which involved completing the self-administered CTSI.
-Full demographic details can be found in Table \@ref(tab:demographics).
 
 ### Measures
 

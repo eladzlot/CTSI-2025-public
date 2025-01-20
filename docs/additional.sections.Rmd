@@ -1,0 +1,18 @@
+## Author Contributions
+
+Conceptualization: E. Zlotnick, J.D. Huppert;
+Methodology: E. Zlotnick;
+Formal Analysis: E. Zlotnick;
+Writing - Original Draft Preparation: E. Zlotnick;
+Writing - Review & Editing: E. Zlotnick, J.D. Huppert;
+Supervision: J.D. Huppert.
+
+## Conflicts of Interest
+The authors declare that there were no conflicts of interest with respect to the authorship or the publication of this article.
+
+## Acknowledgments
+We would like to thank the members of our lab for their valuable insights and contributions throughout the development of this research.
+Their perspectives and suggestions have been instrumental in refining our approach and interpretations.
+
+## Funding
+This work was supported by Israel Science Fund ISF 1905/20 awarded to Jonathan Huppert, Sam and Helen Beber Chair of Clinical Psychology.

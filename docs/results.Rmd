@@ -43,13 +43,10 @@ A more plausible explanation is that the CTSI facilitates a clearer focus on cor
 ```
 
 In the face-to-face samples, particularly in Experiment 1, distress tolerance frequently emerged as a proximal threat but was rare as a core threat.
-This suggests that distress tolerance-related threats may function as mechanisms for avoiding deeper, underlying fears rather than representing the ultimate feared outcome.
-Interestingly, this pattern was not observed in the self-administered versions of the CTSI, possibly because the detailed prompts in the self-administered format encouraged participants to identify harm-avoidant threats explicitly.
-
-In the face-to-face samples, particularly in Experiment 1, distress tolerance frequently emerged as a proximal threat but was rare as a core threat.
 This suggests that distress tolerance may serve as a form of avoidance rather than an ultimate feared outcome.
 Because distress tolerance is often framed in broad and universally valid terms (e.g., "I can't handle this discomfort"), it allows individuals to sidestep engaging with the specific and potentially more threatening underlying fears.
 In essence, focusing on distress tolerance can provide an avenue for avoidance by shifting attention away from addressing the actual threat.
+Interestingly, this pattern was not observed in the self-administered versions of the CTSI, possibly because the detailed prompts in the self-administered format encouraged participants to identify harm-avoidant threats explicitly.
 
 Affiliation consistently appeared as a prominent value in the transdiagnostic experiments.
 This could reflect an overrepresentation of socially anxious individuals in the sample, or it may indicate that the affiliation category encompasses diverse subtypes.
@@ -127,7 +124,7 @@ While the results are intriguing and suggest potential avenues for further inves
 ```{r subjective, file=here('scripts','figure.subjective.R'), echo=FALSE, fig.cap='(ref:subjective)', warning=FALSE, cache=TRUE}
 ```
 
-## Hypothesis 2: Multiple proximal threats - one core threat
+## Hypothesis 2: Multiple Proximal Threats and One Core Threat
 
 ```{r include=FALSE}
 ###################
@@ -173,9 +170,6 @@ ocd.within.bychance.boot <- sapply(1:1e4, function(i) {
   agree_list(combined[1:ocd.within.N], combined[(ocd.within.N + 1):(ocd.within.N * 2)])
 })
 ```
-
-
-## Hypothesis 2: Multiple Proximal Threats and One Core Threat
 
 Hypothesis 2 was that one core threat often motivates multiple proximal threats.
 We investigated this in Experiment 1 by administering the CTSI for two distinct compulsions (proximal threats).
