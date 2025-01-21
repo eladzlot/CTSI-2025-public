@@ -31,9 +31,9 @@ sticsa.age.mean = sticsa.demog$age %>% mean
 sticsa.age.sd = sticsa.demog$age %>% sd
 
 sticsa.dropoutN = sticsa.demog$time_diff %>% is.na %>% sum
-sticsa.days.median = median(sticsa.demog$time_diff)
-sticsa.days.max = max(sticsa.demog$time_diff)
-sticsa.days.min = min(sticsa.demog$time_diff)
+sticsa.days.median = median(sticsa.demog$time_diff, na.rm = TRUE) %>% round
+sticsa.days.max = max(sticsa.demog$time_diff, na.rm = TRUE) %>% round
+sticsa.days.min = min(sticsa.demog$time_diff, na.rm = TRUE) %>% round
 
 sticsa.sticsa.mean = sticsa.sticsa %>% pull(sum_sticsa) %>% mean
 sticsa.sticsa.sd = sticsa.sticsa %>% pull(sum_sticsa) %>% sd

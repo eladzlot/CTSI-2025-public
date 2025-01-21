@@ -37,22 +37,10 @@ Proximal threats were more frequently rated as ambiguous compared to core threat
 This discrepancy may stem from the CTSI’s emphasis on exploring values, though participants were not explicitly instructed to frame their threats in these terms. 
 A more plausible explanation is that the CTSI facilitates a clearer focus on core threats during the interview process.
 
-(ref:distribution) Distribution of threat values across experiments
+(ref:distribution) Distribution of Threat Values Across Experiments
 
 ```{r distribution, file=here('scripts','figure.distribution.R'), echo=FALSE, fig.cap='(ref:distribution)', warning=FALSE, cache=TRUE, out.width="90%"}
 ```
-
-In the face-to-face samples, particularly in Experiment 1, distress tolerance frequently emerged as a proximal threat but was rare as a core threat.
-This suggests that distress tolerance may serve as a form of avoidance rather than an ultimate feared outcome.
-Because distress tolerance is often framed in broad and universally valid terms (e.g., "I can't handle this discomfort"), it allows individuals to sidestep engaging with the specific and potentially more threatening underlying fears.
-In essence, focusing on distress tolerance can provide an avenue for avoidance by shifting attention away from addressing the actual threat.
-Interestingly, this pattern was not observed in the self-administered versions of the CTSI, possibly because the detailed prompts in the self-administered format encouraged participants to identify harm-avoidant threats explicitly.
-
-Affiliation consistently appeared as a prominent value in the transdiagnostic experiments.
-This could reflect an overrepresentation of socially anxious individuals in the sample, or it may indicate that the affiliation category encompasses diverse subtypes.
-Differentiating between these subtypes in future research may provide greater specificity.
-Alternatively, affiliation may genuinely represent the most common core threat, as suggested by theories emphasizing its evolutionary and psychological significance [cf.
-@gilbertEVOLUTIONSOCIALANXIETY2001; @bowlbyAttachmentLoss1969].
 
 ## Hypothesis 1: Proximal-Core Agreement
 
@@ -68,6 +56,7 @@ The diversity of proximal threats, measured using Simpson’s $D$, ranged from 0
 Core threats generally exhibited greater diversity than proximal threats, with the exception of Experiment 2 (face-to-face high anxiety sample), where diversity levels were equivalent.
 The difference was most pronounced in Experiment 1 and 4 (face-to-face high OC, and online English speaking).
 However, after correcting for multiple comparisons, only the diversity difference observed in Experiment 1 remained statistically significant.
+This analysis was not pre-registered and should be considered exploratory.
 The diversity metrics and detailed statistical results are presented in Table \@ref(tab:agreement).
 
 ```{r agreement, echo=FALSE}
@@ -100,13 +89,12 @@ for (i in seq_along(agreementLists)){
 
 agreement_df %>%
   apa_table(
-    caption = 'Agreement and Diversity statistics across studies. Agreement reflects the count of expected and actual pairs of motivations aligning (p Agreement indicates the likelihood of observing this agreement by chance). Diversity is measured using the Simpson Diversity Index for proximal versus core threats (p Diversity represents the probability that core threat diversity exceeds proximal threat diversity).',
+    caption = 'Agreement and Diversity Statistics Across Studies',
     col.names = COLNAMES,
     col_spanners = list( "Interview" = 2:3, "Self-administered" = 4:5),
     stub_indents = list( "Agreement" = 1:4, "Diversity (D)" = 5:7),
-    note = 'OC - obsessive compulsive, FTF - face to face, TD - Transdiagnostic'
+    note = 'Agreement reflects the count of expected and actual pairs of motivations aligning (p Agreement indicates the likelihood of observing this agreement by chance). Diversity is measured using the Simpson Diversity Index for proximal versus core threats (p Diversity represents the probability that core threat diversity exceeds proximal threat diversity).OC - obsessive compulsive, FTF - face to face, TD - Transdiagnostic, He - Hebrew, En - English'
   )
-
 ```
 
 After identifying core threats, participants were asked whether these threats reflected their underlying motivation for fear.
@@ -116,7 +104,7 @@ Across all experiments, the majority of participants affirmed that the identifie
 Notably, the proportion of participants endorsing the core threat as their "true" motivation was consistent regardless of whether the proximal and core threats aligned or the identified core threat reflected a different motivation.
 A significant proportion of participants expressed uncertainty about whether the identified core threat truly captured their underlying motivation.
 However, this uncertainty was less prevalent in the self-administered versions of the CTSI, suggesting that the self-administered format may facilitate more confidence in the identification of core threats.
-It is important to note that this analysis was not pre-registered and should be regarded as exploratory.
+This analysis was not pre-registered and should be considered exploratory.
 While the results are intriguing and suggest potential avenues for further investigation, they require replication and confirmation in future research.
 
 (ref:subjective) The mosaic plot illustrates participants' responses to the question: “Does the core threat you identified reflect your true motivation?” Tile sizes represent the relative frequencies of responses across groups. The plot indicates that core threats generally align with participants’ true motivations. Sensitivity analyses confirmed that these proportions remained consistent regardless of whether core threats matched proximal threats.
@@ -189,7 +177,7 @@ A deeper investigation might reveal that not having children held the same signi
 This dataset, collected during the initial development of the CTSI, may have been affected by suboptimal administration.
 Nonetheless, this finding underscores that the same core threats often appear to motivate different proximal threats.
 
-## Hypothesis 3: Test Retest Validity
+## Hypothesis 3: Test-Retest Validity
 
 ```{r include=FALSE}
 ##############################

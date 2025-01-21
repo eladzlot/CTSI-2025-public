@@ -126,8 +126,8 @@ sticsa.fears = sticsa.interview %>%
 sticsa.values = full_join(
   sticsa.fears,
   readxl::read_xlsx(here('raw','judges', 'CTSI.sticsa.concensus.xlsx')) %>% mutate(rid = as.integer(rid)),
-  by=c('rid', 'fear')
-) %>% select(-fear)
+  by=c('rid')
+) %>% select(-fear.x, -fear.y)
 
 sticsa.days_diff = sticsa.interview %>% 
   select(id = uid, wave = stage, time = startdate) %>% 

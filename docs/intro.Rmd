@@ -10,7 +10,7 @@ Initial reports of a patient’s fears often mask deeper concerns [@borkovecWorr
 This patient might fear becoming sick and dying, contaminating her loved ones, being deemed disgusting and rejected, or simply suffering.
 The key is that we can’t know the true threat until we ask.
 
-These underlying concerns, known as core threats, are also referred to as core fears, catastrophic beliefs or central innately aversive outcomes.
+These underlying concerns, known as core threats, are also referred to as core fears, catastrophic beliefs, or central innately aversive outcomes.
 Core threats are central to treating anxiety disorders [@huppertCoreFearsValues2012; @zlotnickAnatomyFearCloser2025].
 Many clinicians recognize the importance of understanding core threats to inform effective interventions 
 [e.g., @craskeOptimizingExposureTherapy2022; @gillihanCommonPitfallsExposure2012; @pinciottiCallActionRecommendations2021; @murrayDissectingCoreFear2016].
@@ -55,7 +55,7 @@ A semi-structured interview can be a useful tool for this purpose [@samuelSurvey
 In clinical settings, such interviews help therapists identify the specific motivations underlying anxiety-related behaviors.
 This, in turn, facilitates the development of a clear case formulation [@personsCaseFormulationApproach2012] and enables the creation of tailored interventions [e.g., @gillihanCommonPitfallsExposure2012; @pinciottiCallActionRecommendations2021; @murrayDissectingCoreFear2016].
 In research, semi-structured interviews ensure consistency and accuracy, reducing ambiguity in identifying core threats and enhancing the reliability and validity of findings.
-Moreover, these interviews allow for the assignment of probability and threat values to both proximal and core threats.
+Moreover, these interviews allow the assignment of probability and threat values to both proximal and core threats.
 Tracking these values across treatment can provide valuable insights into therapeutic change and its relationship to other constructs.
 
 ### The Catastrophizing Interview
@@ -82,9 +82,9 @@ To address these challenges, we developed a tailored interview specifically for 
 
 The Core Threat Structured Interview (CTSI) begins by identifying a focal proximal threat^[The CTSI manual can be found in the supplementary materials.].
 This involves identifying situations or stimuli that induce fear or are avoided, and any rituals or safety behaviors the individual engages in.
-Once a set of fear responses is identified, participants select the situation that causes the most distress or negative impact on their life.
+Once a set of fear responses is identified, participants select the situation that causes the most distress or negative impact on their lives.
 
-To identify core threats, the CTSI employs an adaptation of the classic "downward arrow" technique [e.g., @dugasCognitiveBehavioralTreatmentGeneralized2005].
+To identify core threats, the CTSI adapts the classic "downward arrow" technique [e.g., @dugasCognitiveBehavioralTreatmentGeneralized2005].
 Unlike the traditional focus on chains of beliefs [@beckCognitiveBehaviorTherapy2011], the CTSI emphasizes events, guiding participants through the question, "And then what would happen?" [@huppertCoreFearsValues2012].
 Participants are first asked what they fear will happen if they refrain from avoidance or safety behaviors related to their chosen proximal threat.
 Follow-up questions such as "And then what?", "What is so terrible about that?", and "What does that mean to you?" are used to explore progressively deeper fears [@beckCognitiveBehaviorTherapy2011; @leahyCognitiveTherapyTechniques2003].
@@ -158,13 +158,13 @@ The pre-registration included hypotheses, methods, data collection procedures, a
 
 Several deviations from the pre-registered plan occurred:
 
-1. To increase reliability, we used three judges to categorize core threats instead of two. All judges coded the threats simultaneously, ensuring that the addition was not done to affect initial outcomes.
-2. We were unable to apply information methods (Theil's U) to assess the agreement between sets of threats due to the complexity of the data structure. Instead, we used permutation tests, as described below to investigate the same hypotheses.
+1. We used three judges to categorize core threats instead of two to increase reliability. All judges coded the threats simultaneously, ensuring that the addition was not done to affect initial outcomes.
+2. Due to the complexity of the data structure, we were unable to apply information methods (Theil's U) to assess the agreement between sets of threats. Instead, we used permutation tests, as described below to investigate the same hypotheses.
 3. The third experimental group (high anxiety, online CTSI) was reported as two separate groups—Hebrew-speaking and English-speaking—due to demographic differences.
 
 ### Data, materials, code, and online resources
 Supplementary materials, including datasets, analysis scripts, and detailed methodological documentation, are available on GitHub at [https://github.com/eladzlot/ctsi-2025-public](https://github.com/eladzlot/ctsi-2025-public).
-To ensure participant confidentiality, the datasets have been redacted to include only quantitative information, as the core threats and other open-ended responses could potentially identify specific individuals.
+The datasets have been redacted to include only quantitative information to ensure participant confidentiality, as the core threats and other open-ended responses could potentially identify specific individuals.
 
 ### Reporting
 We report how we determined all data exclusions, all manipulations, and all measures in the study.
@@ -203,7 +203,7 @@ To systematically assess this similarity, threats were categorized, enabling str
 
 Our investigation is primarily focused on identifying the threats driving fear responses.
 These threats are manifestations of the values motivating these responses [@zlotnickAnatomyFearCloser2025].
-While several taxonomies of basic values exist [see @austinGoalConstructsPsychology1996; @ryanOxfordHandbookHuman2012 for reviews], none adequately cover the types of threats commonly associated with fear, including Schwartz's taxonomy [-@schwartzUniversalsContentStructure1992], previously suggested for organizing core threats [@huppertCoreFearsValues2012].
+While several taxonomies of basic values exist [see @austinGoalConstructsPsychology1996; @ryanOxfordHandbookHuman2012 for reviews], none adequately cover the types of threats commonly associated with fear, including Schwartz's taxonomy [-@schwartzUniversalsContentStructure1992], which was previously suggested for organizing core threats [@huppertCoreFearsValues2012].
 To fill this gap, we developed a novel taxonomy of global motivations based on clinical insights, expert consultations, and theoretical frameworks such as those advanced by Dweck [-@dweckNeedsGoalsRepresentations2017].
 This taxonomy, detailed in Table \@ref(tab:values), was used to code both proximal and core threats.
 
@@ -221,7 +221,7 @@ Coders were trained using external datasets not included in the current analyses
 Each judge independently coded the dataset, and discrepancies were resolved through consensus discussions.
 This rigorous adjudication process ensured consistency in applying the taxonomy.
 
-Table: (\#tab:values) The taxonomy of values used for coding threats.
+Table: (\#tab:values) The Taxonomy of Values Used for Coding Threats.
 
 | Category of Drives | Description                                                | Examples of Core Threats                                       |
 | ----------------- | ---------------------------------------------------------- | ------------------------------------------------------------- |
@@ -229,7 +229,7 @@ Table: (\#tab:values) The taxonomy of values used for coding threats.
 | Predictability    | The drive to understand and make sense of one's environment. | Confusion, uncertainty, unpredictability.                     |
 | Competence        | The drive for effectiveness, capability, and practical functioning.        | Failure, not knowing what to do, incompetence.                |
 | Agency \& Control    | The drive to have agency and be in control of one's self and environment. | Losing control, doing something unintended, helplessness.
-| Survival          | The goal of staying alive.                                 | Death of onself, or a close other (survival by proxy).
+| Survival          | The goal of staying alive.                                 | Death of oneself, or a close other (survival by proxy).
 | Physical Comfort  | The goal of avoiding physical discomfort or suffering.     | Pain, injury, physical harm to self or close other (physical comfort by proxy)    |
 | Self-Image        | The desire to maintain a positive self-image and avoid a negative one. | Feeling worthless, evil, or guilty. Feeling that I've let myself down. 
 | Morality          | The drive to behave ethically and uphold virtues.          | Harming others, violating religious beliefs or morals. 
@@ -238,7 +238,7 @@ Table: (\#tab:values) The taxonomy of values used for coding threats.
 Krippendorff's $\alpha$ was selected as the statistical measure of inter-rater reliability due to its robustness and flexibility.
 This measure is widely used to assess consistency among raters across various data types, including nominal, ordinal, interval, and ratio scales [@hallgrenComputingInterRaterReliability2012; @hayesAnsweringCallStandard2007].
 Its ability to accommodate more than two raters and handle missing data makes it particularly well-suited for our study, where raters categorized mixed data types.
-Krippendorff's $\alpha$ values are interpreted as follows: values between 0.60 and 0.74 indicate moderate agreement, suitable for exploratory research; values between 0.75 and 0.84 reflect good agreement; and values of 0.85 or above signify excellent reliability, appropriate for measures requiring high precision or strong consensus.
+Krippendorff's $\alpha$ values are interpreted as follows: values between 0.60 and 0.74 indicate moderate agreement, suitable for exploratory research; values between 0.75 and 0.84 reflect good agreement; and values of 0.85 or above signify excellent reliability.
 These thresholds guided our interpretation of reliability within this study.
 As pre-registered, ratings of "ambiguous" were treated as missing data in the computation of $\alpha$, as they do not represent a definitive decision about motivation.
 This decision ensures that reliability estimates reflect only clear and specific categorizations.
@@ -249,7 +249,7 @@ Further details of the reliability scoring algorithm are provided in the supplem
 
 This study examines the correlations between sets of threats, each consisting of one or two categories.
 Traditional statistical measures, typically designed for single-category data, are insufficient to handle the complexity of multi-category sets, necessitating an alternative analytical approach.
-To address this, we calculated the rate of agreement, defined as the percentage of pairs that share at least one category in common across all possible pairs.
+We calculated the rate of agreement, defined as the percentage of pairs that share at least one category in common across all possible pairs to address this.
 This relatively liberal criterion accounts for the inherent fuzziness in defining drives and distinguishing between the primary and secondary motivations underlying anxiety.
 
 While Theil's U was pre-registered as the information-theoretic measure to assess agreement, we encountered difficulties applying it due to the complex structure of our data.
@@ -267,13 +267,13 @@ Hypothesis 1b posits that core threats are associated with diverse motivations, 
 To quantify this diversity, we employ a variation of Simpson's Diversity Index [$D$\; @simpsonMeasurementDiversity1949].
 $D$ measures "unalikeability," or the probability that two randomly selected members of a population will have different motivations [@kaderVariabilityCategoricalVariables2007].
 It ranges from 0 to 1, where 0 indicates a completely heterogeneous population and 1 indicates a maximally homogeneous population (all members share the same motivations).
-For interpretability, we classify $D$ values below 0.2 as highly diverse, values between 0.2 and 0.4 as moderately diverse, and values above 0.4 as non diverse.
+For interpretability, we classify $D$ values below 0.2 as highly diverse, values between 0.2 and 0.4 as moderately diverse, and values above 0.4 as nondiverse.
 
 While the standard form of $D$ assumes discrete, mutually exclusive categories, our data allows for overlapping motivations.
 For example, one threat might be driven by both affiliation and survival, while another is driven solely by affiliation.
 To accommodate this, we adapted the calculation of $D$ to account for partial overlaps between motivations.
 Specifically, we define $D = \frac{\sum \delta_{ij}}{N(N-1)}$, where: $N$ is the total number of threats, $\delta_{ij}$ is the agreement function, which returns 1 if the motivations of $i$ and $j$ overlap and 0 otherwise, $i \neq j$ ensures that a member is never compared to itself.
 
-The diversity of a sample is considered greater than another if more than 95% of bootstrapped $D$ values for one sample exceed those of the other.
+A sample’s diversity is considered greater than another if more than 95% of bootstrapped $D$ values for one sample exceed those of the other.
 Bootstrapping is employed because it provides a robust, non-parametric method to assess variability and establish confidence intervals for $D$ values, making it ideal for our data's structure and sample size.
 This approach allows us to directly test whether core threats exhibit significantly greater motivational diversity than proximal threats, supporting or refuting the hypothesis.

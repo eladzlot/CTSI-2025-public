@@ -15,4 +15,4 @@ We would like to thank the members of our lab for their valuable insights and co
 Their perspectives and suggestions have been instrumental in refining our approach and interpretations.
 
 ## Funding
-This work was supported by Israel Science Fund ISF 1905/20 awarded to Jonathan Huppert, Sam and Helen Beber Chair of Clinical Psychology.
+This work was supported by Israel Science Foundation ISF 1905/20 awarded to Jonathan Huppert, Sam and Helen Beber Chair of Clinical Psychology.

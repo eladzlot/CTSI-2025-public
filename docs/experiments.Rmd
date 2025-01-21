@@ -22,7 +22,7 @@ A research assistant contacted eligible participants and obtained informed conse
 
 Participants included `r ocd.N` individuals, with `r format_count_percentage(ocd.femaleN, ocd.N)` female and `r format_count_percentage(ocd.N - ocd.femaleN, ocd.N)` male.
 The mean age of participants was `r round(ocd.age.mean, 1)` years (SD = `r round(ocd.age.sd, 1)`).
-The majority identified as Jewish (`r format_count_percentage(sum(ocd.demog$religion == 1), ocd.N)`), with others identifying as Christian (`r format_count_percentage(sum(ocd.demog$religion == 2), ocd.N)`) or non-religious (`r format_count_percentage(sum(ocd.demog$religion == 6), ocd.N)`).
+The majority identified as Jewish `r format_count_percentage(sum(ocd.demog$religion == 1), ocd.N)`, with others identifying as Christian `r format_count_percentage(sum(ocd.demog$religion == 2), ocd.N)` or non-religious `r format_count_percentage(sum(ocd.demog$religion == 6), ocd.N)`.
 Ethnicity data were not explicitly collected, which is noted as a limitation of the study.
 In the Israeli context, ethnicity is often closely aligned with religion, and participants' religious identification may partially capture cultural background.
 
@@ -48,16 +48,16 @@ Participants were compensated with approximately \$10 per hour or course credit,
 
 The face-to-face CTSI was employed to identify proximal and core threats.
 While three independent judges initially scored each threat, inter-rater reliability was insufficient.
-To address this, a consensus score was used for subsequent analyses.
+A consensus score was used for subsequent analyses to address this.
 This approach informed the development of enhanced training protocols, which improved reliability in later experiments.
 Despite initial limitations, the consensus scores are considered valid for the purposes of this study.
 
-**Obsessive Compulsive Inventory Revised [OCIR\; @foaObsessiveCompulsiveInventoryDevelopment2002]**:
+**Obsessive Compulsive Inventory-Revised [OCI-R\; @foaObsessiveCompulsiveInventoryDevelopment2002]:**
 The OCI-R is an 18-item self-report measure assessing the distress associated with obsessive-compulsive symptoms using a Likert scale (0–4).
 It has demonstrated strong psychometric properties across clinical and non-clinical populations [@huppertOCIRValidationSubscales2007; @foaObsessiveCompulsiveInventoryDevelopment2002].
 In this sample, the OCI-R exhibited high internal consistency, with an omega coefficient of `r ocd.ocir.omega`, supporting its reliability as a measure of OCD symptom severity.
 
-**Diagnostic Interview for Anxiety, Mood, and OCD and Related Neuropsychiatric Disorders [DIAMOND\; @tolinPsychometricPropertiesStructured2018]**:
+**Diagnostic Interview for Anxiety, Mood, and OCD and Related Neuropsychiatric Disorders [DIAMOND\; @tolinPsychometricPropertiesStructured2018]:**
 The DIAMOND is a semi-structured diagnostic interview developed to diagnose DSM-5 psychiatric disorders with robust psychometric properties.
 For this study, only the OCD section was administered to confirm OCD diagnoses.
 The DIAMOND has consistently demonstrated excellent inter-rater reliability, test-retest reliability, and strong validity metrics [@tolinPsychometricPropertiesStructured2018].
@@ -65,7 +65,7 @@ The DIAMOND has consistently demonstrated excellent inter-rater reliability, tes
 ## Methods: Experiment 2
 
 Experiment 2 aimed to build on the findings of Experiment 1 by evaluating a transdiagnostic population with elevated anxiety symptoms.
-A central objective was to assess the test-retest reliability and inter-rater reliability of the CTSI.
+A central objective was to assess the test-retest and inter-rater reliability of the CTSI.
 
 ### Participants
 
@@ -112,9 +112,9 @@ sticsa.krip = krippendorff(jid = jid, uid = uid, values = values, agree = agree_
 The face-to-face CTSI was used to identify proximal and core threats, as outlined above.
 Threats were scored by three judges who achieved good inter-rater reliability, with Krippendorff's $\alpha$ = `r sticsa.krip`.
 
-**The Trait Inventory for Cognitive and Somatic Anxiety [TICSA\; @reeDistinguishingCognitiveSomatic2008]**
+**The Trait Inventory for Cognitive and Somatic Anxiety [TICSA\; @reeDistinguishingCognitiveSomatic2008]:**
 The TICSA is a validated 21-item self-report measure designed to assess cognitive and somatic dimensions of trait anxiety.
-Each item is rated on a 4-point Likert scale, ranging from 0 ("not at all") to 3 ("very much so"), with higher scores reflecting greater severity of anxiety symptoms.
+Each item is rated on Likert scale (0-3), with higher scores reflecting greater severity of anxiety symptoms.
 The TICSA has consistently demonstrated strong psychometric properties in diverse populations [@reeDistinguishingCognitiveSomatic2008; @grosPsychometricPropertiesStateTrait2007].
 In the present study, the TICSA exhibited high internal consistency, with an omega coefficient of `r sticsa.sticsa.omega`.
 
@@ -195,7 +195,7 @@ wet.krip = krippendorff(jid = jid, uid = uid, values = values, agree = agree_fn)
 The self-administered CTSI was used to identify proximal and core threats, as discussed above. 
 Three judges scored each threat, achieving good inter-rater reliability (Krippendorff's $\alpha$ = `r wet.krip`).
 
-**The Overall Anxiety Severity and Impairment Scale [OASIS; @normanDevelopmentValidationOverall2006]** was used to measure anxiety.
+**The Overall Anxiety Severity and Impairment Scale [OASIS\; @normanDevelopmentValidationOverall2006]:** was used to measure anxiety.
 This 5-item scale assesses the frequency, intensity, and impact of anxiety and fear over the past week, with responses ranging from 0 (Little or None) to 4 (Extreme or All the Time). 
 Higher scores reflect greater severity, with a cut-off score of eight recommended for identifying anxiety disorders and a change of four points considered clinically significant [@moorePsychometricEvaluationOverall2015]. 
 The OASIS demonstrated excellent reliability in this study, with an omega coefficient of `r wet.oasis.omega`, consistent with its strong psychometric properties reported in previous research [@normanDevelopmentValidationOverall2006].
