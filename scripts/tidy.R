@@ -65,7 +65,7 @@ ocd.quest =  get_qualtrics('ocd','questionnaire.csv') %>%
   ) %>%
   # look only at people that completed the interview
   filter(uid %in% ocd.fears$id) %>% 
-  select(id = uid, gender, birth, marital_status = q3, education = q4, education_yrs = q5, is_work = q6, income = q8, religion = q12, startdate, starts_with('OCIR')) %>%
+  select(id = uid, gender, birth, marital_status = q3, education = q4, education_yrs = q5, is_work = q6, income = q8, religion = q12, lang=q19, startdate, starts_with('OCIR')) %>%
   mutate(now = format(as.POSIXct(startdate, format="%Y-%m-%d %H:%M:%S"), "%Y") %>% as.numeric) %>% 
   mutate(birth = as.numeric(birth)) %>%
   mutate(age = now-birth)
@@ -76,7 +76,7 @@ ocd.ocir = ocd.quest %>%
   mutate_at(vars(ocir_1:ocir_18),list(~.x-1)) %>%
   mutate(sum_ocir = select(., ocir_1:ocir_18) %>% rowSums)
 
-ocd.demog = ocd.quest %>% select(id, age, gender, marital_status, education, education_yrs, is_work, income, religion) %>% 
+ocd.demog = ocd.quest %>% select(id, age, gender, marital_status, education, education_yrs, is_work, income, religion,lang_is_heb) %>% 
   left_join(ocd.interview %>% select(id = uid, diamond_has_ocd), by = 'id')
 
 # make sure that we have data for the same set of individuals
@@ -143,14 +143,14 @@ sticsa.quest =  get_qualtrics('sticsa','questionnaire.csv') %>%
     responseid != 'R_3sdepahTsNYRNhn', # empty st076 response
     responseid != 'R_3G3TSkwaIe84333', # empty st089 response
   ) %>%
-  select(id = uid, gender, birth, marital_status = q3, education = q4, education_yrs = q5, income = q8, religion = q12, startdate, starts_with('sticsa'), startdate) %>%
+  select(id = uid, gender, birth, marital_status = q3, education = q4, education_yrs = q5, income = q8, religion = q12, lang_is_heb=q19, startdate, starts_with('sticsa'), startdate) %>%
   mutate(now = format(as.POSIXct(startdate, format="%Y-%m-%d %H:%M:%S"), "%Y") %>% as.numeric) %>% 
   mutate(birth = as.numeric(birth)) %>%
   mutate(birth = if_else(id == 'st089', birth + 1900, birth)) %>% # one user inputed a two digit birth year
   mutate(age = now-birth) %>%
   filter(id %in% sticsa.fears$id)
 
-sticsa.demog = sticsa.quest %>% select(id, age, gender, marital_status, education, education_yrs, income, religion) %>% 
+sticsa.demog = sticsa.quest %>% select(id, age, gender, marital_status, education, education_yrs, income, religion, lang_is_heb) %>% 
   left_join(sticsa.days_diff)
 
 # make sure that we have data for the same set of individuals
@@ -283,3 +283,4 @@ readxl::read_xlsx(here('raw/judges','CTSI.coding.online.yuval.xlsx')) %>% select
 readxl::read_xlsx(here('raw/judges','CTSI.coding.wet.baraa.xlsx')) %>% select(-fear,-Comments) %>% write_csv(here('data', 'CTSI.coding.wet.baraa.csv'))
 readxl::read_xlsx(here('raw/judges','CTSI.coding.wet.tomer.xlsx')) %>% select(-fear,-Comments) %>% write_csv(here('data', 'CTSI.coding.wet.tomer.csv'))
 readxl::read_xlsx(here('raw/judges','CTSI.coding.wet.yuval.xlsx')) %>% select(-fear,-Comments) %>% write_csv(here('data', 'CTSI.coding.wet.yuval.csv'))
+

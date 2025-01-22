@@ -23,6 +23,7 @@ A research assistant contacted eligible participants and obtained informed conse
 Participants included `r ocd.N` individuals, with `r format_count_percentage(ocd.femaleN, ocd.N)` female and `r format_count_percentage(ocd.N - ocd.femaleN, ocd.N)` male.
 The mean age of participants was `r round(ocd.age.mean, 1)` years (SD = `r round(ocd.age.sd, 1)`).
 The majority identified as Jewish `r format_count_percentage(sum(ocd.demog$religion == 1), ocd.N)`, with others identifying as Christian `r format_count_percentage(sum(ocd.demog$religion == 2), ocd.N)` or non-religious `r format_count_percentage(sum(ocd.demog$religion == 6), ocd.N)`.
+All participants were Hebrew-speaking, with `r format_count_percentage(sum(ocd.demog$lang_is_heb == 1), ocd.N)` reporting Hebrew as their mother tongue. 
 Ethnicity data were not explicitly collected, which is noted as a limitation of the study.
 In the Israeli context, ethnicity is often closely aligned with religion, and participants' religious identification may partially capture cultural background.
 
@@ -74,7 +75,8 @@ A research assistant contacted eligible participants and obtained informed conse
 
 Participants included `r sticsa.N` individuals, with `r format_count_percentage(sticsa.femaleN, sticsa.N)` female and `r format_count_percentage(sticsa.N - sticsa.femaleN, sticsa.N)` male.
 The mean age of participants was `r round(sticsa.age.mean, 1)` years (SD = `r round(sticsa.age.sd, 1)`).
-The majority identified as Jewish (`r format_count_percentage(sum(sticsa.demog$religion == 1), sticsa.N)`), with on identifying as non-religious (`r format_count_percentage(sum(sticsa.demog$religion == 6), sticsa.N)`).
+The majority identified as Jewish (`r format_count_percentage(sum(sticsa.demog$religion == 1), sticsa.N)`), with one identifying as non-religious (`r format_count_percentage(sum(sticsa.demog$religion == 6), sticsa.N)`).
+All participants reported Hebrew as their mother tongue.
 While ethnicity data were not explicitly collected, this was noted as a limitation of the study.
 In the Israeli context, ethnicity is often closely aligned with religion, so participants' religious identification may partially capture their cultural background.
 

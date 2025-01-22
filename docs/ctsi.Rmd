@@ -30,13 +30,16 @@ authornote: |
   This work was supported by ISF 1905/20 awarded to Jonathan Huppert, Sam and Helen Beber Chair of Clinical Psychology.
 
 abstract: |
-  Pathological anxiety is often maintained by avoidance behaviors driven by core threats—the ultimate feared consequences underlying these behaviors.
-  For example, contamination fears may be driven by core threats such as death, harm to loved ones, disgust, or dysfunction.
-  Despite their importance in clinical formulations, core threats are under-researched, with no standardized tools for their assessment.
-  This study introduces the Core Threat Structured Interview (CTSI), a tool designed to systematically identify core threats in both face-to-face and online formats.
-  Across four validation studies, the CTSI demonstrated robust reliability (e.g., interrater, test-retest) and validity (face, convergent, divergent).
-  Results revealed the distinctions between core and proximal threats, highlighting the deeply personal and motivational nature of core threats.
-  By enabling individualized assessments, the CTSI provides a nuanced approach to understanding and treating anxiety, paving the way for improved clinical outcomes and research into the mechanisms driving fear.
+  Core threats, the ultimate feared consequences underlying avoidant behaviors, often underlie pathological anxiety.
+  For example, contamination fears can be driven by core threats such as death, harming loved ones, or disgust.
+  Despite their clinical importance, core threats are under-researched.
+  This study is the first systematic examination of core threats, via a standardized semi-structured interview, the Core Threat Structured Interview (CTSI).
+  Core threats were examined via face-to-face and online formats in four samples.
+  Across studies, the CTSI demonstrated robust reliability (e.g., interrater, test-retest) and validity (convergent, divergent).
+  In addition, a reliable coding scheme was used to categorize core threats.
+  Results revealed that core threat themes were distinct from proximal threats, and were stable.
+  Different obsessions in the same individual sometimes had shared core threats.
+  By enabling individualized assessments, we were able to provide a nuanced approach to understanding anxiety, paving the way for research into the motivational mechanisms driving fear.
 
 keywords          :
   - Core threats
